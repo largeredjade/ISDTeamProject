@@ -1,0 +1,14 @@
+## Actions(작업 사항)
+
+<!---- 개발 및 수정 등 해당 이슈에서 작업한 내용 -->
+<!---- Contents of work on the issue, including development and modifications -->
+
+## Note(참고 사항)
+
+<!---- 미리 알려두면 좋은 사항들 -->
+<!---- Things that are good to know in advance -->
+
+## Completed Issue Number(완료한 Issue Number)
+
+<!---- 완료한 이슈 번호는 다음과 같이 기록. close #IssueNumber -->
+<!---- The completed issue number is recorded as follows. close #IssueNumber -->

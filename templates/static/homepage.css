@@ -1,0 +1,3668 @@
+/* Homepage */
+
+position: relative;
+width: 1440px;
+height: 960px;
+
+/* Grey/grey-50 */
+background: #F0F1F3;
+
+
+/* Frame 42 */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: flex-start;
+padding: 0px;
+gap: 22px;
+
+position: absolute;
+width: 40px;
+height: 40px;
+left: 1306px;
+top: 30px;
+
+
+
+/* Notification */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: flex-start;
+padding: 8px;
+gap: 8px;
+
+width: 40px;
+height: 40px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Notification */
+
+width: 24px;
+height: 24px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* bell */
+
+position: absolute;
+width: 20px;
+height: 20px;
+left: 2px;
+top: 2px;
+
+
+
+/* Icon */
+
+position: absolute;
+width: 15px;
+height: 16.66px;
+left: 2.5px;
+top: 1.67px;
+
+/* Grey/grey-600 */
+border: 1.2px solid #5D6679;
+
+
+/* Frame 629045 */
+
+position: absolute;
+width: 345px;
+height: 281px;
+left: 1076px;
+top: 656px;
+
+
+
+/* Rectangle 70 */
+
+position: absolute;
+left: 0px;
+right: 0px;
+top: 0px;
+bottom: 0px;
+
+background: #FFFFFF;
+border-radius: 7.56px;
+
+
+/* Low quantity stock */
+
+position: absolute;
+width: 282px;
+height: 30px;
+left: 21px;
+top: 16px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 500;
+font-size: 24px;
+line-height: 30px;
+/* identical to box height, or 125% */
+
+/* Grey/grey-800 */
+color: #383E49;
+
+
+
+/* Frame 629046 */
+
+box-sizing: border-box;
+
+position: absolute;
+width: 304px;
+height: 202px;
+left: 21px;
+top: 61px;
+
+border: 1px solid #ACACAC;
+border-radius: 8px;
+
+
+/* Frame 73 */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 0px;
+gap: 25px;
+
+position: absolute;
+width: 205px;
+height: 48.34px;
+left: 34px;
+top: 76.87px;
+
+
+
+/* Frame 70 */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 0px;
+gap: 4px;
+
+width: 205px;
+height: 48px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Zebra Sofa */
+
+width: 85px;
+height: 24px;
+
+/* Body 1/Semi Bold */
+font-family: 'Inter';
+font-style: normal;
+font-weight: 600;
+font-size: 16px;
+line-height: 24px;
+/* identical to box height, or 150% */
+
+/* Grey/grey-800 */
+color: #383E49;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Remaining Quantity : 15 Packet */
+
+width: 205px;
+height: 20px;
+
+/* Body 2/Regular */
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 14px;
+line-height: 20px;
+/* identical to box height, or 143% */
+
+/* Grey/grey-500 */
+color: #667085;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* Frame 74 */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 0px;
+gap: 25px;
+
+position: absolute;
+width: 205px;
+height: 48.34px;
+left: 34px;
+top: 134.2px;
+
+
+
+/* Frame 71 */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 0px;
+gap: 4px;
+
+width: 205px;
+height: 48px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Lumina Floor Lamp */
+
+width: 147px;
+height: 24px;
+
+/* Body 1/Semi Bold */
+font-family: 'Inter';
+font-style: normal;
+font-weight: 600;
+font-size: 16px;
+line-height: 24px;
+/* identical to box height, or 150% */
+
+/* Grey/grey-800 */
+color: #383E49;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Remaining Quantity : 15 Packet */
+
+width: 205px;
+height: 20px;
+
+/* Body 2/Regular */
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 14px;
+line-height: 20px;
+/* identical to box height, or 143% */
+
+/* Grey/grey-500 */
+color: #667085;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* Frame 72 */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 0px;
+gap: 26px;
+
+position: absolute;
+width: 205px;
+height: 48.34px;
+left: 34px;
+top: 19.53px;
+
+
+
+/* Frame 69 */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 0px;
+gap: 4px;
+
+width: 205px;
+height: 48px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Baby Chair */
+
+width: 85px;
+height: 24px;
+
+/* Body 1/Semi Bold */
+font-family: 'Inter';
+font-style: normal;
+font-weight: 600;
+font-size: 16px;
+line-height: 24px;
+/* identical to box height, or 150% */
+
+/* Grey/grey-800 */
+color: #383E49;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Remaining Quantity : 10 Packet */
+
+width: 205px;
+height: 20px;
+
+/* Body 2/Regular */
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 14px;
+line-height: 20px;
+/* identical to box height, or 143% */
+
+/* Grey/grey-500 */
+color: #667085;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* Sales overview */
+
+position: absolute;
+width: 690px;
+height: 252px;
+left: calc(50% - 690px/2 - 26px);
+top: calc(50% - 252px/2 - 218px);
+
+background: #FFFFFF;
+border-radius: 7.56px;
+
+
+/* Warehouse Overview */
+
+position: absolute;
+width: 244px;
+height: 30px;
+left: 16px;
+top: 20px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 500;
+font-size: 24px;
+line-height: 30px;
+/* identical to box height, or 125% */
+
+/* Grey/grey-800 */
+color: #383E49;
+
+
+
+/* Frame 629051 */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+flex-wrap: wrap;
+align-items: flex-start;
+align-content: flex-start;
+padding: 0px;
+gap: 30px 50px;
+
+position: absolute;
+width: 648px;
+height: 121.4px;
+left: 16px;
+top: 103px;
+
+
+
+/* Frame 629048 */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+align-items: center;
+padding: 0px;
+gap: 12px;
+
+width: 304px;
+height: 30px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Cost */
+
+margin: 0 auto;
+width: 30px;
+height: 30px;
+
+background: #EBFFED;
+border-radius: 4px;
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Cost */
+
+position: absolute;
+width: 25px;
+height: 25.02px;
+left: 3.34px;
+top: 2px;
+
+
+
+/* Group 24 */
+
+position: absolute;
+width: 25px;
+height: 25.02px;
+left: 0px;
+top: 0px;
+
+
+
+/* Group 23 */
+
+position: absolute;
+width: 7px;
+height: 11.05px;
+left: 9.04px;
+top: 10.25px;
+
+
+
+/* Vector */
+
+position: absolute;
+left: 36.14%;
+right: 35.88%;
+top: 41.16%;
+bottom: 55.68%;
+
+background: rgba(88, 211, 101, 0.7);
+
+
+/* Vector */
+
+position: absolute;
+left: 36.14%;
+right: 35.88%;
+top: 52.64%;
+bottom: 44.2%;
+
+background: rgba(88, 211, 101, 0.7);
+
+
+/* Vector */
+
+position: absolute;
+left: 36.39%;
+right: 41.38%;
+top: 40.97%;
+bottom: 33.45%;
+
+background: rgba(88, 211, 101, 0.7);
+
+
+/* Vector */
+
+position: absolute;
+left: 36.61%;
+right: 41.71%;
+top: 64.22%;
+bottom: 14.86%;
+
+background: rgba(88, 211, 101, 0.7);
+
+
+/* Vector */
+
+position: absolute;
+left: 0%;
+right: 0%;
+top: 0%;
+bottom: 0%;
+
+background: rgba(88, 211, 101, 0.7);
+
+
+/* Inventory Cost */
+
+margin: 0 auto;
+width: 141px;
+height: 20px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 500;
+font-size: 20px;
+line-height: 20px;
+/* identical to box height, or 100% */
+
+/* Grey/grey-500 */
+color: #667085;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* ₩ 580,000 */
+
+margin: 0 auto;
+width: 109px;
+height: 24px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 600;
+font-size: 20px;
+line-height: 24px;
+/* identical to box height, or 120% */
+
+/* Grey/grey-600 */
+color: #5D6679;
+
+
+/* Inside auto layout */
+flex: none;
+order: 2;
+flex-grow: 0;
+
+
+/* Revenue */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 0px;
+gap: 20px;
+
+width: 292px;
+height: 30px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* Revenue */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+align-items: center;
+padding: 3px 2px;
+gap: 10px;
+
+width: 29px;
+height: 30px;
+
+background: #ECEAFF;
+border-radius: 4px;
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Revenue */
+
+margin: 0 auto;
+width: 25px;
+height: 23.79px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Vector */
+
+position: absolute;
+left: 0%;
+right: 0%;
+top: 0%;
+bottom: 0%;
+
+background: #817AF3;
+border: 0.1px solid #817AF3;
+
+
+/* Frame 46 */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+align-items: center;
+padding: 0px;
+gap: 20px;
+
+width: 202px;
+height: 24px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* Revenue */
+
+margin: 0 auto;
+width: 83px;
+height: 20px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 500;
+font-size: 20px;
+line-height: 20px;
+/* identical to box height, or 100% */
+
+/* Grey/grey-500 */
+color: #667085;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* ₩ 1,580,000 */
+
+margin: 0 auto;
+width: 99px;
+height: 24px;
+
+/* Body 1/Semi Bold */
+font-family: 'Inter';
+font-style: normal;
+font-weight: 600;
+font-size: 16px;
+line-height: 24px;
+/* identical to box height, or 150% */
+
+/* Grey/grey-600 */
+color: #5D6679;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* Line 18 */
+
+width: 648px;
+height: 0px;
+
+/* Grey/grey-50 */
+border: 1px solid #F0F1F3;
+transform: rotate(179.91deg);
+
+/* Inside auto layout */
+flex: none;
+order: 2;
+flex-grow: 0;
+
+
+/* Sales */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+align-items: center;
+padding: 0px;
+gap: 12px;
+
+width: 312px;
+height: 30px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 3;
+flex-grow: 0;
+
+
+/* On the way */
+
+margin: 0 auto;
+width: 30px;
+height: 30px;
+
+background: #E8F1FD;
+border-radius: 4px;
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* On the way */
+
+position: absolute;
+width: 20.62px;
+height: 25px;
+left: 5.44px;
+top: 2px;
+
+
+
+/* Group 41 */
+
+position: absolute;
+width: 20.62px;
+height: 25px;
+left: 0px;
+top: 0px;
+
+
+
+/* Vector */
+
+position: absolute;
+left: 0%;
+right: 0%;
+top: 0%;
+bottom: 0%;
+
+background: #448DF2;
+
+
+/* Vector */
+
+position: absolute;
+left: 24.24%;
+right: 33.33%;
+top: 20%;
+bottom: 45%;
+
+background: #448DF2;
+
+
+/* Frame 43 */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 0px;
+gap: 20px;
+
+margin: 0 auto;
+width: 273px;
+height: 24px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* Delivered Product */
+
+width: 171px;
+height: 20px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 500;
+font-size: 20px;
+line-height: 20px;
+/* identical to box height, or 100% */
+
+/* Grey/grey-500 */
+color: #667085;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* 300 unit */
+
+width: 82px;
+height: 24px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 600;
+font-size: 20px;
+line-height: 24px;
+/* identical to box height, or 120% */
+
+/* Grey/grey-600 */
+color: #5D6679;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* Profit */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+align-items: center;
+padding: 0px;
+gap: 20px;
+
+width: 165.65px;
+height: 30px;
+
+transform: rotate(0.14deg);
+
+/* Inside auto layout */
+flex: none;
+order: 4;
+flex-grow: 0;
+
+
+/* Profit */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: flex-start;
+padding: 2px;
+gap: 10px;
+
+margin: 0 auto;
+width: 29px;
+height: 30px;
+
+background: #FFEEDB;
+border-radius: 4px;
+transform: rotate(0.14deg);
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Profit */
+
+width: 25px;
+height: 25px;
+
+transform: rotate(0.14deg);
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Vector */
+
+position: absolute;
+left: 0.24%;
+right: -0.24%;
+top: 0%;
+bottom: 0%;
+
+background: rgba(219, 163, 98, 0.8);
+border: 0.2px solid rgba(219, 163, 98, 0.8);
+transform: rotate(0.14deg);
+
+
+/* Frame 49 */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+align-items: center;
+padding: 0px;
+gap: 32px;
+
+margin: 0 auto;
+width: 116px;
+height: 24px;
+
+transform: rotate(0.14deg);
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* CO2 */
+
+margin: 0 auto;
+width: 43px;
+height: 24px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 500;
+font-size: 20px;
+line-height: 24px;
+
+/* Grey/grey-500 */
+color: #667085;
+
+transform: rotate(0.14deg);
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* 13.8 */
+
+margin: 0 auto;
+width: 41px;
+height: 24px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 600;
+font-size: 20px;
+line-height: 24px;
+/* identical to box height, or 120% */
+
+/* Grey/grey-600 */
+color: #5D6679;
+
+transform: rotate(0.14deg);
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* BAR CHART  */
+
+position: absolute;
+width: 690px;
+height: 281px;
+left: 351px;
+top: 656px;
+
+
+
+/* Base */
+
+position: absolute;
+width: 690px;
+height: 281px;
+left: 351px;
+top: 656px;
+
+background: #FFFFFF;
+box-shadow: 0px 19.3659px 24.0811px rgba(0, 0, 0, 0.03);
+border-radius: 7.56px;
+
+
+/* Filter */
+
+position: absolute;
+width: 245px;
+height: 16.86px;
+left: 367px;
+top: 679.42px;
+
+
+
+/* Warehouse Capacity */
+
+position: absolute;
+width: 245px;
+height: 16.86px;
+left: 367px;
+top: 679.42px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 500;
+font-size: 24px;
+line-height: 29px;
+display: flex;
+align-items: center;
+
+color: #383E49;
+
+
+
+/* Y axis */
+
+position: absolute;
+width: 554.94px;
+height: 22.87px;
+left: 426.73px;
+top: 887.58px;
+
+
+
+/* 10 */
+
+position: absolute;
+width: 40.58px;
+height: 13.88px;
+left: 429.77px;
+top: 896.56px;
+
+font-family: 'Lato';
+font-style: normal;
+font-weight: 400;
+font-size: 10.1039px;
+line-height: 12px;
+display: flex;
+align-items: center;
+text-align: center;
+
+color: rgba(128, 128, 128, 0.69);
+
+
+
+/* 50 */
+
+position: absolute;
+width: 40.58px;
+height: 13.88px;
+left: 657.02px;
+top: 896.56px;
+
+font-family: 'Lato';
+font-style: normal;
+font-weight: 400;
+font-size: 10.1039px;
+line-height: 12px;
+display: flex;
+align-items: center;
+text-align: center;
+
+color: rgba(128, 128, 128, 0.69);
+
+
+
+/* 90 */
+
+position: absolute;
+width: 40.58px;
+height: 13.88px;
+left: 884.27px;
+top: 896.56px;
+
+font-family: 'Lato';
+font-style: normal;
+font-weight: 400;
+font-size: 10.1039px;
+line-height: 12px;
+display: flex;
+align-items: center;
+text-align: center;
+
+color: rgba(128, 128, 128, 0.69);
+
+
+
+/* 30 */
+
+position: absolute;
+width: 40.58px;
+height: 13.88px;
+left: 543.4px;
+top: 896.56px;
+
+font-family: 'Lato';
+font-style: normal;
+font-weight: 400;
+font-size: 10.1039px;
+line-height: 12px;
+display: flex;
+align-items: center;
+text-align: center;
+
+color: rgba(128, 128, 128, 0.69);
+
+
+
+/* 70 */
+
+position: absolute;
+width: 40.58px;
+height: 13.88px;
+left: 770.65px;
+top: 896.56px;
+
+font-family: 'Lato';
+font-style: normal;
+font-weight: 400;
+font-size: 10.1039px;
+line-height: 12px;
+display: flex;
+align-items: center;
+text-align: center;
+
+color: rgba(128, 128, 128, 0.69);
+
+
+
+/* 20 */
+
+position: absolute;
+width: 40.58px;
+height: 13.88px;
+left: 486.58px;
+top: 896.56px;
+
+font-family: 'Lato';
+font-style: normal;
+font-weight: 400;
+font-size: 10.1039px;
+line-height: 12px;
+display: flex;
+align-items: center;
+text-align: center;
+
+color: rgba(128, 128, 128, 0.69);
+
+
+
+/* 60 */
+
+position: absolute;
+width: 40.58px;
+height: 13.88px;
+left: 713.84px;
+top: 896.56px;
+
+font-family: 'Lato';
+font-style: normal;
+font-weight: 400;
+font-size: 10.1039px;
+line-height: 12px;
+display: flex;
+align-items: center;
+text-align: center;
+
+color: rgba(128, 128, 128, 0.69);
+
+
+
+/* 100 */
+
+position: absolute;
+width: 40.58px;
+height: 13.88px;
+left: 941.09px;
+top: 896.56px;
+
+font-family: 'Lato';
+font-style: normal;
+font-weight: 400;
+font-size: 10.1039px;
+line-height: 12px;
+display: flex;
+align-items: center;
+text-align: center;
+
+color: rgba(128, 128, 128, 0.69);
+
+
+
+/* 40 */
+
+position: absolute;
+width: 40.58px;
+height: 13.88px;
+left: 600.21px;
+top: 896.56px;
+
+font-family: 'Lato';
+font-style: normal;
+font-weight: 400;
+font-size: 10.1039px;
+line-height: 12px;
+display: flex;
+align-items: center;
+text-align: center;
+
+color: rgba(128, 128, 128, 0.69);
+
+
+
+/* 80 */
+
+position: absolute;
+width: 40.58px;
+height: 13.88px;
+left: 827.46px;
+top: 896.56px;
+
+font-family: 'Lato';
+font-style: normal;
+font-weight: 700;
+font-size: 10.1039px;
+line-height: 12px;
+display: flex;
+align-items: center;
+text-align: center;
+
+color: #B2B2B2;
+
+
+
+/* Axis line */
+
+position: absolute;
+width: 535.5px;
+height: 0.02px;
+left: 426.73px;
+top: 887.6px;
+
+border: 0.841995px solid rgba(0, 0, 0, 0.09);
+transform: matrix(1, 0, 0, 1, 0, 0);
+
+
+/* X axis labels */
+
+position: absolute;
+width: 33.45px;
+height: 120.67px;
+left: 377px;
+top: 755px;
+
+
+
+/* A */
+
+position: absolute;
+width: 33.45px;
+height: 16.56px;
+left: 377px;
+top: 755px;
+
+font-family: 'Lato';
+font-style: normal;
+font-weight: 400;
+font-size: 10.1039px;
+line-height: 12px;
+display: flex;
+align-items: center;
+text-align: right;
+
+color: rgba(128, 128, 128, 0.69);
+
+
+
+/* C */
+
+position: absolute;
+width: 33.45px;
+height: 16.56px;
+left: 377px;
+top: 824.4px;
+
+font-family: 'Lato';
+font-style: normal;
+font-weight: 400;
+font-size: 10.1039px;
+line-height: 12px;
+display: flex;
+align-items: center;
+text-align: right;
+
+color: rgba(128, 128, 128, 0.69);
+
+
+
+/* B */
+
+position: absolute;
+width: 33.45px;
+height: 16.56px;
+left: 377px;
+top: 789.7px;
+
+font-family: 'Lato';
+font-style: normal;
+font-weight: 400;
+font-size: 10.1039px;
+line-height: 12px;
+display: flex;
+align-items: center;
+text-align: right;
+
+color: rgba(128, 128, 128, 0.69);
+
+
+
+/* D */
+
+position: absolute;
+width: 33.45px;
+height: 16.56px;
+left: 377px;
+top: 859.1px;
+
+font-family: 'Lato';
+font-style: normal;
+font-weight: 400;
+font-size: 10.1039px;
+line-height: 12px;
+display: flex;
+align-items: center;
+text-align: right;
+
+color: rgba(128, 128, 128, 0.69);
+
+
+
+/* Grid lines */
+
+position: absolute;
+width: 514.89px;
+height: 138.49px;
+left: 449.69px;
+top: 730.14px;
+
+
+
+/* 10 */
+
+position: absolute;
+width: 138.49px;
+height: 0px;
+left: 964.58px;
+top: 730.14px;
+
+border: 0.841995px solid rgba(0, 0, 0, 0.1);
+transform: rotate(90deg);
+
+
+/* 9 */
+
+position: absolute;
+width: 138.49px;
+height: 0px;
+left: 907.37px;
+top: 730.14px;
+
+border: 0.841995px solid rgba(0, 0, 0, 0.1);
+transform: rotate(90deg);
+
+
+/* 8 */
+
+position: absolute;
+width: 138.49px;
+height: 0px;
+left: 850.16px;
+top: 730.14px;
+
+border: 0.841995px solid rgba(0, 0, 0, 0.1);
+transform: rotate(90deg);
+
+
+/* 7 */
+
+position: absolute;
+width: 138.49px;
+height: 0px;
+left: 792.95px;
+top: 730.14px;
+
+border: 0.841995px solid rgba(0, 0, 0, 0.1);
+transform: rotate(90deg);
+
+
+/* 6 */
+
+position: absolute;
+width: 138.49px;
+height: 0px;
+left: 735.74px;
+top: 730.14px;
+
+border: 0.841995px solid rgba(0, 0, 0, 0.1);
+transform: rotate(90deg);
+
+
+/* 5 */
+
+position: absolute;
+width: 138.49px;
+height: 0px;
+left: 678.53px;
+top: 730.14px;
+
+border: 0.841995px solid rgba(0, 0, 0, 0.1);
+transform: rotate(90deg);
+
+
+/* 4 */
+
+position: absolute;
+width: 138.49px;
+height: 0px;
+left: 621.32px;
+top: 730.14px;
+
+border: 0.841995px solid rgba(0, 0, 0, 0.1);
+transform: rotate(90deg);
+
+
+/* 3 */
+
+position: absolute;
+width: 138.49px;
+height: 0px;
+left: 564.11px;
+top: 730.14px;
+
+border: 0.841995px solid rgba(0, 0, 0, 0.1);
+transform: rotate(90deg);
+
+
+/* 2 */
+
+position: absolute;
+width: 138.49px;
+height: 0px;
+left: 506.9px;
+top: 730.14px;
+
+border: 0.841995px solid rgba(0, 0, 0, 0.1);
+transform: rotate(90deg);
+
+
+/* 1 */
+
+position: absolute;
+width: 138.49px;
+height: 0px;
+left: 449.69px;
+top: 730.14px;
+
+border: 0.841995px solid rgba(0, 0, 0, 0.1);
+transform: rotate(90deg);
+
+
+/* Bars */
+
+position: absolute;
+width: 521.89px;
+height: 122.24px;
+left: 430px;
+top: 756px;
+
+
+
+/* Bar 7 */
+
+position: absolute;
+width: 216.62px;
+height: 22.08px;
+left: 430px;
+top: 756px;
+
+background: #6976EB;
+border-radius: 8.41995px;
+
+
+/* Bar 6 */
+
+position: absolute;
+width: 322px;
+height: 22.08px;
+left: 430px;
+top: 786.76px;
+
+background: #6976EB;
+border-radius: 8.41995px;
+
+
+/* Bar 8 */
+
+position: absolute;
+width: 322px;
+height: 22.08px;
+left: 430px;
+top: 786.76px;
+
+background: #6976EB;
+border-radius: 8.41995px;
+
+
+/* Var 5 */
+
+position: absolute;
+width: 274.33px;
+height: 22.08px;
+left: 430px;
+top: 821.46px;
+
+background: #6976EB;
+border-radius: 8.41995px;
+
+
+/* Bar 4 */
+
+position: absolute;
+width: 521.89px;
+height: 22.08px;
+left: 430px;
+top: 856.16px;
+
+background: #2B3695;
+box-shadow: 0px 10.9459px 6.90436px rgba(43, 54, 149, 0.32);
+border-radius: 8.41995px;
+
+
+/* Group 33883 */
+
+position: absolute;
+width: 64.4px;
+height: 55.21px;
+left: 925px;
+top: 828px;
+
+
+
+/* Ellipse 30 */
+
+position: absolute;
+width: 27.6px;
+height: 26.03px;
+left: 940.89px;
+top: 857.18px;
+
+background: rgba(105, 118, 235, 0.29);
+
+
+/* Ellipse 31 */
+
+position: absolute;
+width: 8.36px;
+height: 7.89px;
+left: 950.93px;
+top: 865.86px;
+
+background: #6976EB;
+
+
+/* Tool tip */
+
+position: absolute;
+width: 64.4px;
+height: 37.86px;
+left: 925px;
+top: 828px;
+
+filter: drop-shadow(0px 3.36798px 8.41995px rgba(0, 0, 0, 0.6));
+
+
+/* Group 33782 */
+
+position: absolute;
+left: 0%;
+right: 0%;
+top: 0%;
+bottom: 0%;
+
+opacity: 0.75;
+filter: drop-shadow(0px 14.3139px 29.4698px rgba(0, 0, 0, 0.05));
+
+
+/* Rectangle 47 */
+
+position: absolute;
+left: 0%;
+right: 0%;
+top: 0%;
+bottom: 12.5%;
+
+background: #1F1A5F;
+border-radius: 8.41995px;
+
+
+/* Polygon 1 */
+
+position: absolute;
+left: 54.85%;
+right: 35.02%;
+top: 100%;
+bottom: -21.43%;
+
+background: #1F1A5F;
+transform: rotate(-180deg);
+
+
+/* This student is being rejected for all the applications you brought him for */
+
+position: absolute;
+left: 3.8%;
+right: 4.22%;
+top: 31.25%;
+bottom: 50%;
+
+font-family: 'Lato';
+font-style: normal;
+font-weight: 400;
+font-size: 13.4719px;
+line-height: 17px;
+/* or 125% */
+display: flex;
+align-items: center;
+text-align: center;
+letter-spacing: 0.0841995px;
+
+color: #FFFFFF;
+
+
+
+/* 95% */
+
+position: absolute;
+left: 64.41%;
+right: 31.48%;
+top: 87.48%;
+bottom: 11.78%;
+
+font-family: 'Lato';
+font-style: normal;
+font-weight: 400;
+font-size: 13.4719px;
+line-height: 17px;
+/* or 125% */
+display: flex;
+align-items: center;
+text-align: center;
+letter-spacing: 0.0841995px;
+
+color: #FFFFFF;
+
+
+
+/* Upper Bar */
+
+box-sizing: border-box;
+
+position: absolute;
+width: 1162px;
+height: 70px;
+left: 282px;
+top: 0px;
+
+background: #FFFFFF;
+border: 1px solid #EEEEEE;
+border-radius: 7.56px;
+
+
+/* Frame 41 */
+
+position: absolute;
+width: 1092px;
+height: 42px;
+left: 24px;
+top: 14px;
+
+
+
+/* Frame 42 */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: flex-end;
+align-items: flex-start;
+padding: 0px;
+gap: 21px;
+
+position: absolute;
+width: 40px;
+height: 40px;
+left: 755px;
+top: 2px;
+
+
+
+/* Notification */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: flex-start;
+padding: 8px;
+gap: 8px;
+
+position: absolute;
+width: 40px;
+height: 40px;
+left: 1000px;
+top: 2px;
+
+
+
+/* Notification */
+
+position: absolute;
+width: 26px;
+height: 25px;
+left: 1008px;
+top: 10px;
+
+
+
+/* bell */
+
+position: absolute;
+width: 20px;
+height: 20px;
+left: 2px;
+top: 2px;
+
+
+
+/* Icon */
+
+position: absolute;
+width: 15px;
+height: 16.66px;
+left: 2.5px;
+top: 1.67px;
+
+border: 1.2px solid #1C1B1F;
+
+
+/* Group */
+
+position: absolute;
+width: 16.62px;
+height: 17.73px;
+left: 1052.46px;
+top: 12.14px;
+
+
+
+/* Vector */
+
+position: absolute;
+left: 96.74%;
+right: 2.46%;
+top: 28.9%;
+bottom: 50%;
+
+border: 1px solid #000001;
+
+
+/* Vector */
+
+position: absolute;
+left: 96.38%;
+right: 2.1%;
+top: 56.47%;
+bottom: 28.9%;
+
+border: 1px solid #000001;
+
+
+/* Side bar */
+
+box-sizing: border-box;
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+align-items: flex-start;
+padding: 24px 24px 32px;
+gap: 44px;
+
+position: absolute;
+width: 280px;
+height: 960px;
+left: 4px;
+top: 0px;
+
+background: #FFFFFF;
+/* Grey/grey-50 */
+border-right: 1px solid #F0F1F3;
+border-radius: 0px 8px 8px 0px;
+
+
+/* Frame 41 */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 0px;
+gap: 32px;
+
+margin: 0 auto;
+width: 232px;
+height: 448px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Top */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: flex-start;
+padding: 4px 12px;
+gap: 8px;
+
+width: 232px;
+height: 56px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Logo */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 0px;
+gap: 12px;
+
+width: 146px;
+height: 48px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Logo */
+
+width: 48px;
+height: 48px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Polygon 5 */
+
+position: absolute;
+left: 0%;
+right: 0%;
+top: 8.28%;
+bottom: 0%;
+
+background: #009ED8;
+
+
+/* Vector 38 */
+
+position: absolute;
+left: 29.91%;
+right: 4.14%;
+top: 0%;
+bottom: 33.98%;
+
+background: #0ACF83;
+
+
+/* Vector 39 */
+
+position: absolute;
+left: 29.91%;
+right: 15.04%;
+top: 33.01%;
+bottom: 13%;
+
+background: #FFFFFF;
+
+
+/* KANBAN */
+
+width: 86px;
+height: 30px;
+
+/* Sub heading/Semi Bold */
+font-family: 'Inter';
+font-style: normal;
+font-weight: 600;
+font-size: 20px;
+line-height: 30px;
+/* identical to box height, or 150% */
+text-align: center;
+
+/* Primary/primary-500 */
+color: #1570EF;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* List menu */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 8px 16px;
+gap: 8px;
+
+width: 232px;
+height: 360px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* List menu */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+padding: 0px;
+gap: 12px;
+
+width: 186px;
+height: 344px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* List Menu */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 16px 0px;
+gap: 10px;
+
+width: 186px;
+height: 56px;
+
+border-radius: 8px;
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* Content */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 0px;
+gap: 16px;
+
+width: 186px;
+height: 24px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Home */
+
+width: 24px;
+height: 24px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Rectangle 2804 */
+
+position: absolute;
+left: 12.5%;
+right: 12.5%;
+top: 8.33%;
+bottom: 12.5%;
+
+border: 1.5px solid #448DF2;
+
+
+/* Text */
+
+width: 84px;
+height: 24px;
+
+/* Body 1/Medium */
+font-family: 'Inter';
+font-style: normal;
+font-weight: 500;
+font-size: 16px;
+line-height: 24px;
+/* identical to box height, or 150% */
+
+color: #448DF2;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* List Menu */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 16px 0px;
+gap: 10px;
+
+width: 186px;
+height: 56px;
+
+border-radius: 8px;
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* Content */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 0px;
+gap: 16px;
+
+width: 186px;
+height: 24px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Order */
+
+width: 24px;
+height: 24px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Group 13 */
+
+position: absolute;
+width: 24px;
+height: 24px;
+left: 0px;
+top: 0px;
+
+
+
+/* Frame 9 */
+
+position: absolute;
+width: 24px;
+height: 24px;
+left: 0px;
+top: 0px;
+
+
+
+/* Vector */
+
+position: absolute;
+left: 8.33%;
+right: 8.33%;
+top: 10.9%;
+bottom: 10.91%;
+
+background: #5D6679;
+border: 0.2px solid #5D6679;
+
+
+/* Text */
+
+width: 61px;
+height: 24px;
+
+/* Body 1/Medium */
+font-family: 'Inter';
+font-style: normal;
+font-weight: 500;
+font-size: 16px;
+line-height: 24px;
+/* identical to box height, or 150% */
+
+color: #5D6679;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* Frame 629036 */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 16px 0px;
+gap: 10px;
+
+width: 186px;
+height: 72px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 2;
+flex-grow: 0;
+
+
+/* Frame 629035 */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 0px;
+gap: 16px;
+
+width: 186px;
+height: 40px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Group */
+
+width: 20px;
+height: 20px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Vector */
+
+position: absolute;
+left: 0%;
+right: 89.25%;
+top: 40.38%;
+bottom: 25%;
+
+border: 1px solid #5D6679;
+
+
+/* Vector */
+
+position: absolute;
+left: 3.31%;
+right: 92.56%;
+top: 65.38%;
+bottom: 25%;
+
+border: 1px solid #5D6679;
+
+
+/* Vector */
+
+position: absolute;
+left: 5.38%;
+right: 94.62%;
+top: 51.92%;
+bottom: 25%;
+
+border: 1px solid #5D6679;
+
+
+/* Vector */
+
+position: absolute;
+left: 0%;
+right: 89.25%;
+top: 25%;
+bottom: 59.62%;
+
+border: 1px solid #5D6679;
+
+
+/* Vector */
+
+position: absolute;
+left: 5.38%;
+right: 94.62%;
+top: 25%;
+bottom: 59.62%;
+
+border: 1px solid #5D6679;
+
+
+/* Delivery from Supplier */
+
+width: 170px;
+height: 24px;
+
+/* Body 1/Medium */
+font-family: 'Inter';
+font-style: normal;
+font-weight: 500;
+font-size: 16px;
+line-height: 24px;
+/* identical to box height, or 150% */
+
+color: #5D6679;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* Frame 629037 */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 16px 0px;
+gap: 10px;
+
+width: 186px;
+height: 72px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 3;
+flex-grow: 0;
+
+
+/* Frame 629035 */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 0px;
+gap: 16px;
+
+width: 186px;
+height: 40px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* interface-upload-box-1--arrow-box-download-internet-network-server-up-upload */
+
+width: 20px;
+height: 20px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Group */
+
+position: absolute;
+left: 3.57%;
+right: 3.57%;
+top: 3.57%;
+bottom: 3.57%;
+
+
+
+/* Vector */
+
+position: absolute;
+left: 3.57%;
+right: 3.57%;
+top: 32.14%;
+bottom: 3.57%;
+
+border: 1px solid #5D6679;
+
+
+/* Vector */
+
+position: absolute;
+left: 32.14%;
+right: 32.14%;
+top: 53.57%;
+bottom: 28.57%;
+
+border: 1px solid #5D6679;
+
+
+/* Vector */
+
+position: absolute;
+left: 50%;
+right: 50%;
+top: 53.57%;
+bottom: 3.57%;
+
+border: 1px solid #5D6679;
+
+
+/* Vector */
+
+position: absolute;
+left: 3.57%;
+right: 3.57%;
+top: 3.57%;
+bottom: 67.86%;
+
+border: 1px solid #5D6679;
+
+
+/* Vector */
+
+position: absolute;
+left: 50%;
+right: 50%;
+top: 3.57%;
+bottom: 67.86%;
+
+border: 1px solid #5D6679;
+
+
+/* Shipment to Customer */
+
+width: 172px;
+height: 24px;
+
+/* Body 1/Medium */
+font-family: 'Inter';
+font-style: normal;
+font-weight: 500;
+font-size: 16px;
+line-height: 24px;
+/* identical to box height, or 150% */
+
+color: #5D6679;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* Frame 629035 */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 0px;
+gap: 16px;
+
+width: 186px;
+height: 40px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 4;
+flex-grow: 0;
+
+
+/* interface-upload-box-1--arrow-box-download-internet-network-server-up-upload */
+
+width: 20px;
+height: 20px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* shipping-warehouse--delivery-warehouse-shipping-fulfillment 1 */
+
+position: absolute;
+width: 20px;
+height: 20px;
+left: 0px;
+top: 0px;
+
+
+
+/* Group */
+
+position: absolute;
+left: 3.57%;
+right: 3.57%;
+top: 3.57%;
+bottom: 3.57%;
+
+
+
+/* Vector */
+
+position: absolute;
+left: 3.57%;
+right: 3.57%;
+top: 32.14%;
+bottom: 3.57%;
+
+border: 1px solid #5D6679;
+
+
+/* Vector */
+
+position: absolute;
+left: 3.57%;
+right: 3.57%;
+top: 3.57%;
+bottom: 67.86%;
+
+border: 1px solid #5D6679;
+
+
+/* Vector */
+
+position: absolute;
+left: 21.43%;
+right: 21.43%;
+top: 53.57%;
+bottom: 3.57%;
+
+border: 1px solid #5D6679;
+
+
+/* Vector */
+
+position: absolute;
+left: 21.43%;
+right: 21.43%;
+top: 67.86%;
+bottom: 32.14%;
+
+border: 1px solid #5D6679;
+
+
+/* Vector */
+
+position: absolute;
+left: 21.43%;
+right: 21.43%;
+top: 82.14%;
+bottom: 17.86%;
+
+border: 1px solid #5D6679;
+
+
+/* Suppliers */
+
+width: 72px;
+height: 24px;
+
+/* Body 1/Medium */
+font-family: 'Inter';
+font-style: normal;
+font-weight: 500;
+font-size: 16px;
+line-height: 24px;
+/* identical to box height, or 150% */
+
+color: #5D6679;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* Frame 40 */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 0px;
+gap: 12px;
+
+margin: 0 auto;
+width: 232px;
+height: 56px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* List Menu */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 16px;
+gap: 10px;
+
+width: 232px;
+height: 56px;
+
+border-radius: 8px;
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Content */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 0px;
+gap: 16px;
+
+width: 186px;
+height: 24px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Log Out */
+
+width: 24px;
+height: 24px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Vector */
+
+position: absolute;
+left: 16.67%;
+right: 15.65%;
+top: 8.33%;
+bottom: 7.08%;
+
+/* Grey/grey-600 */
+background: #5D6679;
+/* Grey/grey-600 */
+border: 0.1px solid #5D6679;
+
+
+/* Text */
+
+width: 61px;
+height: 24px;
+
+/* Body 1/Medium */
+font-family: 'Inter';
+font-style: normal;
+font-weight: 500;
+font-size: 16px;
+line-height: 24px;
+/* identical to box height, or 150% */
+
+/* Grey/grey-600 */
+color: #5D6679;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* 43% */
+
+position: absolute;
+width: 184px;
+height: 23px;
+left: 512px;
+top: 755px;
+
+font-family: 'Lato';
+font-style: normal;
+font-weight: 400;
+font-size: 13.4719px;
+line-height: 17px;
+/* or 125% */
+display: flex;
+align-items: center;
+text-align: center;
+letter-spacing: 0.0841995px;
+
+color: #FFFFFF;
+
+
+
+/* 62% */
+
+position: absolute;
+width: 288px;
+height: 23px;
+left: 567px;
+top: 785px;
+
+font-family: 'Lato';
+font-style: normal;
+font-weight: 400;
+font-size: 13.4719px;
+line-height: 17px;
+/* or 125% */
+display: flex;
+align-items: center;
+text-align: center;
+letter-spacing: 0.0841995px;
+
+color: #FFFFFF;
+
+
+
+/* 53% */
+
+position: absolute;
+width: 257px;
+height: 23px;
+left: 526px;
+top: 821px;
+
+font-family: 'Lato';
+font-style: normal;
+font-weight: 400;
+font-size: 13.4719px;
+line-height: 17px;
+/* or 125% */
+display: flex;
+align-items: center;
+text-align: center;
+letter-spacing: 0.0841995px;
+
+color: #FFFFFF;
+
+
+
+/* Calender */
+
+position: absolute;
+width: 345px;
+height: 487px;
+left: 1081px;
+top: 136px;
+
+
+
+/* Rectangle 1 */
+
+position: absolute;
+width: 345px;
+height: 487px;
+left: 0px;
+top: 0px;
+
+background: #FFFFFF;
+border-radius: 7.56px;
+
+
+/* 22 */
+
+position: absolute;
+width: 67px;
+height: 50px;
+left: 168px;
+top: 24px;
+
+font-family: 'Concert One';
+font-style: normal;
+font-weight: 400;
+font-size: 64px;
+line-height: 50px;
+/* identical to box height */
+
+color: #000000;
+
+
+
+/* May */
+
+position: absolute;
+width: 111px;
+height: 50px;
+left: 28px;
+top: 24px;
+
+font-family: 'Concert One';
+font-style: normal;
+font-weight: 400;
+font-size: 64px;
+line-height: 50px;
+/* identical to box height */
+
+color: #000000;
+
+
+
+/* Outbound */
+
+position: absolute;
+width: 325px;
+height: 132px;
+left: 12px;
+top: 117px;
+
+
+
+/* Rectangle 40326 */
+
+position: absolute;
+width: 7px;
+height: 172px;
+left: 0px;
+top: 0px;
+
+background: #3A5AFE;
+
+
+/* Frame 629039 */
+
+box-sizing: border-box;
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 10px 9px;
+gap: 16px;
+
+position: absolute;
+width: 306px;
+height: 124px;
+left: 17px;
+top: 48px;
+
+border: 1px solid #A1A1A1;
+border-radius: 8px;
+
+
+/* Frame 629042 */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 0px;
+gap: 10px;
+
+width: 288px;
+height: 24px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Frame 629043 */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+align-items: center;
+padding: 0px;
+gap: 30px;
+
+width: 288px;
+height: 24px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Study Furnish */
+
+margin: 0 auto;
+width: 130px;
+height: 24px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 20px;
+line-height: 24px;
+
+color: #000000;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Study Chair 2 */
+
+margin: 0 auto;
+width: 103px;
+height: 19px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 19px;
+
+color: #000000;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* Frame 629042 */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 0px;
+gap: 10px;
+
+width: 288px;
+height: 24px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* Frame 629043 */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+align-items: center;
+padding: 0px;
+gap: 30px;
+
+width: 288px;
+height: 24px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* WarmInteriorsCo */
+
+margin: 0 auto;
+width: 159px;
+height: 24px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 20px;
+line-height: 24px;
+
+color: #000000;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Spring Bed 2 */
+
+margin: 0 auto;
+width: 98px;
+height: 19px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 19px;
+
+color: #000000;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* Frame 629042 */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 0px;
+gap: 10px;
+
+width: 288px;
+height: 24px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 2;
+flex-grow: 0;
+
+
+/* Frame 629043 */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+align-items: center;
+padding: 0px;
+gap: 30px;
+
+width: 288px;
+height: 24px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* WarmInteriorsCo */
+
+margin: 0 auto;
+width: 159px;
+height: 24px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 20px;
+line-height: 24px;
+
+color: #000000;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Daisy Table 1 */
+
+margin: 0 auto;
+width: 100px;
+height: 19px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 19px;
+
+color: #000000;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* Delivery from Supplier */
+
+position: absolute;
+width: 258px;
+height: 29px;
+left: 20px;
+top: 0px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 600;
+font-size: 24px;
+line-height: 29px;
+/* identical to box height */
+
+color: #000000;
+
+
+
+/* Outbound */
+
+position: absolute;
+width: 325px;
+height: 132px;
+left: 10px;
+top: 321px;
+
+
+
+/* Rectangle 40326 */
+
+position: absolute;
+width: 7px;
+height: 132px;
+left: 0px;
+top: 0px;
+
+background: rgba(129, 122, 243, 0.8);
+
+
+/* Frame 629039 */
+
+box-sizing: border-box;
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 10px 9px;
+gap: 16px;
+
+position: absolute;
+width: 308px;
+height: 84px;
+left: 17px;
+top: 48px;
+
+border: 1px solid #A1A1A1;
+border-radius: 8px;
+
+
+/* Frame 629040 */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+gap: 16px;
+
+width: 290px;
+height: 24px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Harmony Homes */
+
+width: 158px;
+height: 24px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 20px;
+line-height: 24px;
+
+color: #000000;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Dining Table 10 */
+
+width: 116px;
+height: 19px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 19px;
+
+color: #000000;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* Frame 629042 */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 0px;
+gap: 10px;
+
+width: 288px;
+height: 24px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* Frame 629043 */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+align-items: center;
+padding: 0px;
+gap: 30px;
+
+width: 288px;
+height: 24px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* B&W Living */
+
+margin: 0 auto;
+width: 106px;
+height: 24px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 20px;
+line-height: 24px;
+
+color: #000000;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Black Bed 5 */
+
+margin: 0 auto;
+width: 90px;
+height: 19px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 19px;
+
+color: #000000;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* Shipment to Customer */
+
+position: absolute;
+width: 262px;
+height: 29px;
+left: 20px;
+top: 0px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 600;
+font-size: 24px;
+line-height: 29px;
+/* identical to box height */
+
+color: #000000;
+
+
+
+/* th */
+
+position: absolute;
+width: 34px;
+height: 28px;
+left: 249px;
+top: 17px;
+
+font-family: 'Concert One';
+font-style: normal;
+font-weight: 400;
+font-size: 36px;
+line-height: 28px;
+/* identical to box height */
+
+color: #000000;
+
+
+
+/* Sales overview */
+
+position: absolute;
+width: 690px;
+height: 176px;
+left: calc(50% - 690px/2 - 24px);
+top: calc(50% - 176px/2 + 42px);
+
+background: #FFFFFF;
+border-radius: 7.56px;
+
+
+/* Warehouse Overview */
+
+position: absolute;
+width: 244px;
+height: 30px;
+left: 16px;
+top: 20px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 500;
+font-size: 24px;
+line-height: 30px;
+/* identical to box height, or 125% */
+
+/* Grey/grey-800 */
+color: #383E49;
+
+
+
+/* Revenue */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 0px;
+gap: 20px;
+
+position: absolute;
+width: 292px;
+height: 30px;
+left: 375px;
+top: 88px;
+
+
+
+/* Revenue */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+align-items: center;
+padding: 3px 2px;
+gap: 10px;
+
+width: 29px;
+height: 30px;
+
+background: #ECEAFF;
+border-radius: 4px;
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Revenue */
+
+margin: 0 auto;
+width: 25px;
+height: 23.79px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Vector */
+
+position: absolute;
+left: 0%;
+right: 0%;
+top: 0%;
+bottom: 0%;
+
+background: #817AF3;
+border: 0.1px solid #817AF3;
+
+
+/* Frame 46 */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 0px;
+gap: 20px;
+
+width: 202px;
+height: 24px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* Number of Suppliers */
+
+width: 197px;
+height: 20px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 500;
+font-size: 20px;
+line-height: 20px;
+/* identical to box height, or 100% */
+
+/* Grey/grey-500 */
+color: #667085;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* 31 */
+
+width: 19px;
+height: 24px;
+
+/* Body 1/Semi Bold */
+font-family: 'Inter';
+font-style: normal;
+font-weight: 600;
+font-size: 16px;
+line-height: 24px;
+/* identical to box height, or 150% */
+
+/* Grey/grey-600 */
+color: #5D6679;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* Frame 629048 */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 0px;
+gap: 12px;
+
+position: absolute;
+width: 304px;
+height: 30px;
+left: 16px;
+top: 90px;
+
+
+
+/* Quantity */
+
+width: 30px;
+height: 30px;
+
+background: #FFEEDB;
+border-radius: 4px;
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Quantity */
+
+position: absolute;
+width: 25px;
+height: 23.53px;
+left: 2.41px;
+top: 3px;
+
+
+
+/* Group 34 */
+
+position: absolute;
+width: 25px;
+height: 23.53px;
+left: 0px;
+top: 0px;
+
+
+
+/* Vector */
+
+position: absolute;
+left: 0%;
+right: 0%;
+top: 0%;
+bottom: 0%;
+
+background: #DBA362;
+border: 0.2px solid #DBA362;
+
+
+/* Vector */
+
+position: absolute;
+left: 40.5%;
+right: 40.43%;
+top: 17.72%;
+bottom: 79.75%;
+
+background: #DBA362;
+border: 0.2px solid #DBA362;
+
+
+/* Quantity In Hand */
+
+width: 161px;
+height: 20px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 500;
+font-size: 20px;
+line-height: 20px;
+/* identical to box height, or 100% */
+
+/* Grey/grey-500 */
+color: #667085;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* 234 */
+
+width: 39px;
+height: 24px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 600;
+font-size: 20px;
+line-height: 24px;
+/* identical to box height, or 120% */
+
+/* Grey/grey-600 */
+color: #5D6679;
+
+
+/* Inside auto layout */
+flex: none;
+order: 2;
+flex-grow: 0;

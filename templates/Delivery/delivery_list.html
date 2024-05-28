@@ -1,4 +1,5 @@
 {% load static %}
+{% extends "base.html"%}
 {% url 'delivery_create' %}
 <!DOCTYPE html>
 <html
@@ -158,7 +159,7 @@
             </li>
 
             <li class="menu-item">
-              <a href="shipment.html" class="menu-link">
+              <a href="shipment/shipment_list.html" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-collection"></i>
                 <div data-i18n="Analytics">Suppliers</div>
               </a>
@@ -242,44 +243,66 @@
 
         <!-- Basic Bootstrap Table -->
         <div class="card">
-            <h5 class="card-header">#WH2211</h5> <!--Table Name-->
-            <div class="table-responsive text-nowrap">
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th>Delivery ID</th>
-                            <th>Product Name</th>
-                            <th>Product ID</th>
-                            <th>Quantity</th>
-                            <th>Supplier</th>
-                            <th>Delivery Date</th>
-                            <th>Employee</th>
-                            <th>Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody class="table-border-bottom-0">
-                        {% for delivery in deliveries %}
-                        <tr>
-                            <td>{{ delivery.delivery_id }}</td>
-                            <td>{{ delivery.product_name }}</td>
-                            <td>{{ delivery.product_id }}</td>
-                            <td>{{ delivery.quantity }}</td>
-                            <td>{{ delivery.supplier }}</td>
-                            <td>{{ delivery.delivery_date }}</td>
-                            <td>{{ delivery.employee }}</td>
-                            <td>
-                                <a href="{% url 'delivery_update' delivery.pk %}" class="badge bg-label-primary me-1">Update</a>
-                                <a href="{% url 'delivery_delete' delivery.pk %}" class="badge bg-label-primary me-1">Delete</a>
-                            </td>
-                        </tr>
-                        {% endfor %}
-                    </tbody>
-                </table>
-            </div>
+        <h5 class="card-header">#WH2211</h5> <!--Table Name-->
+        <div class="table-responsive text-nowrap">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Delivery ID</th>
+                        <th>Product Name</th>
+                        <th>Product ID</th>
+                        <th>Quantity</th>
+                        <th>Supplier</th>
+                        <th>Delivery Date</th>
+                        <th>Employee</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody class="table-border-bottom-0">
+                    {% for delivery in deliveries %}
+                    <tr>
+                        <td>{{ delivery.delivery_id }}</td>
+                        <td>{{ delivery.product_name }}</td>
+                        <td>{{ delivery.product_id }}</td>
+                        <td>{{ delivery.quantity }}</td>
+                        <td>{{ delivery.supplier }}</td>
+                        <td>{{ delivery.delivery_date }}</td>
+                        <td>{{ delivery.employee }}</td>
+                        <td>
+                            <a href="delivery_update.html" class="badge bg-label-primary me-1">Update</a>
+                            <a href="javascript:void(0);" onclick="confirmAndDelete({{ delivery.id }}, this);" class="badge bg-label-primary me-1">Delete</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
         </div>
+        <nav aria-label="Page navigation" style="padding: 0 15px; margin-top: 10px;">
+            <ul class="pagination justify-content-end">
+                <li class="page-item prev">
+                    <a class="page-link" href="javascript:void(0);">
+                        <i class="tf-icon bx bx-chevrons-left"></i>
+                    </a>
+                </li>
+                <li class="page-item active"><a class="page-link" href="javascript:void(0);">1</a></li>
+                <li class="page-item"><a class="page-link" href="javascript:void(0);">2</a></li>
+                <li class="page-item"><a class="page-link" href="javascript:void(0);">3</a></li>
+                <li class="page-item"><a class="page-link" href="javascript:void(0);">4</a></li>
+                <li class="page-item"><a class="page-link" href="javascript:void(0);">5</a></li>
+                <li class="page-item next">
+                    <a class="page-link" href="javascript:void(0);">
+                        <i class="tf-icon bx bx-chevrons-right"></i>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    </div>
+
     </div>
     </div>
     </div>
+
     <!-- Core JS -->
     <!-- build:js assets/vendor/js/core.js -->
     <script src="../assets/vendor/libs/jquery/jquery.js"></script>
@@ -291,9 +314,51 @@
     <!-- endbuild -->
 
     <!-- Vendors JS -->
-
+    <!--AJAX이용해서 웹사이트 내에서 팝업 창을 띄워서 delete를 해주고 싶은데 백이랑 연결해야 한대요...-->
     <!-- Main JS -->
     <script src="../assets/js/main.js"></script>
+        <!-- Custom script for delete functionality -->
+    <script>
+    // Helper function to get CSRF token from cookies
+    function getCookie(name) {
+        let cookieValue = null;
+        if (document.cookie && document.cookie !== '') {
+            const cookies = document.cookie.split(';');
+            for (let i = 0; i < cookies.length; i++) {
+                const cookie = cookies[i].trim();
+                if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                    break;
+                }
+            }
+        }
+        return cookieValue;
+    }
+    
+    function confirmAndDelete(deliveryId, element) {
+        if (confirm("Are you sure you want to delete this delivery?")) {
+            $.ajax({
+                url: `/delete_delivery/${deliveryId}/`,  // Adjust the URL based on your Django URL configuration
+                type: 'POST',  // Using POST method; make sure to handle CSRF
+                headers: {'X-CSRFToken': getCookie('csrftoken')},  // Add CSRF token for Django
+                success: function(response) {
+                    // On successful deletion, remove the row from the table
+                    $(element).closest('tr').remove();
+                    alert("Delivery deleted successfully!");
+                },
+                error: function(xhr, status, error) {
+                    // Handle errors
+                    alert("Failed to delete the delivery: " + error);
+                }
+            });
+        }
+    }
+    
+    $(document).ready(function() {
+        // Any DOM related initializations can go here
+    });
+    </script>
+    
     </div>
   </body>
 </html>

@@ -1,5 +1,6 @@
 {% load static %}
-
+{% load static %}
+<!DOCTYPE html>
 <html
   lang="en"
   class="light-style layout-menu-fixed"
@@ -42,7 +43,12 @@
     <link rel="stylesheet" href="../../static/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
 
     <!-- Page CSS -->
-
+    <style>
+        .table-border-bottom-0 td {
+            padding-top: 30px;    /* 위쪽 패딩 */
+            padding-bottom: 30px; /* 아래쪽 패딩 */
+        }
+    </style>
     <!-- Helpers -->
     <script src="../../static/assets/vendor/js/helpers.js"></script>
     <script src="../../static/assets/js/config.js"></script>
@@ -157,14 +163,14 @@
             </li>
 
             <li class="menu-item">
-              <a href="shipment.html" class="menu-link">
+              <a href="supplier_list.html" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-collection"></i>
                 <div data-i18n="Analytics">Suppliers</div>
               </a>
             </li>
 
             <li class="menu-item">
-              <a href="supplier_list.html" class="menu-link">
+              <a href="shipment_list.html" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-detail"></i>
                 <div data-i18n="Analytics">Shipment to Customer</div>
               </a>
@@ -178,8 +184,9 @@
             </li>
           </ul>
         </aside>
-
-
+        <!--/좌측바-->
+    
+    
         <!-- Search -->
         <div class="layout-page">
           <!-- Navbar -->
@@ -192,7 +199,7 @@
                 <i class="bx bx-menu bx-sm"></i>
               </a>
             </div>
-
+    
             <div class="navbar-nav-right d-flex align-items-center" id="navbar-collapse">
               <!-- Search -->
               <div class="navbar-nav align-items-center">
@@ -206,8 +213,40 @@
                   />
                 </div>
               </div>
+                <ul class="navbar-nav flex-row align-items-center ms-auto">
+                <!-- User -->
+                    <li class="nav-item navbar-dropdown dropdown-user dropdown">
+                      <a class="nav-link" href = "javascript:void(0);" data-bs-toggle="dropdown">
+                        <div class="avatar avatar-online">
+                            <div class="rounded-circle" style="background-color: #6C757D; width: 40px; height: 40px;"></div>
+                        </div>
+                    </a>
+                      <ul class="dropdown-menu dropdown-menu-end">
+                        <li>
+                          <a class="dropdown-item" href="#">
+                            <div class="d-flex">
+                              <div class="flex-grow-1">
+                                <span class="fw-semibold d-block">John</span>
+                                <small class="text-muted">Manager</small>
+                              </div>
+                            </div>
+                          </a>
+                        </li>
+                        <li>
+                          <div class="dropdown-divider"></div>
+                        </li>
+                        <li>
+                          <a class="dropdown-item" href="auth-login-basic.html">
+                            <i class="bx bx-power-off me-2"></i>
+                            <span class="align-middle">Log Out</span>
+                          </a>
+                        </li>
+                      </ul>
+                    </li>
+                    <!--/ User -->
+                </ul>
             </div>
-          </nav>
+        </nav>
               <!-- /Search -->
 
 
@@ -317,5 +356,15 @@
             </div>
           </div>
         </div>
+        <!-- Core JS -->
+        <!-- build:js assets/vendor/js/core.js -->
+        <script src="../../static/assets/vendor/libs/jquery/jquery.js"></script>
+        <script src="../../static/assets/vendor/libs/popper/popper.js"></script>
+        <script src="../../static/assets/vendor/js/bootstrap.js"></script>
+        <script src="../../static/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+    
+        <script src="../../static/assets/vendor/js/menu.js"></script>
+        <!-- endbuild -->
+        <script src="../../static/assets/js/main.js"></script>
   </body>
 </html>

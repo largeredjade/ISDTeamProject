@@ -10,6 +10,21 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
+import os
+import django
+
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "ISDTeamProject.settings")
+django.setup()
+
+
+# # 이제 Django의 모델과 기능들을 스크립트에서 자유롭게 사용할 수 있습니다.
+# from myapp.models import MyModel
+#
+# # 데이터베이스 쿼리 예시
+# records = MyModel.objects.all()
+# print(records)
+
+
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -25,7 +40,7 @@ SECRET_KEY = "django-insecure-b6qdq)&umc7-ob+#w#d^#w^n(1@s9x)9*rt$8&sc6-_jcb8+5c
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost', '127.0.0.1']
 
 
 # Application definition
@@ -37,6 +52,7 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "isd.apps.IsdConfig"
 ]
 
 MIDDLEWARE = [

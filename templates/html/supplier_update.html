@@ -219,7 +219,7 @@
                         <div class="avatar avatar-online">
                             <div class="rounded-circle" style="background-color: #6C757D; width: 40px; height: 40px;"></div>
                         </div>
-                    </a>
+                      </a>
                       <ul class="dropdown-menu dropdown-menu-end">
                         <li>
                           <a class="dropdown-item" href="#">
@@ -245,120 +245,62 @@
                     <!--/ User -->
                 </ul>
             </div>
-        </nav>
+          </nav>
               <!-- /Search -->
 
 
-        <!-------------Main Contents---->
-        <!-- create_product.html -->
-        <div class="container-xxl flex-grow-1 container-p-y">
-            <h4 class="fw-bold py-3 mb-4">
-                <span class="text-muted fw-light">Delivery /</span> Delivery Create
-            </h4>
-            <div class="card mb-4">
-                <div class="card-header d-flex justify-content-between align-items-center">
-                    <div class="d-flex align-items-center">
-                        <h5 class="mb-0 me-3">Order ID:</h5>
-                        <input type="text" class="form-control" id="order-id" placeholder="Enter Order ID" style="flex: 1; max-width: 200px;" />
+            <!-------------Main Contents---->
+            <div class="container-xxl flex-grow-1 container-p-y">
+                <h4 class="fw-bold py-3 mb-4">
+                    <span class="text-muted fw-light">Supplier /</span> Supplier Update
+                </h4>
+                <div class="card mb-4">
+                    <div class="card-header d-flex justify-content-between align-items-center">
+                        <div class="d-flex align-items-center">
+                            <h5 class="mb-0 me-3">Supplier ID:</h5>
+                            <input type="text" class="form-control" id="supplier-id" name="supplier_id" value="{{ supplier.supplier_id }}" placeholder="Enter Supplier ID" style="flex: 1; max-width: 200px;" />
+                        </div>
                     </div>
-                </div>
-                <div class="card-body">
-                    <form method="post" id="product-form">
-                        {% csrf_token %}
-                        <div id="form-container">
-                            <div class="container">
-                                <div class="row mb-3">
-                                    <div class="col-md-4">
-                                        <label class="form-label" for="basic-default-fullname">Delivery ID</label>
-                                        <input type="number" class="form-control" id="basic-default-fullname" name="delivery_id" placeholder="#9901" />
-                                    </div>
-                                    <div class="col-md-4">
-                                        <label class="form-label" for="basic-default-company">Product</label>
-                                        <input type="text" class="form-control" id="basic-default-company" name="product_name" placeholder="Dining Table" />
-                                    </div>
-                                    <div class="col-md-4">
-                                        <label class="form-label" for="typeNumber">Quantity</label>
-                                        <input type="number" id="typeNumber" class="form-control" name="quantity" />
-                                    </div>
+                    <div class="card-body">
+                        <form method="post" id="product-form">
+                            {% csrf_token %}
+                            <div class="row mb-3">
+                                <div class="col-md-4">
+                                    <label class="form-label">Supplier Name</label>
+                                    <input type="text" class="form-control" name="supplier_name" value="{{ supplier.supplier_id }}" />
                                 </div>
-                                <div class="row mb-3">
-                                    <div class="col-md-6">
-                                        <label for="exampleFormControlSelect1" class="form-label">Supplier</label>
-                                        <input type="text" id="basic-default-supplier" class="form-control" name="supplier" placeholder="Luxe Living"/>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <label for="html5-date-input" class="form-label">Date</label>
-                                        <input class="form-control" type="date" name="date" value="2024-06-01" id="html5-date-input" />
-                                    </div>
+                                <div class="col-md-4">
+                                    <label class="form-label">Address</label>
+                                    <input type="text" class="form-control" name="supplier_address" value="{{ supplier.supplier_address }}" />
+                                </div>
+                                <div class="col-md-4">
+                                    <label class="form-label">Tel</label>
+                                    <input type="tel" class="form-control" name="supplier_phone" value="{{ supplier.supplier_phoneNumber }}" />
                                 </div>
                             </div>
-                        </div>
-                        <button type="button" class="btn btn-secondary" id="add-product">Add More</button>
-                        <button type="submit" class="btn btn-primary">Submit</button>
-                    </form>
+                            <div class="row mb-6"> <!--코드 수정 필요--> 
+                                <div class="col-md-6">
+                                    <label class="form-label">Product</label>
+                                    <input type="text" class="form-control" name="supplier_product" value="{{ orderdetail.product.product_name }}" />
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
+      </div>
+    </div>
+    <!-- Core JS -->
+    <!-- build:js assets/vendor/js/core.js -->
+    <script src="../../static/assets/vendor/libs/jquery/jquery.js"></script>
+    <script src="../../static/assets/vendor/libs/popper/popper.js"></script>
+    <script src="../../static/assets/vendor/js/bootstrap.js"></script>
+    <script src="../../static/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
 
-        <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const addProductButton = document.getElementById('add-product');
-            const formContainer = document.getElementById('form-container');
-            let formCount = 1;
-
-            addProductButton.addEventListener('click', function() {
-                const newForm = document.createElement('div');
-                newForm.classList.add('container');
-                newForm.innerHTML = `
-                    <div class="row mb-3">
-                        <div class="col-md-4">
-                            <label class="form-label" for="id_form-${formCount}-delivery_id">Delivery ID</label>
-                            <input type="text" name="form-${formCount}-delivery_id" class="form-control" id="id_form-${formCount}-delivery_id" placeholder="#9901" />
-                        </div>
-                        <div class="col-md-4">
-                            <label class="form-label" for="id_form-${formCount}-product_name">Product</label>
-                            <input type="text" name="form-${formCount}-product_name" class="form-control" id="id_form-${formCount}-product_name" placeholder="Dining Table" />
-                        </div>
-                        <div class="col-md-4">
-                            <label class="form-label" for="id_form-${formCount}-quantity">Quantity</label>
-                            <input type="number" name="form-${formCount}-quantity" class="form-control" id="id_form-${formCount}-quantity" />
-                        </div>
-                    </div>
-                    <div class="row mb-3">
-                        <div class="col-md-6">
-                            <label for="id_form-${formCount}-supplier" class="form-label">Supplier</label>
-                            <select name="form-${formCount}-supplier" class="form-select" id="id_form-${formCount}-supplier">
-                                <option selected>Click Supplier</option>
-                                {% for supplier in suppliers %}
-                                    <option value="{{ supplier.id }}">{{ supplier.name }}</option>
-                                {% endfor %}
-                            </select>
-                        </div>
-                        <div class="col-md-6">
-                            <label for="id_form-${formCount}-date" class="form-label">Date</label>
-                            <input type="date" name="form-${formCount}-date" class="form-control" id="id_form-${formCount}-date" value="2024-06-01" />
-                        </div>
-                    </div>
-                    <hr />
-                `;
-                formContainer.appendChild(newForm);
-                formCount++;
-            });
-        });
-        </script>
-
-            </div>
-          </div>
-        </div>
-        <!-- Core JS -->
-        <!-- build:js assets/vendor/js/core.js -->
-        <script src="../../static/assets/vendor/libs/jquery/jquery.js"></script>
-        <script src="../../static/assets/vendor/libs/popper/popper.js"></script>
-        <script src="../../static/assets/vendor/js/bootstrap.js"></script>
-        <script src="../../static/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
-    
-        <script src="../../static/assets/vendor/js/menu.js"></script>
-        <!-- endbuild -->
-        <script src="../../static/assets/js/main.js"></script>
+    <script src="../../static/assets/vendor/js/menu.js"></script>
+    <!-- endbuild -->
+    <script src="../../static/assets/js/main.js"></script>
   </body>
 </html>

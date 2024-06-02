@@ -1,5 +1,6 @@
 {% load static %}
 <!DOCTYPE html>
+
 <html
   lang="en"
   class="light-style layout-menu-fixed"
@@ -15,7 +16,7 @@
       content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
     />
 
-    <title>Delivery</title>
+    <title>Supplier</title>
 
     <meta name="description" content="" />
 
@@ -235,7 +236,7 @@
                           <div class="dropdown-divider"></div>
                         </li>
                         <li>
-                          <a class="dropdown-item" href="auth-login-basic.html">
+                          <a class="dropdown-item" href="login-basic.html">
                             <i class="bx bx-power-off me-2"></i>
                             <span class="align-middle">Log Out</span>
                           </a>
@@ -249,107 +250,104 @@
               <!-- /Search -->
 
 
-        <!-------------Main Contents---->
-        <!-- create_product.html -->
-        <div class="container-xxl flex-grow-1 container-p-y">
-            <h4 class="fw-bold py-3 mb-4">
-                <span class="text-muted fw-light">Delivery /</span> Delivery Create
-            </h4>
-            <div class="card mb-4">
-                <div class="card-header d-flex justify-content-between align-items-center">
-                    <div class="d-flex align-items-center">
-                        <h5 class="mb-0 me-3">Order ID:</h5>
-                        <input type="text" class="form-control" id="order-id" placeholder="Enter Order ID" style="flex: 1; max-width: 200px;" />
-                    </div>
-                </div>
-                <div class="card-body">
-                    <form method="post" id="product-form">
-                        {% csrf_token %}
-                        <div id="form-container">
-                            <div class="container">
-                                <div class="row mb-3">
-                                    <div class="col-md-4">
-                                        <label class="form-label" for="basic-default-fullname">Delivery ID</label>
-                                        <input type="number" class="form-control" id="basic-default-fullname" name="delivery_id" placeholder="#9901" />
-                                    </div>
-                                    <div class="col-md-4">
-                                        <label class="form-label" for="basic-default-company">Product</label>
-                                        <input type="text" class="form-control" id="basic-default-company" name="product_name" placeholder="Dining Table" />
-                                    </div>
-                                    <div class="col-md-4">
-                                        <label class="form-label" for="typeNumber">Quantity</label>
-                                        <input type="number" id="typeNumber" class="form-control" name="quantity" />
-                                    </div>
-                                </div>
-                                <div class="row mb-3">
-                                    <div class="col-md-6">
-                                        <label for="exampleFormControlSelect1" class="form-label">Supplier</label>
-                                        <input type="text" id="basic-default-supplier" class="form-control" name="supplier" placeholder="Luxe Living"/>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <label for="html5-date-input" class="form-label">Date</label>
-                                        <input class="form-control" type="date" name="date" value="2024-06-01" id="html5-date-input" />
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <button type="button" class="btn btn-secondary" id="add-product">Add More</button>
-                        <button type="submit" class="btn btn-primary">Submit</button>
-                    </form>
-                </div>
-            </div>
-        </div>
 
-        <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const addProductButton = document.getElementById('add-product');
-            const formContainer = document.getElementById('form-container');
-            let formCount = 1;
 
-            addProductButton.addEventListener('click', function() {
-                const newForm = document.createElement('div');
-                newForm.classList.add('container');
-                newForm.innerHTML = `
-                    <div class="row mb-3">
-                        <div class="col-md-4">
-                            <label class="form-label" for="id_form-${formCount}-delivery_id">Delivery ID</label>
-                            <input type="text" name="form-${formCount}-delivery_id" class="form-control" id="id_form-${formCount}-delivery_id" placeholder="#9901" />
-                        </div>
-                        <div class="col-md-4">
-                            <label class="form-label" for="id_form-${formCount}-product_name">Product</label>
-                            <input type="text" name="form-${formCount}-product_name" class="form-control" id="id_form-${formCount}-product_name" placeholder="Dining Table" />
-                        </div>
-                        <div class="col-md-4">
-                            <label class="form-label" for="id_form-${formCount}-quantity">Quantity</label>
-                            <input type="number" name="form-${formCount}-quantity" class="form-control" id="id_form-${formCount}-quantity" />
-                        </div>
-                    </div>
-                    <div class="row mb-3">
-                        <div class="col-md-6">
-                            <label for="id_form-${formCount}-supplier" class="form-label">Supplier</label>
-                            <select name="form-${formCount}-supplier" class="form-select" id="id_form-${formCount}-supplier">
-                                <option selected>Click Supplier</option>
-                                {% for supplier in suppliers %}
-                                    <option value="{{ supplier.id }}">{{ supplier.name }}</option>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!--Main contents-->
+    <div class="container-xxl flex-grow-1 container-p-y">
+        <h4 class="fw-bold py-3 mb-4">
+            <span class="text-muted fw-light">Supplier /</span> Supplier Detail 
+        </h4>
+
+        <!-- Basic Bootstrap Table -->
+        <div class="card">
+        <div class="table-responsive text-nowrap">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Supplier ID</th>
+                        <th>Supplier Name</th>
+                        <th>Address</th>
+                        <th>Tel</th>
+                    </tr>
+                </thead>
+                <tbody class="table-border-bottom-0">
+                    {% for supplier in suppliers %}
+                    <tr>
+                        <td>{{ supplier.supplier_id }}</td>
+                        <td>{{ supplier.supplier_name }}</td>
+                        <td>{{ supplier.supplier_address }}</td>
+                        <td>{{ supplier.supplier_phoneNumber }}</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <ul>
+                                {% for orderdetail in supplier.orderdetail_set.all %}
+                                    <li>{{ orderdetail.product.product_name }}</li>
                                 {% endfor %}
-                            </select>
-                        </div>
-                        <div class="col-md-6">
-                            <label for="id_form-${formCount}-date" class="form-label">Date</label>
-                            <input type="date" name="form-${formCount}-date" class="form-control" id="id_form-${formCount}-date" value="2024-06-01" />
-                        </div>
-                    </div>
-                    <hr />
-                `;
-                formContainer.appendChild(newForm);
-                formCount++;
-            });
-        });
-        </script>
-
-            </div>
-          </div>
+                            </ul>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
         </div>
+        <nav aria-label="Page navigation" style="padding: 0 15px; margin-top: 10px;">
+            <ul class="pagination justify-content-end">
+                <li class="page-item prev">
+                    <a class="page-link" href="javascript:void(0);">
+                        <i class="tf-icon bx bx-chevrons-left"></i>
+                    </a>
+                </li>
+                <li class="page-item active"><a class="page-link" href="javascript:void(0);">1</a></li>
+                <li class="page-item"><a class="page-link" href="javascript:void(0);">2</a></li>
+                <li class="page-item"><a class="page-link" href="javascript:void(0);">3</a></li>
+                <li class="page-item"><a class="page-link" href="javascript:void(0);">4</a></li>
+                <li class="page-item"><a class="page-link" href="javascript:void(0);">5</a></li>
+                <li class="page-item next">
+                    <a class="page-link" href="javascript:void(0);">
+                        <i class="tf-icon bx bx-chevrons-right"></i>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+            
+            
+            
+            
+            
+        </div>
+    
+        </div>
+        </div>
+        </div>
+        <!--detail, update, delete 버튼 css-->
+        <style>
+            .action-buttons {
+                display: flex;
+                gap: 5px; /* 버튼 간의 간격을 조정합니다 */
+            }
+            .action-buttons a {
+                margin-right: 5px; /* 추가 간격을 원할 경우 */
+            }
+        </style>
+
+        
+    
         <!-- Core JS -->
         <!-- build:js assets/vendor/js/core.js -->
         <script src="../../static/assets/vendor/libs/jquery/jquery.js"></script>
@@ -362,3 +360,25 @@
         <script src="../../static/assets/js/main.js"></script>
   </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

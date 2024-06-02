@@ -282,11 +282,11 @@
                             <div class="row mb-3">
                                 <div class="col-md-6">
                                     <label class="form-label">Warehouse Out Date</label>
-                                    <input class="form-control" type="date" name="date" value="{{ delivery.delivery_date|date:'Y-m-d' }}" />
+                                    <input class="form-control" type="date" name="date" value="{{shipment.warehouse_outdate|date:'Y-m-d' }}" />
                                 </div>
                                 <div class="col-md-6">
                                     <label class="form-label">Customer Arrival Date</label>
-                                    <input class="form-control" type="date" name="date" value="{{ delivery.delivery_date|date:'Y-m-d' }}" />
+                                    <input class="form-control" type="date" name="date" value="{{ shipment.shipmentdetail.customer_arrival_date|date:'Y-m-d' }}" />
                                 </div>
                             </div>
                             <button type="submit" class="btn btn-primary">Submit</button>

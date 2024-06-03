@@ -8,8 +8,8 @@ class Order(models.Model):
     order_id = models.AutoField(primary_key=True)
     user = models.ForeignKey(Users, on_delete=models.CASCADE)
     order_date = models.DateTimeField()
-    expected_arrivalDate = models.DateTimeField()
-    order_totalCost = models.DecimalField(max_digits=10, decimal_places=2)
+    expected_arrivaldate = models.DateTimeField()
+    order_totalcost = models.DecimalField(max_digits=10, decimal_places=2)
     order_status = models.CharField(max_length=50)
 
     def __str__(self):
@@ -22,7 +22,7 @@ class OrderDetail(models.Model):
     detail_qty = models.IntegerField()
     discount = models.DecimalField(max_digits=5, decimal_places=2)
     description = models.CharField(max_length=50)
-    supplier_selling_price = models.DecimalField(max_digits=10, decimal_places=2)
+    supplier_sellingprice = models.DecimalField(max_digits=10, decimal_places=2)
 
 
     class Meta:

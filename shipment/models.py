@@ -4,7 +4,7 @@ from products.models import Product
 
 class Shipment(models.Model):
     shipment_id = models.AutoField(primary_key=True)
-    warehouse_out_date = models.DateTimeField()
+    warehouse_outdate = models.DateTimeField()
     shipment_status = models.CharField(max_length=50)
 
     def __str__(self):

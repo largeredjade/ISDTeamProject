@@ -1,6 +1,5 @@
 {% url 'shipment_list' %}
 {% load static %}
-{% load shipping_tags %}
 <!DOCTYPE html>
 <html
   lang="en"
@@ -263,6 +262,8 @@
         
                 <!-- Basic Bootstrap Table -->
                 <div class="card">
+                    {% for shipment in shipments %}
+                        {% for detail in shipment_detail %}
                     <h5 class="card-header">{{ shipment.shipment_id }}</h5> <!--Table Name-->
                     <div class="table-responsive text-nowrap">
                         <table class="table">
@@ -277,19 +278,20 @@
                                 </tr>
                             </thead>
                             <tbody class="table-border-bottom-0">
-                                {% for shipment in shipments %}
                                 <tr>
-                                    <td>{{ shipment.product.product_id }}</td>
-                                    <td>{{ shipment.product.product_name }}</td>
-                                    <td>{{ shipment.shipmentdetail.detail_qty }}</td>
-                                    <td>{{ shipment.shipment_date }}</td>
-                                    <td>{{ delivery.shipmentdetail.delivery_date }}</td>
-                                    <td>{{ delivery|shipment_status }}</td>
+                                    <td>{{ shipment.warehouse_outdate }}</td>
+                                    <td>{{ shipment.shipment_status }}</td>
+                                
+                                    <td>{{ detail.product }}</td>
+                                    <td>{{ detail.product_name }}</td>
+                                    <td>{{ detail.detail_qty }}</td>
+                                    <td>{{ detail.customer_arrival_date }}</td>
                                     <td>
-                                        <a href="shipment_update.html" class="badge bg-label-primary me-5">Update</a>
-                                        <a href="delivery_delete.html" class="badge bg-label-danger me-5">Delete</a>
+                                        <a href="{% url 'update_shipment_detail' shipment.shipment_id detail.product_id %}" class="badge bg-label-primary me-5">Update</a>
                                     </td>
                                 </tr>
+                                    
+                                 {% endfor %}
                                 {% endfor %}
                             </tbody>
                         </table>

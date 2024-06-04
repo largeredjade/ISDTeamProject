@@ -22,7 +22,7 @@ class DeliveryDetail(models.Model):
     detail_qty = models.IntegerField()
 
     class Meta:
-        unique_together = ('delivery', 'product')
+        unique_together = ('delivery', 'product', 'order', 'user')
 
     def __str__(self):
         return f'{self.delivery_id} - {self.product_id}'

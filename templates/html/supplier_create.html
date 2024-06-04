@@ -281,46 +281,13 @@
                                         <input type="tel" class="form-control" id="basic-default-phone" name="supplier_phone" placeholder="031-1234-5678"/>
                                     </div>
                                 </div>
-                                <div class="row mb-3">
-                                    <div class="col-md-6">
-                                        <label class="form-label" for="basic-default-product">Product</label>
-                                        <input type="text" class="form-control" id="basic-default-product" name="supplier_product" placeholder="Comfort Chair" />
-                                    </div>
-                                </div>
                             </div>
                         </div>
-                        <button type="button" class="btn btn-secondary" id="add-product">Add More</button>
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </form>
                 </div>
             </div>
         </div>
-
-        <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const addProductButton = document.getElementById('add-product');
-            const formContainer = document.getElementById('form-container');
-            let formCount = 1;
-
-            addProductButton.addEventListener('click', function() {
-                const newForm = document.createElement('div');
-                newForm.classList.add('container');
-                newForm.innerHTML = `
-                    
-                    <div class="row mb-3">
-                        <div class="col-md-6">
-                            <label class="form-label" for="id_form-${formCount}-supplier_product">Product</label>
-                            <input type="text" name="form-${formCount}-supplier_product" class="form-control" id="id_form-${formCount}-supplier_product" placeholder="Comfort Chair" />
-                        </div>
-                        
-                    </div>
-                    
-                `;
-                formContainer.appendChild(newForm);
-                formCount++;
-            });
-        });
-        </script>
 
             </div>
           </div>

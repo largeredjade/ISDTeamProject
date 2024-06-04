@@ -1,16 +1,46 @@
 <!DOCTYPE html>
-<html lang="en">
+<body lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Login</title>
 </head>
 <body>
-<h2>Login</h2>
-<form method="post">
-  {% csrf_token %}
-  {{ form.as_p }}
-  <button type="submit">Log In</button>
-    <h2>hi</h2>
-</form>
+    <div class="card">
+        <div class="card-body">
+            <div class="container">
+                <h2 class="mb-2">Login</h2>
+                <p class="mb-4">Login to your account</p>
+                
+                <form method="post">
+                  {% csrf_token %}
+                  {{ form.as_p }}
+                  <button type="submit">Log In</button>
+                    <h2>hi</h2>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Core JS -->
+    <!-- build:js assets/vendor/js/core.js -->
+    <script src="../assets/vendor/libs/jquery/jquery.js"></script>
+    <script src="../assets/vendor/libs/popper/popper.js"></script>
+    <script src="../assets/vendor/js/bootstrap.js"></script>
+    <script src="../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+
+    <script src="../assets/vendor/js/menu.js"></script>
+    <!-- endbuild -->
+
+    <!-- Vendors JS -->
+
+    <!-- Main JS -->
+    <script src="../assets/js/main.js"></script>
+
+    <!-- Page JS -->
+
+    <!-- Place this tag in your head or just before your close body tag. -->
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    
+
 </body>
 </html>

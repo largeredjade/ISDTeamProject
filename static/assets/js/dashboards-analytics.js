@@ -12,166 +12,200 @@
   axisColor = config.colors.axisColor;
   borderColor = config.colors.borderColor;
 
-  // Total Revenue Report Chart - Bar Chart
-  // --------------------------------------------------------------------
-  const totalRevenueChartEl = document.querySelector('#totalRevenueChart'),
-    totalRevenueChartOptions = {
-      series: [{
-        data: [43, 62, 53, 74] // The data for the bar chart
-      }],
-      chart: {
-        type: 'bar',
-        height: 300,
-        toolbar: { show: false }
-      },
-      plotOptions: {
-        bar: {
-          horizontal: true,
-          borderRadius: 4,
-          dataLabels: {
-            position: 'top', // Show data labels on top of bars
+  document.addEventListener('DOMContentLoaded', function() {
+      // Select all product location elements
+      const productLocationElements = document.querySelectorAll('.product-location');
+
+      // Calculate the counts for each warehouse
+      let countA = 0, countB = 0, countC = 0, countD = 0;
+      productLocationElements.forEach(element => {
+          const location = element.textContent;
+          if (location === 'A') countA++;
+          else if (location === 'B') countB++;
+          else if (location === 'C') countC++;
+          else if (location === 'D') countD++;
+      });
+
+      // Calculate the percentages for each warehouse
+      const percentageA = (countA / 75) * 100;
+      const percentageB = (countB / 50) * 100;
+      const percentageC = (countC / 30) * 100;
+      const percentageD = (countD / 100) * 100;
+
+      // Total Revenue Report Chart - Bar Chart
+      const totalRevenueChartEl = document.querySelector('#totalRevenueChart'),
+          totalRevenueChartOptions = {
+          series: [{
+              data: [percentageA, percentageB, percentageC, percentageD] // The data for the bar chart
+          }],
+          chart: {
+              type: 'bar',
+              height: 300,
+              toolbar: { show: false }
           },
-        }
-      },
-      dataLabels: {
-        enabled: true,
-        formatter: function (val) {
-          return val + "%";
-        },
-        offsetX: -6,
-        style: {
-          fontSize: '12px',
-          colors: ['#fff']
-        }
-      },
-      xaxis: {
-        categories: ['A', 'B', 'C', 'D'],
-        max: 100,
-        labels: {
-          formatter: function (val) {
-            return val + "%";
+          plotOptions: {
+              bar: {
+                  horizontal: true,
+                  borderRadius: 4,
+                  dataLabels: {
+                      position: 'top', // Show data labels on top of bars
+                  },
+              }
+          },
+          dataLabels: {
+              enabled: true,
+              formatter: function (val) {
+                  return val.toFixed(0) + "%";
+              },
+              offsetX: -6,
+              style: {
+                  fontSize: '12px',
+                  colors: ['#fff']
+              }
+          },
+          xaxis: {
+              categories: ['A', 'B', 'C', 'D'],
+              max: 100,
+              labels: {
+                  formatter: function (val) {
+                      return val + "%";
+                  }
+              }
+          },
+          yaxis: {
+              title: {
+                  text: 'Warehouses'
+              }
+          },
+          fill: {
+              colors: ['#7367F0'] // Adjust the color as per your design
+          },
+          title: {
+              text: '',
+              align: 'left',
+              style: {
+                  fontSize: '18px',
+                  fontWeight: 'bold',
+                  color: '#263238'
+              }
+          },
+          grid: {
+              borderColor: '#f1f1f1'
+          },
+          states: {
+              hover: {
+                  filter: {
+                      type: 'none'
+                  }
+              },
+              active: {
+                  filter: {
+                      type: 'none'
+                  }
+              }
           }
-        }
-      },
-      yaxis: {
-        title: {
-          text: 'Warehouses'
-        }
-      },
-      fill: {
-        colors: ['#7367F0'] // Adjust the color as per your design
-      },
-      title: {
-        text: '',
-        align: 'left',
-        style: {
-          fontSize: '18px',
-          fontWeight: 'bold',
-          color: '#263238'
-        }
-      },
-      grid: {
-        borderColor: '#f1f1f1'
-      },
-      states: {
-        hover: {
-          filter: {
-            type: 'none'
-          }
-        },
-        active: {
-          filter: {
-            type: 'none'
-          }
-        }
+      };
+
+      if (typeof totalRevenueChartEl !== undefined && totalRevenueChartEl !== null) {
+          const totalRevenueChart = new ApexCharts(totalRevenueChartEl, totalRevenueChartOptions);
+          totalRevenueChart.render();
       }
-    };
+  });
 
-if (typeof totalRevenueChartEl !== undefined && totalRevenueChartEl !== null) {
-  const totalRevenueChart = new ApexCharts(totalRevenueChartEl, totalRevenueChartOptions);
-  totalRevenueChart.render();
-}
+  document.addEventListener('DOMContentLoaded', function() {
+    // Select all product quantity elements
+    const productQtyElements = document.querySelectorAll('.product-qty');
 
-  // Growth Chart - Radial Bar Chart
-  // --------------------------------------------------------------------
-  const growthChartEl = document.querySelector('#growthChart'),
-    growthChartOptions = {
-      series: [78],
-      labels: ['Capacity'],
-      chart: {
-        height: 240,
-        type: 'radialBar'
-      },
-      plotOptions: {
-        radialBar: {
-          size: 150,
-          offsetY: 10,
-          startAngle: -150,
-          endAngle: 150,
-          hollow: {
-            size: '55%'
-          },
-          track: {
-            background: cardColor,
-            strokeWidth: '100%'
-          },
-          dataLabels: {
-            name: {
-              offsetY: 15,
-              color: headingColor,
-              fontSize: '15px',
-              fontWeight: '600',
-              fontFamily: 'Public Sans'
-            },
-            value: {
-              offsetY: -25,
-              color: headingColor,
-              fontSize: '22px',
-              fontWeight: '500',
-              fontFamily: 'Public Sans'
+    // Calculate the total product quantity
+    let totalProductQty = 0;
+    productQtyElements.forEach(element => {
+        totalProductQty += parseFloat(element.textContent);
+    });
+
+    // Calculate the capacity percentage
+    const capacityPercentage = (totalProductQty / 255) * 100;
+
+    // Growth Chart - Radial Bar Chart
+    const growthChartEl = document.querySelector('#growthChart'),
+        growthChartOptions = {
+        series: [capacityPercentage.toFixed(2)],
+        labels: ['Capacity'],
+        chart: {
+            height: 240,
+            type: 'radialBar'
+        },
+        plotOptions: {
+            radialBar: {
+                size: 150,
+                offsetY: 10,
+                startAngle: -150,
+                endAngle: 150,
+                hollow: {
+                    size: '55%'
+                },
+                track: {
+                    background: cardColor,
+                    strokeWidth: '100%'
+                },
+                dataLabels: {
+                    name: {
+                        offsetY: 15,
+                        color: headingColor,
+                        fontSize: '15px',
+                        fontWeight: '600',
+                        fontFamily: 'Public Sans'
+                    },
+                    value: {
+                        offsetY: -25,
+                        color: headingColor,
+                        fontSize: '22px',
+                        fontWeight: '500',
+                        fontFamily: 'Public Sans'
+                    }
+                }
             }
-          }
-        }
-      },
-      colors: [config.colors.primary],
-      fill: {
-        type: 'gradient',
-        gradient: {
-          shade: 'dark',
-          shadeIntensity: 0.5,
-          gradientToColors: [config.colors.primary],
-          inverseColors: true,
-          opacityFrom: 1,
-          opacityTo: 0.6,
-          stops: [30, 70, 100]
-        }
-      },
-      stroke: {
-        dashArray: 5
-      },
-      grid: {
-        padding: {
-          top: -35,
-          bottom: -10
-        }
-      },
-      states: {
-        hover: {
-          filter: {
-            type: 'none'
-          }
         },
-        active: {
-          filter: {
-            type: 'none'
-          }
+        colors: [config.colors.primary],
+        fill: {
+            type: 'gradient',
+            gradient: {
+                shade: 'dark',
+                shadeIntensity: 0.5,
+                gradientToColors: [config.colors.primary],
+                inverseColors: true,
+                opacityFrom: 1,
+                opacityTo: 0.6,
+                stops: [30, 70, 100]
+            }
+        },
+        stroke: {
+            dashArray: 5
+        },
+        grid: {
+            padding: {
+                top: -35,
+                bottom: -10
+            }
+        },
+        states: {
+            hover: {
+                filter: {
+                    type: 'none'
+                }
+            },
+            active: {
+                filter: {
+                    type: 'none'
+                }
+            }
         }
-      }
     };
-  if (typeof growthChartEl !== undefined && growthChartEl !== null) {
-    const growthChart = new ApexCharts(growthChartEl, growthChartOptions);
-    growthChart.render();
-  }
+    if (typeof growthChartEl !== undefined && growthChartEl !== null) {
+        const growthChart = new ApexCharts(growthChartEl, growthChartOptions);
+        growthChart.render();
+    }
+});
+
 
   // Profit Report Line Chart
   // --------------------------------------------------------------------

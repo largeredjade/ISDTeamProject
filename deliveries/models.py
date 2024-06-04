@@ -9,7 +9,7 @@ from suppliers.models import Supplier
 class Delivery(models.Model):
     delivery_id = models.AutoField(primary_key=True)
     supplier = models.ForeignKey(Supplier, on_delete=models.CASCADE)
-    delivery_date = models.DateTimeField()
+    delivery_date = models.DateField()
 
     def __str__(self):
         return str(self.delivery_id)

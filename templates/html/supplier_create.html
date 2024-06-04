@@ -1,6 +1,5 @@
 {% load static %}
 <!DOCTYPE html>
-
 <html
   lang="en"
   class="light-style layout-menu-fixed"
@@ -16,7 +15,7 @@
       content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
     />
 
-    <title>Supplier</title>
+    <title>Delivery</title>
 
     <meta name="description" content="" />
 
@@ -236,7 +235,7 @@
                           <div class="dropdown-divider"></div>
                         </li>
                         <li>
-                          <a class="dropdown-item" href="login-basic.html">
+                          <a class="dropdown-item" href="auth-login-basic.html">
                             <i class="bx bx-power-off me-2"></i>
                             <span class="align-middle">Log Out</span>
                           </a>
@@ -250,107 +249,49 @@
               <!-- /Search -->
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <!--Main contents-->
-    <div class="container-xxl flex-grow-1 container-p-y">
-        <h4 class="fw-bold py-3 mb-4">
-            <span class="text-muted fw-light">Supplier /</span> Supplier List
-        </h4>
-
-        <!-- CRUD 버튼 활성화시키기 -->
-        <div class="d-flex justify-content-end mb-3">
-            <a href='supplier_create.html' class="badge bg-label-success me-5">Create</a>
-        </div>
-
-        <!-- Basic Bootstrap Table -->
-        <!-- Basic Bootstrap Table -->
-        <div class="card">
-        <div class="table-responsive text-nowrap">
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th>Supplier ID</th>
-                        <th>Supplier Name</th>
-                        <th>Address</th>
-                        <th>Tel</th>
-                    </tr>
-                </thead>
-                <tbody class="table-border-bottom-0">
-                    {% for supplier in suppliers %}
-                    <tr>
-                        <td>{{ supplier.supplier_id }}</td>
-                        <td>{{ supplier.supplier_name }}</td>
-                        <td>{{ supplier.supplier_address }}</td>
-                        <td>{{ supplier.supplier_phoneNumber }}</td>
-                        <td>
-                            <div class="action-buttons">
-                                <a href="supplier_update.html" class="badge bg-label-primary me-5">Update</a>
-                                <a href="supplier_delete.html" class="badge bg-label-danger me-5">Delete</a>
+        <!-------------Main Contents---->
+        <!-- create_product.html -->
+        <div class="container-xxl flex-grow-1 container-p-y">
+            <h4 class="fw-bold py-3 mb-4">
+                <span class="text-muted fw-light">Supplier /</span> Supplier Create
+            </h4>
+            <div class="card mb-4">
+                <div class="card-header d-flex justify-content-between align-items-center">
+                    <div class="d-flex align-items-center">
+                        <h5 class="mb-0 me-3">Supplier ID:</h5>
+                        <input type="text" class="form-control" id="supplier-id" placeholder="Enter Supplier ID" style="flex: 1; max-width: 200px;" />
+                    </div>
+                </div>
+                <div class="card-body">
+                    <form method="post" id="product-form">
+                        {% csrf_token %}
+                        <div id="form-container">
+                            <div class="container">
+                                <div class="row mb-3">
+                                    <div class="col-md-4">
+                                        <label class="form-label" for="basic-default-fullname">Supplier Name</label>
+                                        <input type="text" class="form-control" id="basic-default-fullname" name="supplier_name" placeholder="Luxe Living" />
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label class="form-label" for="basic-default-company">Address</label>
+                                        <input type="text" class="form-control" id="basic-default-company" name="supplier_address" placeholder="Suwon-si, Gyeonggi-do" />
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label class="form-label" for="basic-default-phone">Tel</label>
+                                        <input type="tel" class="form-control" id="basic-default-phone" name="supplier_phone" placeholder="031-1234-5678"/>
+                                    </div>
+                                </div>
                             </div>
-                        </td>
-                    </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+            </div>
         </div>
-        <nav aria-label="Page navigation" style="padding: 0 15px; margin-top: 10px;">
-            <ul class="pagination justify-content-end">
-                <li class="page-item prev">
-                    <a class="page-link" href="javascript:void(0);">
-                        <i class="tf-icon bx bx-chevrons-left"></i>
-                    </a>
-                </li>
-                <li class="page-item active"><a class="page-link" href="javascript:void(0);">1</a></li>
-                <li class="page-item"><a class="page-link" href="javascript:void(0);">2</a></li>
-                <li class="page-item"><a class="page-link" href="javascript:void(0);">3</a></li>
-                <li class="page-item"><a class="page-link" href="javascript:void(0);">4</a></li>
-                <li class="page-item"><a class="page-link" href="javascript:void(0);">5</a></li>
-                <li class="page-item next">
-                    <a class="page-link" href="javascript:void(0);">
-                        <i class="tf-icon bx bx-chevrons-right"></i>
-                    </a>
-                </li>
-            </ul>
-        </nav>
-    </div>
-            
-            
-            
-            
-            
-        </div>
-    
-        </div>
-        </div>
-        </div>
-        <!--detail, update, delete 버튼 css-->
-        <style>
-            .action-buttons {
-                display: flex;
-                gap: 5px; /* 버튼 간의 간격을 조정합니다 */
-            }
-            .action-buttons a {
-                margin-right: 5px; /* 추가 간격을 원할 경우 */
-            }
-        </style>
 
-        
-    
+            </div>
+          </div>
+        </div>
         <!-- Core JS -->
         <!-- build:js assets/vendor/js/core.js -->
         <script src="../../static/assets/vendor/libs/jquery/jquery.js"></script>
@@ -363,25 +304,3 @@
         <script src="../../static/assets/js/main.js"></script>
   </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

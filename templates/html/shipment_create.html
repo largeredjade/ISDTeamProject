@@ -283,12 +283,12 @@
                                 </div>
                                 <div class="row mb-3">
                                     <div class="col-md-6">
-                                        <label for="html5-date-input" class="form-label">Warehouse Out Date</label>
-                                        <input class="form-control" type="date" name="date" value="2024-06-01" id="html5-date-input" />
+                                        <label for="warehouse_out_date" class="form-label">Warehouse Out Date</label>
+                                        <input class="form-control" type="date" name="date" value="2024-06-01" id="warehouse_out_date" />
                                     </div>
                                     <div class="col-md-6">
-                                        <label for="html5-date-input" class="form-label">Customer Arrival Date</label>
-                                        <input class="form-control" type="date" name="date" value="2024-06-01" id="html5-date-input" />
+                                        <label for="customer_arrival_date" class="form-label">Customer Arrival Date</label>
+                                        <input class="form-control" type="date" name="date" value="2024-06-01" id="customer_arrival_date" />
                                     </div>
                                 </div>
                             </div>
@@ -312,8 +312,8 @@
                 newForm.innerHTML = `
                     <div class="row mb-3">
                         <div class="col-md-4">
-                            <label class="form-label" for="id_form-${formCount}-delivery_id">Delivery ID</label>
-                            <input type="text" name="form-${formCount}-delivery_id" class="form-control" id="id_form-${formCount}-delivery_id" placeholder="#9901" />
+                            <label class="form-label" for="id_form-${formCount}-product_id">Product ID</label>
+                            <input type="text" name="form-${formCount}-product_id" class="form-control" id="id_form-${formCount}-product_id" placeholder="#0001" />
                         </div>
                         <div class="col-md-4">
                             <label class="form-label" for="id_form-${formCount}-product_name">Product</label>
@@ -326,17 +326,12 @@
                     </div>
                     <div class="row mb-3">
                         <div class="col-md-6">
-                            <label for="id_form-${formCount}-supplier" class="form-label">Supplier</label>
-                            <select name="form-${formCount}-supplier" class="form-select" id="id_form-${formCount}-supplier">
-                                <option selected>Click Supplier</option>
-                                {% for supplier in suppliers %}
-                                    <option value="{{ supplier.id }}">{{ supplier.name }}</option>
-                                {% endfor %}
-                            </select>
+                            <label for="id_form-${formCount}-warehouse_out_date" class="form-label">Warehouse Out Date</label>
+                            <input type="date" name="form-${formCount}-date" class="form-control" id="id_form-${formCount}-warehouse_out_date" value="2024-06-01" />
                         </div>
                         <div class="col-md-6">
-                            <label for="id_form-${formCount}-date" class="form-label">Date</label>
-                            <input type="date" name="form-${formCount}-date" class="form-control" id="id_form-${formCount}-date" value="2024-06-01" />
+                            <label for="id_form-${formCount}-customer_arrival_date" class="form-label">Customer Arrival Date</label>
+                            <input type="date" name="form-${formCount}-date" class="form-control" id="id_form-${formCount}-customer_arrival_date" value="2024-06-01" />
                         </div>
                     </div>
                     <hr />

@@ -26,7 +26,7 @@ class OrderDetail(models.Model):
 
 
     class Meta:
-        unique_together = ('order', 'product')
+        unique_together = ('order', 'product', 'supplier')
 
     def __str__(self):
         return f'{self.order_id} - {self.product_id}'

@@ -7,8 +7,8 @@ from Users.models import Users
 class Order(models.Model):
     order_id = models.AutoField(primary_key=True)
     user = models.ForeignKey(Users, on_delete=models.CASCADE)
-    order_date = models.DateTimeField()
-    expected_arrivaldate = models.DateTimeField()
+    order_date = models.DateField()
+    expected_arrivaldate = models.DateField()
     order_totalcost = models.DecimalField(max_digits=10, decimal_places=2)
     order_status = models.CharField(max_length=50)
 
@@ -22,7 +22,7 @@ class OrderDetail(models.Model):
     detail_qty = models.IntegerField()
     discount = models.DecimalField(max_digits=5, decimal_places=2)
     description = models.CharField(max_length=50)
-    supplier_sellingprice = models.DecimalField(max_digits=10, decimal_places=2)
+    supplier_sellingprice = models.DecimalField(max_digits=10, decimal_places=2, default=0)
 
 
     class Meta:

@@ -129,7 +129,7 @@
           <ul class="menu-inner py-1">
             <!-- Left Navi Bar -->
             <li class="menu-item">
-              <a href="index.html" class="menu-link">
+              <a href="homepage.html" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-home-circle"></i>
                 <div data-i18n="Analytics">Dashboard</div>
               </a>
@@ -265,9 +265,16 @@
 
                                 </div>
                                 <span class="d-block mb-1">Inventory cost</span>
-                                <h3 class="card-title mb-2">₩12,628</h3>
+                                <h3 id="inventory-cost" class="card-title mb-2">₩0</h3>
 
                             </div>
+                            <!-- Hidden elements or data attributes containing maintenance costs -->
+                            <div id="maintenance-costs" style="display:none;">
+                                {% for product in products %}
+                                    <span class="maintenance-cost">{{ product.maintenance_cost }}</span>
+                                {% endfor %}
+                            </div>
+
                         </div>
                     </div>
                     <div class="col-6 mb-4 d-flex align-items-stretch">
@@ -280,8 +287,20 @@
 
                                 </div>
                                 <span>Revenue</span>
-                                <h3 class="card-title text-nowrap mb-1">₩4,679</h3>
-
+                                <h3 id="revenue" class="card-title text-nowrap mb-1">₩0</h3>
+                            </div>
+                            <!-- Hidden elements containing the necessary data values -->
+                            <div id="data-values" style="display:none;">
+                                {% for product in products %}
+                                    <span class="product-sellingprice">{{ product.product_sellingprice }}</span>
+                                    <span class="maintenance-cost">{{ product.maintenance_cost }}</span>
+                                {% endfor %}
+                                {% for order in orders %}
+                                    <span class="detail-qty">{{ order.detail_qty }}</span>
+                                {% endfor %}
+                                {% for supplier in suppliers %}
+                                    <span class="supplier-sellingprice">{{ supplier.supplier_sellingprice }}</span>
+                                {% endfor %}
                             </div>
                         </div>
                     </div>
@@ -295,11 +314,17 @@
 
                                 </div>
                                 <span class="d-block mb-1">Delivered Product</span>
-                                <h3 class="card-title text-nowrap mb-2">2,456</h3>
+                                <h3 id="delivered-product" class="card-title text-nowrap mb-2">0</h3>
 
                             </div>
                         </div>
                     </div>
+                <!-- Hidden elements containing the necessary data values -->
+<div id="order-statuses" style="display:none;">
+    {% for order in orders %}
+        <span class="order-status" data-status="{{ order.order_status }}">{{ order.detail_qty }}</span>
+    {% endfor %}
+</div>
                     <div class="col-6 mb-4 d-flex align-items-stretch">
                         <div class="card w-100">
                             <div class="card-body">
@@ -310,42 +335,125 @@
 
                                 </div>
                                 <span class="d-block mb-1">CO2 emissions</span>
-                                <h3 class="card-title mb-2">14,857t</h3>
+                                <h3 id="co2-emissions" class="card-title mb-2">0t</h3>
 
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-            <!-- Total Revenue -->
-           <div class="col-12 col-lg-8 mb-4">
-    <div class="card h-100">
-        <div class="row row-bordered g-0">
-            <div class="col-md-8">
-                <h5 class="card-header m-0 me-2 pb-3">Warehouse Overview</h5>
-                <div id="totalRevenueChart" class="px-2"></div>
-            </div>
-            <div class="col-md-4 d-flex flex-column align-items-center justify-content-center">
-                <div class="card-body text-center">
-                    <div class="dropdown mb-3">
-                        <button class="btn btn-sm btn-outline-primary dropdown-toggle" type="button" id="growthReportId" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Today
-                        </button>
-                        <!-- <div class="dropdown-menu dropdown-menu-end" aria-labelledby="growthReportId">
-                            <a class="dropdown-item" href="javascript:void(0);">Yesterday</a>
-                            <a class="dropdown-item" href="javascript:void(0);">Two days ago</a>
-                        </div> -->
+                    <!-- Hidden elements containing maintenance costs -->
+                    <div id="maintenance-costs" style="display:none;">
+                        {% for product in products %}
+                            <span class="maintenance-cost">{{ product.maintenance_cost }}</span>
+                        {% endfor %}
                     </div>
                 </div>
-                <div id="growthChart"></div>
-                <div class="text-center fw-semibold pt-3 mb-2">Inventory Turnover Ratio</div>
-                <div class="d-flex px-xxl-4 px-lg-2 p-4 gap-xxl-3 gap-lg-1 gap-3 justify-content-between"></div>
+            </div>
+            
+            <script>
+                // Select all maintenance cost elements
+                const maintenanceCostElements = document.querySelectorAll('.maintenance-cost');
+            
+                // Calculate the total maintenance cost
+                let totalMaintenanceCost = 0;
+                maintenanceCostElements.forEach(element => {
+                    totalMaintenanceCost += parseFloat(element.textContent);
+                });
+            
+                // Update the inventory cost in the HTML
+                const inventoryCostElement = document.getElementById('inventory-cost');
+                inventoryCostElement.textContent = `₩${totalMaintenanceCost.toLocaleString()}`;
+                
+                // Function to calculate revenue
+                function calculateRevenue() {
+                    const productSellingPrices = document.querySelectorAll('.product-sellingprice');
+                    const maintenanceCosts = document.querySelectorAll('.maintenance-cost');
+                    const detailQtys = document.querySelectorAll('.detail-qty');
+                    const supplierSellingPrices = document.querySelectorAll('.supplier-sellingprice');
+            
+                    let totalRevenue = 0;
+            
+                    // Assuming that each product has a corresponding order and supplier entry in the same order
+                    productSellingPrices.forEach((productSellingPriceElement, index) => {
+                        const productSellingPrice = parseFloat(productSellingPriceElement.textContent);
+                        const maintenanceCost = parseFloat(maintenanceCosts[index].textContent);
+                        const detailQty = parseFloat(detailQtys[index].textContent);
+                        const supplierSellingPrice = parseFloat(supplierSellingPrices[index].textContent);
+            
+                        totalRevenue += (productSellingPrice * detailQty) - supplierSellingPrice - maintenanceCost;
+                    });
+            
+                    return totalRevenue;
+                }
+            
+                // Calculate total revenue and update the HTML
+                const totalRevenue = calculateRevenue();
+                const revenueElement = document.getElementById('revenue');
+                revenueElement.textContent = `₩${totalRevenue.toLocaleString()}`;
+                
+                
+                // Arrived Product 갯수 구하기
+                document.addEventListener('DOMContentLoaded', function() {
+                // Select all order status elements
+                const orderStatusElements = document.querySelectorAll('.order-status');
+            
+                // Calculate the total delivered products
+                let totalDeliveredProducts = 0;
+                orderStatusElements.forEach(element => {
+                    if (element.getAttribute('data-status') === 'Arrived') {
+                        totalDeliveredProducts += parseInt(element.textContent, 10);
+                    }
+                });
+            
+                // Update the delivered product count in the HTML
+                const deliveredProductElement = document.getElementById('delivered-product');
+                deliveredProductElement.textContent = totalDeliveredProducts.toLocaleString();
+            });
+
+                
+                
+                
+                // CO2 배출량 구하기
+                document.addEventListener('DOMContentLoaded', function() {
+                // Select all maintenance cost elements
+                const maintenanceCostElements = document.querySelectorAll('.maintenance-cost');
+            
+                // Calculate the total maintenance cost
+                let totalMaintenanceCost = 0;
+                maintenanceCostElements.forEach(element => {
+                    totalMaintenanceCost += parseFloat(element.textContent);
+                });
+            
+                // Calculate CO2 emissions
+                const co2Emissions = (totalMaintenanceCost * 0.4781) / 78.6;
+            
+                // Update the CO2 emissions in the HTML
+                const co2EmissionsElement = document.getElementById('co2-emissions');
+                co2EmissionsElement.textContent = `${Math.round(co2Emissions).toLocaleString()}t`;
+            });
+
+            </script>
+
+
+            
+            
+            <!-- Warehouse Overview -->
+           <div class="col-12 col-lg-8 mb-4">
+            <div class="card h-100">
+                <div class="row row-bordered g-0">
+                    <div class="col-md-8">
+                        <h5 class="card-header m-0 me-2 pb-3">Warehouse Overview</h5>
+                        <div id="totalRevenueChart" class="px-2"></div>
+                    </div>
+                    <div class="col-md-4 d-flex flex-column align-items-center justify-content-center">
+                        
+                        <div id="growthChart"></div>
+                        <div class="text-center fw-semibold pt-3 mb-2">Total Capacity</div>
+                        
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-</div>
-
-            <!--/ Total Revenue -->
+            <!-- Warehouse Overview -->
 
 
         </div>
@@ -363,7 +471,7 @@
         <div class="card-body">
             <div class="d-flex justify-content-between align-items-center mb-3">
                 <div class="d-flex flex-column align-items-center gap-1">
-                    <h2 class="mb-2">{order.order_qty}</h2>
+                    <h3 class="mb-2">{order.order_qty}</h3>
                     <span>Total Orders</span>
                 </div>
                 <div id="orderStatisticsChart"></div>
@@ -488,120 +596,7 @@
                 </div>
             </div>
             <!--/ Expense Overview -->
-
-            <!-- Transactions -->
-            <div class="col-md-6 col-lg-4 mb-4">
-                <div class="card h-100">
-                    <div class="card-header d-flex align-items-center justify-content-between">
-                        <h5 class="card-title m-0 me-2">Transactions</h5>
-                        <div class="dropdown">
-                            <button class="btn p-0" type="button" id="transactionID" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="bx bx-dots-vertical-rounded"></i>
-                            </button>
-                            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="transactionID">
-                                <a class="dropdown-item" href="javascript:void(0);">Last 28 Days</a>
-                                <a class="dropdown-item" href="javascript:void(0);">Last Month</a>
-                                <a class="dropdown-item" href="javascript:void(0);">Last Year</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-body">
-                        <ul class="p-0 m-0">
-                            <li class="d-flex mb-4 pb-1">
-                                <div class="avatar flex-shrink-0 me-3">
-                                    <img src="../../static/assets/img/icons/unicons/paypal.png" alt="User" class="rounded" />
-                                </div>
-                                <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
-                                    <div class="me-2">
-                                        <small class="text-muted d-block mb-1">Paypal</small>
-                                        <h6 class="mb-0">Send money</h6>
-                                    </div>
-                                    <div class="user-progress d-flex align-items-center gap-1">
-                                        <h6 class="mb-0">+82.6</h6>
-                                        <span class="text-muted">USD</span>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="d-flex mb-4 pb-1">
-                                <div class="avatar flex-shrink-0 me-3">
-                                    <img src="../../static/assets/img/icons/unicons/wallet.png" alt="User" class="rounded" />
-                                </div>
-                                <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
-                                    <div class="me-2">
-                                        <small class="text-muted d-block mb-1">Wallet</small>
-                                        <h6 class="mb-0">Mac'D</h6>
-                                    </div>
-                                    <div class="user-progress d-flex align-items-center gap-1">
-                                        <h6 class="mb-0">+270.69</h6>
-                                        <span class="text-muted">USD</span>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="d-flex mb-4 pb-1">
-                                <div class="avatar flex-shrink-0 me-3">
-                                    <img src="../../static/assets/img/icons/unicons/chart.png" alt="User" class="rounded" />
-                                </div>
-                                <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
-                                    <div class="me-2">
-                                        <small class="text-muted d-block mb-1">Transfer</small>
-                                        <h6 class="mb-0">Refund</h6>
-                                    </div>
-                                    <div class="user-progress d-flex align-items-center gap-1">
-                                        <h6 class="mb-0">+637.91</h6>
-                                        <span class="text-muted">USD</span>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="d-flex mb-4 pb-1">
-                                <div class="avatar flex-shrink-0 me-3">
-                                    <img src="../../static/assets/img/icons/unicons/cc-success.png" alt="User" class="rounded" />
-                                </div>
-                                <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
-                                    <div class="me-2">
-                                        <small class="text-muted d-block mb-1">Credit Card</small>
-                                        <h6 class="mb-0">Ordered Food</h6>
-                                    </div>
-                                    <div class="user-progress d-flex align-items-center gap-1">
-                                        <h6 class="mb-0">-838.71</h6>
-                                        <span class="text-muted">USD</span>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="d-flex mb-4 pb-1">
-                                <div class="avatar flex-shrink-0 me-3">
-                                    <img src="../../static/assets/img/icons/unicons/wallet.png" alt="User" class="rounded" />
-                                </div>
-                                <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
-                                    <div class="me-2">
-                                        <small class="text-muted d-block mb-1">Wallet</small>
-                                        <h6 class="mb-0">Starbucks</h6>
-                                    </div>
-                                    <div class="user-progress d-flex align-items-center gap-1">
-                                        <h6 class="mb-0">+203.33</h6>
-                                        <span class="text-muted">USD</span>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="d-flex">
-                                <div class="avatar flex-shrink-0 me-3">
-                                    <img src="../../static/assets/img/icons/unicons/cc-warning.png" alt="User" class="rounded" />
-                                </div>
-                                <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
-                                    <div class="me-2">
-                                        <small class="text-muted d-block mb-1">Mastercard</small>
-                                        <h6 class="mb-0">Ordered Food</h6>
-                                    </div>
-                                    <div class="user-progress d-flex align-items-center gap-1">
-                                        <h6 class="mb-0">-92.45</h6>
-                                        <span class="text-muted">USD</span>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <!--/ Transactions -->
+            
         </div>
     </div>
 </div>
@@ -637,15 +632,7 @@
       <div class="layout-overlay layout-menu-toggle"></div>
     </div>
     <!-- / Layout wrapper -->
-
-    <div class="buy-now">
-      <a
-        href="https://themeselection.com/products/sneat-bootstrap-html-admin-template/"
-        target="_blank"
-        class="btn btn-danger btn-buy-now"
-        >Upgrade to Pro</a
-      >
-    </div>
+    
 
     <!-- Core JS -->
     <!-- build:js assets/vendor/js/core.js -->

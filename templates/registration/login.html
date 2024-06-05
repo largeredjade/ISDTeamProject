@@ -1,16 +1,29 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-<h2>Login</h2>
-<form method="post">
-  {% csrf_token %}
-  {{ form.as_p }}
-  <button type="submit">Log In</button>
-    <h2>hi</h2>
-</form>
-</body>
-</html>
+{% extends 'loginbase.html' %}
+{% block title %}Login{% endblock %}
+{% block content %}
+    <div class="container">
+      <div class="authentication-wrapper authentication-basic container-p-y" >
+        <div class="authentication-inner">
+            <div class="card">
+                <div class="card-body">
+                    <div class="app-brand justify-content-center">
+                        <div class="container">
+                            <h2 class="mb-2">Login</h2>
+                            <p class="mb-4">Login to your account</p>
+                            <form method="post">
+                                {% csrf_token %} 
+                                {{ form.as_p }}
+                                <div class="mb-3">
+                                  <button class="btn btn-primary d-grid w-70" type="submit">Log in</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>
+    
+    
+{% endblock %}

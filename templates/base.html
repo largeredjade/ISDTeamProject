@@ -1,17 +1,4 @@
-<!--------Not using this file--------->
-
-
-
-
-
-
-
-
-
-
-{% load static %}
 <!DOCTYPE html>
-
 <html
   lang="en"
   class="light-style layout-menu-fixed"
@@ -20,14 +7,14 @@
   data-assets-path="../assets/"
   data-template="vertical-menu-template-free"
 >
-  <head>
-    <meta charset="utf-8" />
+<head>
+    <meta charset="UTF-8">
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
     />
 
-    <title>Supplier</title>
+    <title>{% block title %}{% endblock %}</title>
 
     <meta name="description" content="" />
 
@@ -64,9 +51,7 @@
     <script src="../../static/assets/vendor/js/helpers.js"></script>
     <script src="../../static/assets/js/config.js"></script>
   </head>
-
-  <!------------------body-------------------->
-  <body>
+<body>
     <div class="layout-wrapper layout-content-navbar">
       <div class="layout-container">
         <!-- 좌측바 -->
@@ -174,21 +159,21 @@
             </li>
 
             <li class="menu-item">
-              <a href="supplier_list.html" class="menu-link">
+              <a href="{% url 'supplier_list' %}" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-collection"></i>
                 <div data-i18n="Analytics">Suppliers</div>
               </a>
             </li>
 
             <li class="menu-item">
-              <a href="shipment_list.html" class="menu-link">
+              <a href="{% url 'shipment_list' %}" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-detail"></i>
                 <div data-i18n="Analytics">Shipment to Customer</div>
               </a>
             </li>
 
             <li class="menu-item">
-              <a href="delivery_list.html" class="menu-link">
+              <a href="{% url 'supplier_list' %}" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-detail"></i>
                 <div data-i18n="Analytics">Delivery from Supplier</div>
               </a>
@@ -196,8 +181,8 @@
           </ul>
         </aside>
         <!--/좌측바-->
-    
-    
+
+
         <!-- Search -->
         <div class="layout-page">
           <!-- Navbar -->
@@ -210,9 +195,10 @@
                 <i class="bx bx-menu bx-sm"></i>
               </a>
             </div>
-    
+
             <div class="navbar-nav-right d-flex align-items-center" id="navbar-collapse">
               <!-- Search -->
+                <!--검색창 삭제
               <div class="navbar-nav align-items-center">
                 <div class="nav-item d-flex align-items-center">
                   <i class="bx bx-search fs-4 lh-0"></i>
@@ -223,8 +209,8 @@
                     aria-label="Search..."
                   />
                 </div>
-              </div>
-                <ul class="navbar-nav flex-row align-items-center ms-auto">
+              </div> -->
+                <ul class="navbar-nav flex-row align-items-center ms-auto"> 
                 <!-- User -->
                     <li class="nav-item navbar-dropdown dropdown-user dropdown">
                       <a class="nav-link" href = "javascript:void(0);" data-bs-toggle="dropdown">
@@ -259,95 +245,12 @@
             </div>
         </nav>
               <!-- /Search -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <!--Main contents-->
-    <div class="container-xxl flex-grow-1 container-p-y">
-        <h4 class="fw-bold py-3 mb-4">
-            <span class="text-muted fw-light">Supplier /</span> Supplier Detail 
-        </h4>
-
-        <!-- Basic Bootstrap Table -->
-        <div class="card">
-        <div class="table-responsive text-nowrap">
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th>Supplier ID</th>
-                        <th>Supplier Name</th>
-                        <th>Address</th>
-                        <th>Tel</th>
-                    </tr>
-                </thead>
-                <tbody class="table-border-bottom-0">
-                    {% for supplier in suppliers %}
-                    <tr>
-                        <td>{{ supplier.supplier_id }}</td>
-                        <td>{{ supplier.supplier_name }}</td>
-                        <td>{{ supplier.supplier_address }}</td>
-                        <td>{{ supplier.supplier_phoneNumber }}</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <ul>
-                                {% for orderdetail in supplier.orderdetail_set.all %}
-                                    <li>{{ orderdetail.product.product_name }}</li>
-                                {% endfor %}
-                            </ul>
-                        </td>
-                    </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
+        {% block content %}
+        {% endblock %}
         </div>
-        <nav aria-label="Page navigation" style="padding: 0 15px; margin-top: 10px;">
-            <ul class="pagination justify-content-end">
-                <li class="page-item prev">
-                    <a class="page-link" href="javascript:void(0);">
-                        <i class="tf-icon bx bx-chevrons-left"></i>
-                    </a>
-                </li>
-                <li class="page-item active"><a class="page-link" href="javascript:void(0);">1</a></li>
-                <li class="page-item"><a class="page-link" href="javascript:void(0);">2</a></li>
-                <li class="page-item"><a class="page-link" href="javascript:void(0);">3</a></li>
-                <li class="page-item"><a class="page-link" href="javascript:void(0);">4</a></li>
-                <li class="page-item"><a class="page-link" href="javascript:void(0);">5</a></li>
-                <li class="page-item next">
-                    <a class="page-link" href="javascript:void(0);">
-                        <i class="tf-icon bx bx-chevrons-right"></i>
-                    </a>
-                </li>
-            </ul>
-        </nav>
+      </div>
     </div>
-            
-            
-            
-            
-            
-        </div>
-    
-        </div>
-        </div>
-        </div>
-        <!--detail, update, delete 버튼 css-->
-        <style>
+    <style>
             .action-buttons {
                 display: flex;
                 gap: 5px; /* 버튼 간의 간격을 조정합니다 */
@@ -357,39 +260,17 @@
             }
         </style>
 
-        
-    
+
+
         <!-- Core JS -->
         <!-- build:js assets/vendor/js/core.js -->
         <script src="../../static/assets/vendor/libs/jquery/jquery.js"></script>
         <script src="../../static/assets/vendor/libs/popper/popper.js"></script>
         <script src="../../static/assets/vendor/js/bootstrap.js"></script>
         <script src="../../static/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
-    
+
         <script src="../../static/assets/vendor/js/menu.js"></script>
         <!-- endbuild -->
         <script src="../../static/assets/js/main.js"></script>
-  </body>
+</body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -1,17 +1,47 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-<!-- templates/html/signup.html -->
-<h2>Sign Up</h2>
-<form method="post">
-  {% csrf_token %}
-  {{ form.as_p }}
-  <button type="submit">Sign Up</button>
-</form>
+{% extends 'loginbase.html' %}
+{% block title %}Signup{% endblock %}
+{% block content %}
 
-</body>
-</html>
+    <style>
+        .authentication-wrapper {
+            display: flex;
+            justify-content: center; /* 가로 중앙 정렬 */
+            align-items: center; /* 세로 중앙 정렬 */
+            min-height: 100vh; /* 최소 높이를 뷰포트 높이의 100%로 설정 */
+            padding: 20px; /* 패딩 추가 */
+        }
+        .card {
+            max-width: 500px;  /* 최대 너비 설정 */
+            margin: auto;  /* 가운데 정렬 */
+            padding: 20px;  /* 내부 패딩 */
+        }
+
+    </style>
+
+    <div class="container">
+          <div class="authentication-wrapper" >
+            <div class="authentication-inner">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="app-brand justify-content-center">
+                            <div class="container">
+                                <h2 class="mb-2">Sing Up</h2>
+                                <p class="mb-4">Register new account</p>
+                                <form method="post">
+                                    {% csrf_token %}
+                                    {{ form.as_p }}
+                                    <div class="mb-3">
+                                      <button class="btn btn-primary d-grid w-70" type="submit">Sign in</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+          </div>
+        </div>
+
+
+{% endblock %}
+

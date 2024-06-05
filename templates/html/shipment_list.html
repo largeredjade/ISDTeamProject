@@ -9,7 +9,7 @@
     
         <!-- CRUD 버튼 활성화시키기 -->
         <div class="d-flex justify-content-end mb-3">
-            <a href='shipment_create.html' class="badge bg-label-success me-5">Create</a>
+            <a href='{% url 'create_shipment' %}' class="badge bg-label-success me-5">Create</a>
         </div>
     
         <!-- Basic Bootstrap Table -->
@@ -28,32 +28,21 @@
                         </tr>
                     </thead>
                     <tbody class="table-border-bottom-0">
-                        {% for shipment in shipments %}
-                        <tr>
-                            <td>{{ shipment.product.product_id }}</td>
-                            <td>{{ shipment.product.product_name }}</td>
-                            <td>
-                                <ul>
-                                    {% for detail in shipment.shipmentdetail_set.all %}
-                                        <li>{{ detail.detail_qty }}</li>
-                                    {% endfor %}
-                                </ul>
-                            </td>
-                            <td>{{ shipment.warehouse_outdate }}</td>
-                            <td>
-                                <ul>
-                                    {% for detail in shipment.shipmentdetail_set.all %}
-                                        <li>{{ detail.customer_arrival_date }}</li>
-                                    {% endfor %}
-                                </ul>
-                            </td>
-                            <td>{{ delivery.shipment_status }}</td>
-                            <td>
-                                <a href="shipment_update.html" class="badge bg-label-primary me-5">Update</a>
-                                <a href="delivery_delete.html" class="badge bg-label-danger me-5">Delete</a>
-                            </td>
-                        </tr>
-                        {% endfor %}
+                        {% for detail in shipment_detail %}
+                            <tr>
+                                <td>{{ detail.shipment.shipment_id }}</td>
+                                <td>{{ detail.product.product_id }}</td>
+                                <td>{{ detail.product.product_name }}</td>
+                                <td>{{ detail.detail_qty }}</td>
+                                <td>{{ detail.shipment.warehouse_outdate }}</td>
+                                <td>{{ detail.customer_arrival_date }}</td>
+                                <td>{{ detail.shipment.shipment_status }}</td>
+                                <td>
+                                    <a href="{% url 'update_shipment_detail' shipment_id=detail.shipment.id product_id=detail.product.id %}" class="badge bg-label-primary me-5">Update</a>
+                                    <a href="{% url 'delete_shipment_detail' shipment_id=detail.shipment.id product_id=detail.product.id %}" class="badge bg-label-danger me-5">Delete</a>
+                                </td>
+                            </tr>
+                            {% endfor %}
                     </tbody>
                 </table>
             </div>

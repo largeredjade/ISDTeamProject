@@ -8,41 +8,16 @@
             <span class="text-muted fw-light">Shipment /</span> Shipment Create
         </h4>
         <div class="card mb-4">
-            <div class="card-header d-flex justify-content-between align-items-center">
-                <div class="d-flex align-items-center">
-                    <h5 class="mb-0 me-3">Shipment ID:</h5>
-                    <input type="text" class="form-control" id="shipment-id" placeholder="Enter Shipment ID" style="flex: 1; max-width: 200px;" />
-                </div>
-            </div>
             <div class="card-body">
                 <form method="post" id="product-form">
                     {% csrf_token %}
                     <div id="form-container">
                         <div class="container">
-                            <div class="row mb-3">
-                                <div class="col-md-4">
-                                    <label class="form-label" for="basic-default-fullname">Product ID</label>
-                                    <input type="text" class="form-control" id="basic-default-fullname" name="product_id" placeholder="#0001" />
-                                </div>
-                                <div class="col-md-4">
-                                    <label class="form-label" for="basic-default-company">Product Name</label>
-                                    <input type="text" class="form-control" id="basic-default-company" name="product_name" placeholder="Dining Table" />
-                                </div>
-                                <div class="col-md-4">
-                                    <label class="form-label" for="typeNumber">Quantity</label>
-                                    <input type="number" id="typeNumber" class="form-control" name="quantity" />
-                                </div>
-                            </div>
-                            <div class="row mb-3">
-                                <div class="col-md-6">
-                                    <label for="warehouse_out_date" class="form-label">Warehouse Out Date</label>
-                                    <input class="form-control" type="date" name="date" value="2024-06-01" id="warehouse_out_date" />
-                                </div>
-                                <div class="col-md-6">
-                                    <label for="customer_arrival_date" class="form-label">Customer Arrival Date</label>
-                                    <input class="form-control" type="date" name="date" value="2024-06-01" id="customer_arrival_date" />
-                                </div>
-                            </div>
+                            <form method="post">
+                                {% csrf_token %}
+                                {{ form.as_p }}
+                                <button type="submit" class="btn btn-success">Create</button>
+                            </form>
                         </div>
                     </div>
                     <button type="button" class="btn btn-secondary" id="add-product">Add More</button>
@@ -93,3 +68,4 @@
         });
     });
     </script>
+{% endblock %}

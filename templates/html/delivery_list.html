@@ -46,8 +46,8 @@
                         <td>{{ delivery.delivery_date }}</td>
                         <td>{{ delivery.order.user_id }}</td>
                         <td>
-                            <a href="delivery_update.html" class="badge bg-label-primary me-5">Update</a>
-                            <a href="delivery_delete.html" class="badge bg-label-danger me-5">Delete</a>
+                            <a href="{% url 'update_delivery' %}" class="badge bg-label-primary me-5">Update</a>
+                            <a href="{% url 'delete_delivery' %}" class="badge bg-label-danger me-5">Delete</a>
                         </td>
                     </tr>
                     {% endfor %}

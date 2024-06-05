@@ -5,7 +5,7 @@ from .forms import ShipmentDetailForm, ShipmentForm
 
 def shipment_list(request):
     shipments = Shipment.objects.all()
-    return render(request, 'html/shipment_list.html', {'shipments': shipments})
+    return render(request, 'html/shipment_detail_list.html', {'shipments': shipments})
 
 def shipment_detail_list(request):
     shipment_detail = ShipmentDetail.objects.all()
@@ -40,7 +40,7 @@ def update_shipment(request, shipment_id):
         return redirect('shipment_list')
     else:
         form = ShipmentDetailForm(instance=shipment)
-    return render(request, 'html/shipment_update.html', {'form':form})
+    return render(request, 'html/update_shipment_detail.html', {'form':form})
 def update_shipment_detail(request, shipment_id, product_id):
     shipment_detail = get_object_or_404(ShipmentDetail, shipment_id=shipment_id, product_id=product_id)
 
@@ -59,7 +59,7 @@ def delete_shipment(request, shipment_id):
     if request.method == 'POST':
         shipment.delete()
         return redirect('shipment_list')
-    return render(request, 'html/shipment_delete.html', {'shipment': shipment})
+    return render(request, 'html/shipment_detail_delete.html', {'shipment': shipment})
 
 def delete_shipment_detail(request, shipment_id, product_id):
     shipment_detail = ShipmentDetail.objects.get(shipment_id=shipment_id, product_id=product_id)

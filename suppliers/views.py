@@ -15,7 +15,7 @@ def create_supplier(request):
             return redirect('supplier_list')
         else:
             form = SupplierDetailForm()
-        return render(request, 'html/supplier_create.html',{'form':form})
+        return render(request, 'html/supplier/../templates/html/supplier_create.html', {'form':form})
 
 def update_supplier(request, supplier_id):
     supplier = Supplier.objects.get(supplier_id=supplier_id)
@@ -31,4 +31,4 @@ def delete_supplier(request, supplier_id):
     if request.method == 'POST':
         supplier.delete()
         return redirect('supplier_list')
-    return render(request, 'html/supplier_delete.html',{'supplier':supplier})
+    return render(request, 'html/supplier/../templates/html/supplier_delete.html', {'supplier':supplier})

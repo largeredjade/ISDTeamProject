@@ -219,7 +219,7 @@
                         <div class="avatar avatar-online">
                             <div class="rounded-circle" style="background-color: #6C757D; width: 40px; height: 40px;"></div>
                         </div>
-                    </a>
+                      </a>
                       <ul class="dropdown-menu dropdown-menu-end">
                         <li>
                           <a class="dropdown-item" href="#">
@@ -245,39 +245,73 @@
                     <!--/ User -->
                 </ul>
             </div>
-        </nav>
+          </nav>
               <!-- /Search -->
-       
-        <!--Delete confirm-->
-      <div class="container-xxl flex-grow-1 container-p-y">
-        <h4 class="fw-bold py-3 mb-4">
-            <span class="text-muted fw-light">Delivery /</span> Delivery Delete
-        </h4>
-            <div class="row justify-content-center align-items-center min-vh-200">
-                <div class="col-md-12 col-lg-8">
-                      <div class="card text-center mb-3">
-                            <div class="card-body">
-                              <h5 class="card-title">Delete</h5>
-                              <p class="card-text">You cannot recover after delete. Are you sure?</p>
-                              <a href="javascript:void(0)" class="btn btn-primary">Yes</a>
-                              <a href="delivery_list.html" class="btn btn-danger">No</a>
-                            </div>
-                      </div>
+
+
+            <!-------------Main Contents---->
+            <!-- delivery_list.html에 입력된 값을 그대로 불러오도록 해주세요. -->
+            <div class="container-xxl flex-grow-1 container-p-y">
+                <h4 class="fw-bold py-3 mb-4">
+                    <span class="text-muted fw-light">Ordered List /</span> Order Update
+                </h4>
+                <div class="card mb-4">
+                    <div class="card-header d-flex justify-content-between align-items-center">
+                    </div>
+                    <div class="card-body">
+                        <form method="post" id="product-form">
+                            <div class="row mb-3">
+                                    <div class="col-md-4">
+                                        <label class="form-label" for="basic-default-fullname">Order ID</label>
+                                        <input type="number" class="form-control" id="basic-default-fullname" name="order_id" placeholder="#9901" />
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label class="form-label" for="basic-default-company">Supplier ID</label>
+                                        <input type="text" class="form-control" id="basic-default-company" name="supplier_id" placeholder="#ABC-001" />
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label class="form-label" for="typeNumber">Detail Quantity</label>
+                                        <input type="number" id="typeNumber" class="form-control" name="quantity" />
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <div class="col-md-6">
+                                        <label for="exampleFormControlSelect1" class="form-label">Total Cost</label>
+                                        <input type="text" id="basic-default-supplier" class="form-control" name="total_cast" placeholder="₩10,000"/>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="html5-date-input" class="form-label">Estimated ArrivalDate</label>
+                                        <input class="form-control" type="date" name="date" value="2024-06-01" id="arrival-date-input" />
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <div class="col-md-6">
+                                        <label for="html5-date-input" class="form-label">Order Date</label>
+                                        <input class="form-control" type="date" name="date" value="2024-06-01" id="order-date-input" />
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="exampleFormControlSelect1" class="form-label">Order Status</label>
+                                        <input type="text" id="basic-default-supplier" class="form-control" name="order_status" placeholder="Non-arrived"/>
+                                    </div>
+                                    
+                                </div>
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </form>
+                    </div>
                 </div>
             </div>
-          </div>
         </div>
       </div>
     </div>
-        <!-- Core JS -->
-        <!-- build:js assets/vendor/js/core.js -->
-        <script src="../../static/assets/vendor/libs/jquery/jquery.js"></script>
-        <script src="../../static/assets/vendor/libs/popper/popper.js"></script>
-        <script src="../../static/assets/vendor/js/bootstrap.js"></script>
-        <script src="../../static/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
-    
-        <script src="../../static/assets/vendor/js/menu.js"></script>
-        <!-- endbuild -->
-        <script src="../../static/assets/js/main.js"></script>
+    <!-- Core JS -->
+    <!-- build:js assets/vendor/js/core.js -->
+    <script src="../../static/assets/vendor/libs/jquery/jquery.js"></script>
+    <script src="../../static/assets/vendor/libs/popper/popper.js"></script>
+    <script src="../../static/assets/vendor/js/bootstrap.js"></script>
+    <script src="../../static/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+
+    <script src="../../static/assets/vendor/js/menu.js"></script>
+    <!-- endbuild -->
+    <script src="../../static/assets/js/main.js"></script>
   </body>
 </html>

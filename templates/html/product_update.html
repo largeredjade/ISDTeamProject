@@ -219,7 +219,7 @@
                         <div class="avatar avatar-online">
                             <div class="rounded-circle" style="background-color: #6C757D; width: 40px; height: 40px;"></div>
                         </div>
-                    </a>
+                      </a>
                       <ul class="dropdown-menu dropdown-menu-end">
                         <li>
                           <a class="dropdown-item" href="#">
@@ -245,39 +245,93 @@
                     <!--/ User -->
                 </ul>
             </div>
-        </nav>
+          </nav>
               <!-- /Search -->
-       
-        <!--Delete confirm-->
-      <div class="container-xxl flex-grow-1 container-p-y">
-        <h4 class="fw-bold py-3 mb-4">
-            <span class="text-muted fw-light">Delivery /</span> Delivery Delete
-        </h4>
-            <div class="row justify-content-center align-items-center min-vh-200">
-                <div class="col-md-12 col-lg-8">
-                      <div class="card text-center mb-3">
-                            <div class="card-body">
-                              <h5 class="card-title">Delete</h5>
-                              <p class="card-text">You cannot recover after delete. Are you sure?</p>
-                              <a href="javascript:void(0)" class="btn btn-primary">Yes</a>
-                              <a href="delivery_list.html" class="btn btn-danger">No</a>
-                            </div>
-                      </div>
+
+
+            <!-------------Main Contents---->
+            <!-- Please make sure to load the values in delivery_list.html as is. -->
+            <div class="container-xxl flex-grow-1 container-p-y">
+                <h4 class="fw-bold py-3 mb-4">
+                    <span class="text-muted fw-light">Product /</span> Product Update
+                </h4>
+                <div class="card mb-4">
+                    <div class="card-header d-flex justify-content-between align-items-center">
+                        <div class="d-flex align-items-center">
+                            <h5 class="mb-0 me-3">Product ID:</h5>
+                            <input type="text" class="form-control" id="order-id" name="product_id" value="{{ product.product_id }}" placeholder="Enter Order ID" style="flex: 1; max-width: 200px;" />
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <form method="post" id="product-form">
+                                <div class="row mb-3">
+                                    
+                                    <div class="col-md-6">
+                                        <label class="form-label" for="basic-default-company">Product Name</label>
+                                        <input type="text" class="form-control" id="basic-default-company" name="product_name" placeholder="Dining Table" />
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label" for="typeNumber">Quantity</label>
+                                        <input type="number" id="typeNumber" class="form-control" name="quantity" />
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <div class="col-md-6">
+                                        <label class="form-label" for="basic-default-company">Category</label>
+                                        <input type="text" class="form-control" id="basic-default-company" name="product_category" placeholder="Table" />
+                                    </div>
+                                    
+                                    <div class="col-md-6">
+                                        <label class="form-label" for="basic-default-company">Selling Price</label>
+                                        <input type="text" class="form-control" id="basic-default-company" name="product_sellingprice" placeholder="₩ " />
+                                    
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <div class="col-md-4">
+                                        <label class="form-label" for="basic-default-fullname">Volumn</label>
+                                        <input type="text" class="form-control" id="basic-default-fullname" name="product_volume" placeholder="30cm2" />
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label class="form-label" for="basic-default-company">Weight</label>
+                                        <input type="text" class="form-control" id="basic-default-company" name="product_weight" placeholder="100kg" />
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label class="form-label" for="basic-default-company">Location</label>
+                                        <input type="text" class="form-control" id="basic-default-company" name="product_location" placeholder="A" />
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <div class="col-md-4">
+                                        <label class="form-label" for="basic-default-fullname">M cost</label>
+                                        <input type="text" class="form-control" id="basic-default-fullname" name="maintanence_cost" placeholder="₩" />
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label class="form-label" for="typeNumber">Stock</label>
+                                        <input type="number" id="typeNumber" class="form-control" name="stock" />
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label class="form-label" for="typeNumber">Min Qty</label>
+                                        <input type="number" id="typeNumber" class="form-control" name="min_qty" />
+                                    </div>
+                                </div>
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </form>
+                    </div>
                 </div>
             </div>
-          </div>
         </div>
       </div>
     </div>
-        <!-- Core JS -->
-        <!-- build:js assets/vendor/js/core.js -->
-        <script src="../../static/assets/vendor/libs/jquery/jquery.js"></script>
-        <script src="../../static/assets/vendor/libs/popper/popper.js"></script>
-        <script src="../../static/assets/vendor/js/bootstrap.js"></script>
-        <script src="../../static/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
-    
-        <script src="../../static/assets/vendor/js/menu.js"></script>
-        <!-- endbuild -->
-        <script src="../../static/assets/js/main.js"></script>
+    <!-- Core JS -->
+    <!-- build:js assets/vendor/js/core.js -->
+    <script src="../../static/assets/vendor/libs/jquery/jquery.js"></script>
+    <script src="../../static/assets/vendor/libs/popper/popper.js"></script>
+    <script src="../../static/assets/vendor/js/bootstrap.js"></script>
+    <script src="../../static/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+
+    <script src="../../static/assets/vendor/js/menu.js"></script>
+    <!-- endbuild -->
+    <script src="../../static/assets/js/main.js"></script>
   </body>
 </html>

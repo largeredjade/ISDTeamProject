@@ -1,0 +1,50 @@
+<!--완벽-->
+{% extends 'base.html' %}
+{% block title %}Shipment{% endblock %}
+{% block content %}
+    <!--Main contents-->
+    <div class="container-xxl flex-grow-1 container-p-y">
+        <h4 class="fw-bold py-3 mb-4">
+            <span class="text-muted fw-light">Shipment Detail /</span> Shipment Detail List
+        </h4>
+
+        <!-- CRUD 버튼 활성화시키기 -->
+        <div class="d-flex justify-content-end mb-3">
+            <a href='{% url 'create_shipment_detail' %}' class="badge bg-label-success me-5">Create</a>
+        </div>
+
+        <!-- Basic Bootstrap Table -->
+        <div class="card">
+            <div class="table-responsive text-nowrap">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Shipment ID</th>
+                            <th>Product ID</th>
+                            <th>Product Name</th>
+                            <th>Quantity</th>
+                            <th>Customer Arrival Date</th>
+                        </tr>
+                    </thead>
+                    <tbody class="table-border-bottom-0">
+                        {% for shipment in shipments %}
+                            {% for detail in shipment.shipmentdetail_set.all %}
+                            <tr>
+                                <td>{{ shipment.shipment_id }}</td>
+                                <td>{{ detail.product.product_id }}</td>
+                                <td>{{ detail.product.product_name }}</td>
+                                <td>{{ detail.detail_qty }}</td>
+                                <td>{{ detail.customer_arrival_date }}</td>
+                                <td>
+                                    <a href="{% url 'update_shipment_detail' shipment.shipment_id detail.product_id %}" class="badge bg-label-primary me-5">Update</a>
+                                    <a href="{% url 'delete_shipment_detail' shipment.shipment_id detail.product_id %}" class="badge bg-label-danger me-5">Delete</a>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+          </div>
+        </div>
+{% endblock %}

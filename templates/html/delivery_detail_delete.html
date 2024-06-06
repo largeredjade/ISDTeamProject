@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block title %}Delivery{% endblock %}
+{% block content %}
+    <!-- Delete confirm -->
+    <div class="container-xxl flex-grow-1 container-p-y">
+        <h4 class="fw-bold py-3 mb-4">
+            <span class="text-muted fw-light">Delivery Detail /</span> Delivery Delete Detail
+        </h4>
+        <div class="row justify-content-center align-items-center min-vh-200">
+            <div class="col-md-12 col-lg-8">
+                <div class="card text-center mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title">Delete</h5>
+                        <p class="card-text">You cannot recover after delete. Are you sure?</p>
+                        <form method="post" action="{% url 'delete_delivery_detail' delivery_detail.delivery.delivery_id delivery_detail.product.product_id delivery_detail.order.order_id delivery_detail.user.user_id %}">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-primary">Yes</button>
+                            <a href="{% url 'delivery_detail_list' %}" class="btn btn-danger">No</a>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

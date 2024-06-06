@@ -166,19 +166,49 @@
               </a>
             </li>
 
-            <li class="menu-item">
-              <a href="{% url 'shipment_list' %}" class="menu-link">
-                <i class="menu-icon tf-icons bx bx-detail"></i>
-                <div data-i18n="Analytics">Shipment to Customer</div>
-              </a>
-            </li>
+             <li class="menu-item">
+                  <a href="javascript:void(0);" class="menu-link menu-toggle">
+                    <i class="menu-icon tf-icons bx bx-detail"></i>
+                    <div data-i18n="Layouts">Shipment to Customer</div>
+                  </a>
 
-            <li class="menu-item">
-              <a href="{% url 'supplier_list' %}" class="menu-link">
-                <i class="menu-icon tf-icons bx bx-detail"></i>
-                <div data-i18n="Analytics">Delivery from Supplier</div>
-              </a>
+              <ul class="menu-sub">
+                <li class="menu-item">
+                  <a href="{% url 'shipment_list' %}" class="menu-link">
+                    <div data-i18n="Without menu">Shipment List</div>
+                  </a>
+                </li>
+                <li class="menu-item">
+                  <a href={% url 'shipment_detail_list' %} class="menu-link">
+                    <div data-i18n="Without navbar">Shipment Detail List</div>
+                  </a>
+                </li>
+              </ul>
             </li>
+              
+             <li class="menu-item">
+                  <a href="javascript:void(0);" class="menu-link menu-toggle">
+                    <i class="menu-icon tf-icons bx bx-detail"></i>
+                    <div data-i18n="Layouts">Delivery from Supplier</div>
+                  </a>
+
+              <ul class="menu-sub">
+                <li class="menu-item">
+                  <a href="{% url 'delivery_list' %}" class="menu-link">
+                    <div data-i18n="Without menu">Delivery List</div>
+                  </a>
+                </li>
+                <li class="menu-item">
+                  <a href={% url 'delivery_detail_list' %} class="menu-link">
+                    <div data-i18n="Without navbar">Delivery Detail List</div>
+                  </a>
+                </li>
+              </ul>
+            </li>  
+              
+              
+            
+              
           </ul>
         </aside>
         <!--/좌측바-->

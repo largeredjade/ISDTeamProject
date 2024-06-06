@@ -4,7 +4,7 @@
     <!-- Delete confirm -->
     <div class="container-xxl flex-grow-1 container-p-y">
         <h4 class="fw-bold py-3 mb-4">
-            <span class="text-muted fw-light">Shipment /</span> Shipment Delete
+            <span class="text-muted fw-light">Shipment Detail/</span> Shipment Delete Detail
         </h4>
         <div class="row justify-content-center align-items-center min-vh-200">
             <div class="col-md-12 col-lg-8">
@@ -12,11 +12,12 @@
                     <div class="card-body">
                         <h5 class="card-title">Delete</h5>
                         <p class="card-text">You cannot recover after delete. Are you sure?</p>
-                        <form method="post" action="{% url 'delete_shipment' shipment.shipment_id %}">
+                        <form method="post" action="{% url 'delete_shipment_detail' shipment_detail.shipment.shipment_id shipment_detail.product_id %}">
                             {% csrf_token %}
                             <button type="submit" class="btn btn-primary">Yes</button>
-                            <a href="{% url 'shipment_list' %}" class="btn btn-danger">No</a>
+                            <a href="{% url 'shipment_detail_list' %}" class="btn btn-danger">No</a>
                         </form>
+
                     </div>
                 </div>
             </div>

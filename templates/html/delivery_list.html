@@ -1,8 +1,7 @@
 {% extends 'base.html' %}
 {% block title %}Delivery{% endblock %}
 {% block content %}
-
-<!--Main contents-->
+    <!--Main contents-->
     <div class="container-xxl flex-grow-1 container-p-y">
         <h4 class="fw-bold py-3 mb-4">
             <span class="text-muted fw-light">Delivery /</span> Delivery List
@@ -10,92 +9,35 @@
 
         <!-- CRUD 버튼 활성화시키기 -->
         <div class="d-flex justify-content-end mb-3">
-            <a href='delivery_create.html' class="badge bg-label-success me-5">Create</a>
+            <a href='{% url 'create_delivery' %}' class="badge bg-label-success me-5">Create</a>
         </div>
 
         <!-- Basic Bootstrap Table -->
-        <div class="card">
-        <h5 class="card-header">{{ delivery.delivery_id }}</h5> <!--Table Name-->
-        <div class="table-responsive text-nowrap">
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th>Delivery ID</th>
-                        <th>Product Name</th>
-                        <th>Product ID</th>
-                        <th>Quantity</th>
-                        <th>Supplier</th>
-                        <th>Delivery Date</th>
-                        <th>Employee</th>
-                    </tr>
-                </thead>
-                <tbody class="table-border-bottom-0">
-                    {% for delivery in deliveries %}
-                    <tr>
-                        <td>{{ delivery.delivery_id }}</td>
-                        <td>{{ delivery.product.product_name }}</td>
-                        <td>{{ delivery.product.product_id }}</td>
-                        <td>
-                            <ul>
-                                {% for detail in delivery.deliverydetail_set.all %}
-                                    <li>{{ detail.detail_qty }}</li>
-                                {% endfor %}
-                            </ul>
-                        </td>
-                        <td>{{ delivery.supplier.supplier_name }}</td>
-                        <td>{{ delivery.delivery_date }}</td>
-                        <td>{{ delivery.order.user_id }}</td>
-                        <td>
-                            <a href="delivery_update.html" class="badge bg-label-primary me-5">Update</a>
-                            <a href="delivery_delete.html" class="badge bg-label-danger me-5">Delete</a>
-                        </td>
-                    </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
-        </div>
-        <nav aria-label="Page navigation" style="padding: 0 15px; margin-top: 10px;">
-            <ul class="pagination justify-content-end">
-                <li class="page-item prev">
-                    <a class="page-link" href="javascript:void(0);">
-                        <i class="tf-icon bx bx-chevrons-left"></i>
-                    </a>
-                </li>
-                <li class="page-item active"><a class="page-link" href="javascript:void(0);">1</a></li>
-                <li class="page-item"><a class="page-link" href="javascript:void(0);">2</a></li>
-                <li class="page-item"><a class="page-link" href="javascript:void(0);">3</a></li>
-                <li class="page-item"><a class="page-link" href="javascript:void(0);">4</a></li>
-                <li class="page-item"><a class="page-link" href="javascript:void(0);">5</a></li>
-                <li class="page-item next">
-                    <a class="page-link" href="javascript:void(0);">
-                        <i class="tf-icon bx bx-chevrons-right"></i>
-                    </a>
-                </li>
-            </ul>
-        </nav>
+        {% for delivery in deliveries %}
+            <div class="card">
+                <div class="table-responsive text-nowrap">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Delivery ID</th>
+                                <th>Supplier ID</th>
+                                <th>Delivery Date</th>
+                            </tr>
+                        </thead>
+                        <tbody class="table-border-bottom-0">
+                            <tr>
+                                <td>{{ delivery.delivery_id }}</td>
+                                <td>{{ delivery.supplier_id }}</td>
+                                <td>{{ delivery.delivery_date}}</td>
+                                <td>
+                                    <a href="{% url 'update_delivery' delivery.delivery_id %}" class="badge bg-label-primary me-5">Update</a>
+                                    <a href="{% url 'delete_delivery' delivery.delivery_id %}" class="badge bg-label-danger me-5">Delete</a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        {% endfor %}
     </div>
-</div>
 {% endblock %}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

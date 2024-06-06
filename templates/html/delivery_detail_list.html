@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% block title %}Delivery{% endblock %}
+{% block content %}
+    <!--Main contents-->
+    <div class="container-xxl flex-grow-1 container-p-y">
+        <h4 class="fw-bold py-3 mb-4">
+            <span class="text-muted fw-light">Delivery Detail /</span> Delivery Detail List
+        </h4>
+
+        <!-- CRUD 버튼 활성화시키기 -->
+        <div class="d-flex justify-content-end mb-3">
+            <a href='{% url 'create_delivery_detail' %}' class="badge bg-label-success me-5">Create</a>
+        </div>
+
+        <!-- Basic Bootstrap Table -->
+        <div class="card">
+            <div class="table-responsive text-nowrap">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Delivery ID</th>
+                            <th>Supplier ID</th>
+                            <th>Order ID</th>
+                            <th>Product ID</th>
+                            <th>Product Name</th>
+                            <th>Detail Quantity</th>
+                            <th>User Name</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody class="table-border-bottom-0">
+                        {% for delivery in deliveries %}
+                            {% for detail in delivery.deliverydetail_set.all %}
+                            <tr>
+                                <td>{{ delivery.delivery_id }}</td>
+                                <td>{{ delivery.supplier_id }}</td>
+                                <td>{{ detail.order.order_id }}</td>
+                                <td>{{ detail.product.product_id }}</td>
+                                <td>{{ detail.product.product_name }}</td>
+                                <td>{{ detail.detail_qty }}</td>
+                                <td>{{ detail.user.user_id }}</td>
+                                <td>
+                                    <a href="{% url 'update_delivery_detail' detail.delivery.delivery_id detail.product.product_id detail.order.order_id detail.user.user_id %}" class="badge bg-label-primary me-1">Update</a>
+                                    <a href="{% url 'delete_delivery_detail' detail.delivery.delivery_id detail.product.product_id detail.order.order_id detail.user.user_id %}" class="badge bg-label-danger me-1">Delete</a>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+          </div>
+        </div>
+{% endblock %}

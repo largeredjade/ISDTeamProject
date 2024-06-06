@@ -13,24 +13,33 @@
   borderColor = config.colors.borderColor;
 
   document.addEventListener('DOMContentLoaded', function() {
-      // Select all product location elements
-      const productLocationElements = document.querySelectorAll('.product-location');
+      // Get all product elements
+      const productElements = document.querySelectorAll('#product-data .product');
 
-      // Calculate the counts for each warehouse
-      let countA = 0, countB = 0, countC = 0, countD = 0;
-      productLocationElements.forEach(element => {
-          const location = element.textContent;
-          if (location === 'A') countA++;
-          else if (location === 'B') countB++;
-          else if (location === 'C') countC++;
-          else if (location === 'D') countD++;
+      // Initialize total volumes for each warehouse
+      let totalVolumeA = 0, totalVolumeB = 0, totalVolumeC = 0, totalVolumeD = 0;
+
+      productElements.forEach(element => {
+          const qty = parseFloat(element.querySelector('.product-qty').textContent);
+          const volume = parseFloat(element.querySelector('.product-volume').textContent);
+          const location = element.querySelector('.product-location').textContent;
+
+          const totalVolume = qty * volume;
+
+          if (location === 'A') totalVolumeA += totalVolume;
+          else if (location === 'B') totalVolumeB += totalVolume;
+          else if (location === 'C') totalVolumeC += totalVolume;
+          else if (location === 'D') totalVolumeD += totalVolume;
       });
 
+      // Warehouse capacities
+      const capacity = 1000;
+
       // Calculate the percentages for each warehouse
-      const percentageA = (countA / 75) * 100;
-      const percentageB = (countB / 50) * 100;
-      const percentageC = (countC / 30) * 100;
-      const percentageD = (countD / 100) * 100;
+      const percentageA = (totalVolumeA / capacity) * 100;
+      const percentageB = (totalVolumeB / capacity) * 100;
+      const percentageC = (totalVolumeC / capacity) * 100;
+      const percentageD = (totalVolumeD / capacity) * 100;
 
       // Total Revenue Report Chart - Bar Chart
       const totalRevenueChartEl = document.querySelector('#totalRevenueChart'),
@@ -129,7 +138,7 @@
     const growthChartEl = document.querySelector('#growthChart'),
         growthChartOptions = {
         series: [capacityPercentage.toFixed(2)],
-        labels: ['Capacity'],
+        labels: ['Utilization'],
         chart: {
             height: 240,
             type: 'radialBar'

@@ -20,52 +20,8 @@
                             </form>
                         </div>
                     </div>
-                    <button type="button" class="btn btn-secondary" id="add-product">Add More</button>
-                    <button type="submit" class="btn btn-primary">Submit</button>
                 </form>
             </div>
         </div>
     </div>
-
-    <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const addProductButton = document.getElementById('add-product');
-        const formContainer = document.getElementById('form-container');
-        let formCount = 1;
-
-        addProductButton.addEventListener('click', function() {
-            const newForm = document.createElement('div');
-            newForm.classList.add('container');
-            newForm.innerHTML = `
-                <div class="row mb-3">
-                    <div class="col-md-4">
-                        <label class="form-label" for="id_form-${formCount}-product_id">Product ID</label>
-                        <input type="text" name="form-${formCount}-product_id" class="form-control" id="id_form-${formCount}-product_id" placeholder="#0001" />
-                    </div>
-                    <div class="col-md-4">
-                        <label class="form-label" for="id_form-${formCount}-product_name">Product</label>
-                        <input type="text" name="form-${formCount}-product_name" class="form-control" id="id_form-${formCount}-product_name" placeholder="Dining Table" />
-                    </div>
-                    <div class="col-md-4">
-                        <label class="form-label" for="id_form-${formCount}-quantity">Quantity</label>
-                        <input type="number" name="form-${formCount}-quantity" class="form-control" id="id_form-${formCount}-quantity" />
-                    </div>
-                </div>
-                <div class="row mb-3">
-                    <div class="col-md-6">
-                        <label for="id_form-${formCount}-warehouse_out_date" class="form-label">Warehouse Out Date</label>
-                        <input type="date" name="form-${formCount}-date" class="form-control" id="id_form-${formCount}-warehouse_out_date" value="2024-06-01" />
-                    </div>
-                    <div class="col-md-6">
-                        <label for="id_form-${formCount}-customer_arrival_date" class="form-label">Customer Arrival Date</label>
-                        <input type="date" name="form-${formCount}-date" class="form-control" id="id_form-${formCount}-customer_arrival_date" value="2024-06-01" />
-                    </div>
-                </div>
-                <hr />
-            `;
-            formContainer.appendChild(newForm);
-            formCount++;
-        });
-    });
-    </script>
 {% endblock %}

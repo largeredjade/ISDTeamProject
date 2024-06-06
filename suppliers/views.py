@@ -13,17 +13,19 @@ def create_supplier(request):
         if form.is_valid():
             form.save()
             return redirect('supplier_list')
-        else:
-            form = SupplierDetailForm()
-        return render(request, 'html/supplier/../templates/html/supplier_create.html', {'form':form})
+    else:
+        form = SupplierDetailForm()
+    return render(request, 'html/supplier_create.html', {'form': form})
 
 def update_supplier(request, supplier_id):
     supplier = Supplier.objects.get(supplier_id=supplier_id)
-    form = SupplierDetailForm(request.POST or None,instance=supplier)
+    form = SupplierDetailForm(request.POST or None, instance=supplier)
     if form.is_valid():
         form.save()
         return redirect('supplier_list')
-    return render(request, 'html/supplier_update.html',{'form':form, 'supplier':supplier})
+    else:
+        form = SupplierDetailForm(instance=supplier)
+    return render(request, 'html/supplier_update.html',{'form': form})
 
 def delete_supplier(request, supplier_id):
     supplier = Supplier.objects.get(supplier_id=supplier_id)
@@ -31,4 +33,4 @@ def delete_supplier(request, supplier_id):
     if request.method == 'POST':
         supplier.delete()
         return redirect('supplier_list')
-    return render(request, 'html/supplier/../templates/html/supplier_delete.html', {'supplier':supplier})
+    return render(request, 'html/supplier_delete.html', {'supplier':supplier})

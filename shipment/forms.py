@@ -9,3 +9,4 @@ class ShipmentDetailForm(forms.ModelForm):
     class Meta:
         model = ShipmentDetail
         fields = '__all__'
+

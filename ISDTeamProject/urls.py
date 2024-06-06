@@ -8,6 +8,7 @@ from ISDTeamProject import views
 urlpatterns = [
     path("admin/", admin.site.urls),
     path('users/', include('Users.urls')),
+    path('delivery/', include('deliveries.urls')),
     path('shipment/', include('shipment.urls')),
     path('supplier/', include('suppliers.urls')),
     path('',views.homepage, name='homepage'),

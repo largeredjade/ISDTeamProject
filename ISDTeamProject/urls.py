@@ -12,6 +12,6 @@ urlpatterns = [
     path('shipment/', include('shipment.urls')),
     path('supplier/', include('suppliers.urls')),
     path('hompage/',views.homepage, name='homepage'),
-    path('', include('django.contrib.auth.urls')),
+    #path('accounts/', include('django.contrib.auth.urls')),
 
 ]+static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

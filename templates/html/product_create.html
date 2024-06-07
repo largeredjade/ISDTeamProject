@@ -259,77 +259,71 @@
                 <div class="card-header d-flex justify-content-between align-items-center">
                     <div class="d-flex align-items-center">
                         <h5 class="mb-0 me-3">Product ID:</h5>
-                        <input type="text" class="form-control" id="product-id" placeholder="Enter Product ID" style="flex: 1; max-width: 200px;" />
+                        <input type="text" class="form-control" id="product-id" name="product_id" placeholder="Enter Product ID" style="flex: 1; max-width: 200px;" />
                     </div>
                 </div>
                 <div class="card-body">
                     <form method="post" id="product-form">
-                        
                         <div id="form-container">
                             <div class="container">
                                 <div class="row mb-3">
-                                    
                                     <div class="col-md-6">
-                                        <label class="form-label" for="basic-default-company">Product Name</label>
-                                        <input type="text" class="form-control" id="basic-default-company" name="product_name" placeholder="Dining Table" />
+                                        <label class="form-label" for="product-name">Product Name</label>
+                                        <input type="text" class="form-control" id="product-name" name="product_name" placeholder="Dining Table" required />
                                     </div>
                                     <div class="col-md-6">
-                                        <label class="form-label" for="typeNumber">Quantity</label>
-                                        <input type="number" id="typeNumber" class="form-control" name="quantity" />
+                                        <label class="form-label" for="quantity">Quantity</label>
+                                        <input type="number" id="quantity" class="form-control" name="quantity" required />
                                     </div>
                                 </div>
                                 <div class="row mb-3">
                                     <div class="col-md-6">
-                                        <label class="form-label" for="basic-default-company">Category</label>
-                                        <input type="text" class="form-control" id="basic-default-company" name="product_category" placeholder="Table" />
+                                        <label class="form-label" for="product-category">Category</label>
+                                        <input type="text" class="form-control" id="product-category" name="product_category" placeholder="Table" required />
                                     </div>
-                                    
                                     <div class="col-md-6">
-                                        <label class="form-label" for="basic-default-company">Selling Price</label>
-                                        <input type="text" class="form-control" id="basic-default-company" name="product_sellingprice" placeholder="₩ " />
-                                    
+                                        <label class="form-label" for="selling-price">Selling Price</label>
+                                        <input type="text" class="form-control" id="selling-price" name="product_sellingprice" placeholder="₩" required />
                                     </div>
                                 </div>
                                 <div class="row mb-3">
                                     <div class="col-md-4">
-                                        <label class="form-label" for="basic-default-fullname">Volumn</label>
-                                        <input type="text" class="form-control" id="basic-default-fullname" name="product_volume" placeholder="30cm2" />
+                                        <label class="form-label" for="product-volume">Volume</label>
+                                        <input type="text" class="form-control" id="product-volume" name="product_volume" placeholder="30cm²" required />
                                     </div>
                                     <div class="col-md-4">
-                                        <label class="form-label" for="basic-default-company">Weight</label>
-                                        <input type="text" class="form-control" id="basic-default-company" name="product_weight" placeholder="100kg" />
+                                        <label class="form-label" for="product-weight">Weight</label>
+                                        <input type="text" class="form-control" id="product-weight" name="product_weight" placeholder="100kg" required />
                                     </div>
                                     <div class="col-md-4">
-                                        <label class="form-label" for="basic-default-company">Location</label>
-                                        <input type="text" class="form-control" id="basic-default-company" name="product_location" placeholder="A" />
+                                        <label class="form-label" for="product-location">Location</label>
+                                        <input type="text" class="form-control" id="product-location" name="product_location" placeholder="A" required />
                                     </div>
                                 </div>
                                 <div class="row mb-3">
                                     <div class="col-md-4">
-                                        <label class="form-label" for="basic-default-fullname">M cost</label>
-                                        <input type="text" class="form-control" id="basic-default-fullname" name="maintanence_cost" placeholder="₩" />
+                                        <label class="form-label" for="maintenance-cost">Maintenance Cost</label>
+                                        <input type="text" class="form-control" id="maintenance-cost" name="maintenance_cost" placeholder="₩" required />
                                     </div>
                                     <div class="col-md-4">
-                                        <label class="form-label" for="typeNumber">Stock</label>
-                                        <input type="number" id="typeNumber" class="form-control" name="stock" />
+                                        <label class="form-label" for="stock">Stock</label>
+                                        <input type="number" id="stock" class="form-control" name="stock" required />
                                     </div>
                                     <div class="col-md-4">
-                                        <label class="form-label" for="typeNumber">Min Qty</label>
-                                        <input type="number" id="typeNumber" class="form-control" name="min_qty" />
+                                        <label class="form-label" for="min-qty">Min Qty</label>
+                                        <input type="number" id="min-qty" class="form-control" name="min_qty" required />
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <button type="submit" class="btn btn-primary">Create</button>
                     </form>
                 </div>
             </div>
         </div>
-
-            
-            </div>
-          </div>
         </div>
+      </div>
+    </div>
     
         <!-- Core JS -->
         <!-- build:js assets/vendor/js/core.js -->
@@ -341,5 +335,6 @@
         <script src="../../static/assets/vendor/js/menu.js"></script>
         <!-- endbuild -->
         <script src="../../static/assets/js/main.js"></script>
+        
   </body>
 </html>

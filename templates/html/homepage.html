@@ -126,7 +126,7 @@
           <ul class="menu-inner py-1">
             <!-- Left Navi Bar -->
             <li class="menu-item">
-              <a href="{% url 'homepage'}" class="menu-link">
+              <a href="{% url 'homepage' %}" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-home-circle"></i>
                 <div data-i18n="Analytics">Dashboard</div>
               </a>
@@ -197,19 +197,6 @@
             </div>
 
             <div class="navbar-nav-right d-flex align-items-center" id="navbar-collapse">
-              <!-- Search -->
-                <!--검색창 삭제
-              <div class="navbar-nav align-items-center">
-                <div class="nav-item d-flex align-items-center">
-                  <i class="bx bx-search fs-4 lh-0"></i>
-                  <input
-                    type="text"
-                    class="form-control border-0 shadow-none"
-                    placeholder="Search..."
-                    aria-label="Search..."
-                  />
-                </div>
-              </div> -->
                 <ul class="navbar-nav flex-row align-items-center ms-auto"> 
                 <!-- User -->
                     <li class="nav-item navbar-dropdown dropdown-user dropdown">
@@ -223,10 +210,8 @@
                           <a class="dropdown-item" href="#">
                             <div class="d-flex">
                               <div class="flex-grow-1">
-                                {% if user.is_authenticated %}
-                                    <span class="fw-semibold d-block">{{ user.user_name }}</span>
-                                    <small class="text-muted">{{ user.user_role }}</small>
-                                {% endif %}
+                                <span class="fw-semibold d-block">John</span>
+                                <small class="text-muted">Manager</small>
                               </div>
                             </div>
                           </a>
@@ -259,7 +244,6 @@
           <!-- Content -->
           <div class="container-xxl flex-grow-1 container-p-y">
             <div class="row">
-              
 
               <!-- Warehouse Overview -->
               <div class="col-12 col-lg-8 mb-4">
@@ -278,40 +262,41 @@
                   
               </div>
               <!-- Hidden elements containing product locations -->
-              <div id="product-data" style="display:none;">
+              <div id="product_data" style="display:none;">
                 {% for product in products %}
                     <div class="product">
-                        <span class="product-qty">{{ product.product_qty }}</span>
-                        <span class="product-volume">{{ product.product_volume }}</span>
-                        <span class="product-location">{{ product.product_location }}</span>
-                        <span class="product-location">{{ product.product_category }}</span>
-                    <span class="product-location">{{ product.maintenance_cost }}</span>
+                        <span class="product_qty">{{ product.product_qty }}</span>
+                        <span class="product_volume">{{ product.product_volume }}</span>
+                        <span class="product_location">{{ product.product_location }}</span>
+                        <span class="product_category">{{ product.product_category }}</span>
+                        <span class="maintenance_cost">{{ product.maintenance_cost }}</span>
+                    <span class="product_sellingprice">{{ product.product_sellingprice }}</span>
                     </div>
                 {% endfor %}
                 {% for orderdetail in orderdetails %}
-                    <div class="order-detail">
-                        <span class="order-detail-category">{{ orderdetail.product.product_category }}</span>
-                        <span class="order-detail-qty">{{ orderdetail.detail_qty }}</span>
+                    <div class="orderdetail">
+                        <span class="orderdetail_category">{{ orderdetail.product.product_category }}</span>
+                        <span class="detail_qty">{{ orderdetail.detail_qty }}</span>
                     </div>
                 {% endfor %}
               {% for delivery in deliveries %}
                     <div class="delivery">
-                        <span class="delivery-date">{{ delivery.delivery_date }}</span>
+                        <span class="delivery_date">{{ delivery.delivery_date }}</span>
                     </div>
                 {% endfor %}
                 {% for deliverydetail in deliverydetails %}
-                    <div class="delivery-detail">
-                        <span class="delivery-detail-qty">{{ deliverydetail.detail_qty }}</span>
+                    <div class="deliverydetail">
+                        <span class="detail_qty">{{ deliverydetail.detail_qty }}</span>
                     </div>
                 {% endfor %}
                 {% for shipment in shipments %}
                     <div class="shipment">
-                        <span class="shipment-date">{{ shipment.shipment_date }}</span>
+                        <span class="shipment_date">{{ shipment.shipment_date }}</span>
                     </div>
                 {% endfor %}
                 {% for shipmentdetail in shipmentdetails %}
-                    <div class="shipment-detail">
-                        <span class="shipment-detail-qty">{{ shipmentdetail.detail_qty }}</span>
+                    <div class="shipmentdetail">
+                        <span class="detail_qty">{{ shipmentdetail.detail_qty }}</span>
                     </div>
                 {% endfor %}
             </div>
@@ -430,21 +415,6 @@
             </div>
         </div>
     </div>
-          <div id="product-data" style="display:none;">
-                {% for product in products %}
-                    <div class="product">
-                        <span class="product-qty">{{ product.product_qty }}</span>
-                        <span class="product-volume">{{ product.product_volume }}</span>
-                        <span class="product-location">{{ product.product_location }}</span>
-                    </div>
-                {% endfor %}
-                {% for orderdetail in orderdetails %}
-                    <div class="order-detail">
-                        <span class="order-detail-category">{{ orderdetail.product.product_category }}</span>
-                        <span class="order-detail-qty">{{ orderdetail.detail_qty }}</span>
-                    </div>
-                {% endfor %}
-            </div>
             
             <!-- Left Column with 3 cards in 1x3 grid -->
             <div class="col-12 mb-4">
@@ -489,108 +459,13 @@
                     </div>
                   </div>
                 </div>
-                
+                   </div>
+                    </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
-          
-          
-
-              <script>
-           document.addEventListener('DOMContentLoaded', function() {
-            // Get all product elements
-            const products = [];
-            document.querySelectorAll('#product-data .product').forEach(productEl => {
-                const category = productEl.querySelector('.product-category')?.textContent || '';
-                const sellingPrice = parseFloat(productEl.querySelector('.product-sellingprice')?.textContent || '0');
-                console.log(`Product: ${category}, Selling Price: ${sellingPrice}`);
-                products.push({
-                    category,
-                    sellingPrice
-                });
-            });
-        
-            // Get all order details
-            const orderDetails = [];
-            document.querySelectorAll('#product-data .order-detail').forEach(detailEl => {
-                const category = detailEl.querySelector('.order-detail-category')?.textContent || '';
-                const qty = parseFloat(detailEl.querySelector('.order-detail-qty')?.textContent || '0');
-                console.log(`Order Detail: ${category}, Qty: ${qty}`);
-                orderDetails.push({
-                    category,
-                    qty
-                });
-            });
-        
-            // Calculate revenue for each category
-            const revenueByCategory = orderDetails.reduce((acc, detail) => {
-                const product = products.find(p => p.category === detail.category);
-                if (product) {
-                    const revenue = detail.qty * product.sellingPrice;
-                    if (acc[detail.category]) {
-                        acc[detail.category] += revenue;
-                    } else {
-                        acc[detail.category] = revenue;
-                    }
-                }
-                return acc;
-            }, {});
-        
-            console.log('Revenue by Category:', revenueByCategory);
-        
-            // Update HTML with calculated revenues
-            document.getElementById('table-revenue').textContent = `${(revenueByCategory['Table'] / 1000 || 0).toFixed(1)}`;
-            document.getElementById('sofa-revenue').textContent = `${(revenueByCategory['Sofa'] / 1000 || 0).toFixed(1)}`;
-            document.getElementById('lamp-revenue').textContent = `${(revenueByCategory['Lamp'] / 1000 || 0).toFixed(1)}`;
-            document.getElementById('chair-revenue').textContent = `${(revenueByCategory['Chair'] / 1000 || 0).toFixed(1)}`;
-        });
-           
-        // Number of Arrived Product
-            document.addEventListener("DOMContentLoaded", function() {
-                const today = new Date().toISOString().split('T')[0];
-                let arrivedCount = 0;
-        
-                document.querySelectorAll(".delivery").forEach(delivery => {
-                    const deliveryDate = delivery.querySelector(".delivery-date").textContent.trim();
-                    if (deliveryDate === today) {
-                        document.querySelectorAll(".delivery-detail").forEach(deliveryDetail => {
-                            arrivedCount += parseInt(deliveryDetail.querySelector(".delivery-detail-qty").textContent.trim(), 10);
-                        });
-                    }
-                });
-        
-                document.getElementById("delivered-product").textContent = arrivedCount;
-            });
-            
-        // Calculating CO2 emissions
-        
-        document.addEventListener('DOMContentLoaded', function() {
-    // Get all product elements
-    const products = [];
-    document.querySelectorAll('#product-data .product').forEach(productEl => {
-        const maintenanceCost = parseFloat(productEl.querySelector('.product-maintenance-cost')?.textContent.trim() || '0');
-        console.log(`Maintenance Cost: ${maintenanceCost}`);  // 디버깅 로그
-        products.push({ maintenanceCost });
-    });
-
-    // Calculate total maintenance cost
-    const totalMaintenanceCost = products.reduce((sum, product) => sum + product.maintenanceCost, 0);
-    console.log(`Total Maintenance Cost: ${totalMaintenanceCost}`);  // 디버깅 로그
-
-    // Calculate CO2 emissions
-    const co2Emissions = (totalMaintenanceCost / 78.6) * 0.4781;
-    console.log(`CO2 Emissions: ${co2Emissions}`);  // 디버깅 로그
-
-    // Update the CO2 emissions value in the HTML
-    document.getElementById('co2-emissions').textContent = co2Emissions.toFixed(2);
-});
-
-           
-
-                
-
-              </script>
-
-            
           
             <!-- Add this CSS to ensure height consistency -->
   <style>
@@ -630,44 +505,114 @@
   <div class="content-backdrop fade"></div>
 </div>
 <!-- Content wrapper -->
+    
 
-<!-- Core JS -->
-<!-- build:js assets/vendor/js/core.js -->
-<script src="{%static 'assets/vendor/libs/jquery/jquery.js' %}"></script>
-<script src="{%static 'assets/vendor/libs/popper/popper.js'  %}"></script>
-<script src="{% static 'assets/vendor/js/bootstrap.js' %}"></script>
-<script src="{% static 'assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js' %}"></script>
-
-<script src="{% static 'assets/vendor/js/menu.js'%}"></script>
-<!-- endbuild -->
-
-<!-- Vendors JS -->
-<script src="{% static 'assets/vendor/libs/apex-charts/apexcharts.js' %}"></script>
-
-<!-- Main JS -->
-<script src="{% static 'assets/js/main.js' %}"></script>
-
-<!-- Page JS -->
-<script src="{% static 'assets/js/dashboards-analytics.js' %}"></script>
-
-<!-- Chart.js CDN -->
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
-<!-- Chart JS Code -->
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-    // Get all product elements
+    // 1. 제품 데이터 추출
     const products = [];
-    document.querySelectorAll('#product-data .product').forEach(productEl => {
-        const category = productEl.querySelector('.product-category')?.textContent.trim() || '';
-        const qty = parseFloat(productEl.querySelector('.product-qty')?.textContent.trim() || '0');
-        const maintenanceCost = parseFloat(productEl.querySelector('.product-maintenance-cost')?.textContent.trim() || '0');
-        products.push({ category, qty, maintenanceCost });
+    document.querySelectorAll('#product_data .product').forEach(productEl => {
+        const category = productEl.querySelector('.product_category')?.textContent.trim() || '';
+        const qty = parseFloat(productEl.querySelector('.product_qty')?.textContent.trim() || '0');
+        const maintenanceCost = parseFloat(productEl.querySelector('.maintenance_cost')?.textContent.trim() || '0');
+        const sellingPrice = parseFloat(productEl.querySelector('.product_sellingprice')?.textContent.trim() || '0');
+        products.push({ category, qty, maintenanceCost, sellingPrice });
     });
+    console.log('Products:', products);
 
-    // Calculate average quantity and carrying cost for each category
+
+    // 2. 주문 상세 데이터 추출
+    const orderDetails = [];
+    document.querySelectorAll('#product_data .orderdetail').forEach(detailEl => {
+        const category = detailEl.querySelector('.orderdetail_category')?.textContent.trim() || '';
+        const qty = parseFloat(detailEl.querySelector('.detail_qty')?.textContent.trim() || '0');
+        orderDetails.push({ category, qty });
+    });
+    console.log('Order Details:', orderDetails);
+
+
+    // 3. 배송 데이터 추출
+    const deliveries = [];
+    document.querySelectorAll('#product_data .delivery').forEach(deliveryEl => {
+        const deliveryDate = deliveryEl.querySelector('.delivery_date')?.textContent.trim() || '';
+        deliveries.push({ deliveryDate });
+    });
+    console.log('Deliveries:', deliveries);
+
+
+    // 4. 배송 상세 데이터 추출
+    const deliveryDetails = [];
+    document.querySelectorAll('#product_data .deliverydetail').forEach(deliveryDetailEl => {
+        const detailQty = parseFloat(deliveryDetailEl.querySelector('.detail_qty')?.textContent.trim() || '0');
+        deliveryDetails.push({ detailQty });
+    });
+    console.log('Delivery Details:', deliveryDetails);
+
+
+    // 5. 발송 데이터 추출
+    const shipments = [];
+    document.querySelectorAll('#product_data .shipment').forEach(shipmentEl => {
+        const shipmentDate = shipmentEl.querySelector('.shipment_date')?.textContent.trim() || '';
+        shipments.push({ shipmentDate });
+    });
+    console.log('Shipments:', shipments);
+
+
+    // 6. 발송 상세 데이터 추출
+    const shipmentDetails = [];
+    document.querySelectorAll('#product_data .shipmentdetail').forEach(shipmentDetailEl => {
+        const detailQty = parseFloat(shipmentDetailEl.querySelector('.detail_qty')?.textContent.trim() || '0');
+        shipmentDetails.push({ detailQty });
+    });
+    console.log('Shipment Details:', shipmentDetails);
+    
+
+    // 7. 카테고리별 매출 계산
+    const revenueByCategory = orderDetails.reduce((acc, detail) => {
+        const product = products.find(p => p.category === detail.category);
+        if (product) {
+            const revenue = detail.qty * product.sellingPrice;
+            acc[detail.category] = (acc[detail.category] || 0) + revenue;
+        }
+        return acc;
+    }, {});
+    console.log('Revenue by Category:', revenueByCategory);
+
+
+    // 매출 업데이트
+    document.getElementById('table-revenue').textContent = `${(revenueByCategory['Table'] / 1000 || 0).toFixed(1)}`;
+    document.getElementById('sofa-revenue').textContent = `${(revenueByCategory['Sofa'] / 1000 || 0).toFixed(1)}`;
+    document.getElementById('lamp-revenue').textContent = `${(revenueByCategory['Lamp'] / 1000 || 0).toFixed(1)}`;
+    document.getElementById('chair-revenue').textContent = `${(revenueByCategory['Chair'] / 1000 || 0).toFixed(1)}`;
+
+    // 8. 오늘 도착한 제품 수 계산
+    const today = new Date().toISOString().split('T')[0];
+    let arrivedCount = 0;
+    deliveries.forEach(delivery => {
+        if (delivery.deliveryDate === today) {
+            deliveryDetails.forEach(deliveryDetail => {
+                arrivedCount += deliveryDetail.detailQty;
+            });
+        }
+    });
+    console.log('Arrived Products Today:', arrivedCount);
+
+    
+    // 도착한 제품 수 업데이트
+    document.getElementById('delivered-product').textContent = arrivedCount;
+
+    // 9. CO2 배출량 계산 및 업데이트
+    const totalMaintenanceCost = products.reduce((sum, product) => sum + product.maintenanceCost, 0);
+    const co2Emissions = (totalMaintenanceCost / 78.6) * 0.4781;
+    document.getElementById('co2-emissions').textContent = co2Emissions.toFixed(2);
+    console.log('CO2 Emissions:', co2Emissions);
+
+
+    // 10. 카테고리별 평균 유지 비용 계산 및 차트 업데이트
     const categories = ['Table', 'Sofa', 'Lamp', 'Chair'];
     const carryingCosts = {};
+    console.log('Carrying Costs by Category:', carryingCosts);
+    
 
     categories.forEach(category => {
         const categoryProducts = products.filter(p => p.category === category);
@@ -682,11 +627,9 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    console.log('Carrying Costs by Category:', carryingCosts);
-
-    // Update chart data
-    var ctx = document.getElementById('costComparisonChart').getContext('2d');
-    var costComparisonChart = new Chart(ctx, {
+    // 차트 업데이트
+    const ctx = document.getElementById('costComparisonChart').getContext('2d');
+    new Chart(ctx, {
         type: 'bar',
         data: {
             labels: categories,
@@ -729,7 +672,29 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
-
 </script>
+
+  <!-- Core JS -->
+<!-- build:js assets/vendor/js/core.js -->
+<script src="{%static 'assets/vendor/libs/jquery/jquery.js' %}"></script>
+<script src="{%static 'assets/vendor/libs/popper/popper.js'  %}"></script>
+<script src="{% static 'assets/vendor/js/bootstrap.js' %}"></script>
+<script src="{% static 'assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js' %}"></script>
+
+<script src="{% static 'assets/vendor/js/menu.js'%}"></script>
+<!-- endbuild -->
+
+<!-- Vendors JS -->
+<script src="{% static 'assets/vendor/libs/apex-charts/apexcharts.js' %}"></script>
+
+<!-- Main JS -->
+<script src="{% static 'assets/js/main.js' %}"></script>
+
+<!-- Page JS -->
+<script src="{% static 'assets/js/dashboards-analytics.js' %}"></script>
+
+<!-- Chart.js CDN -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+       
 </body>
 </html>

@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html>
 
 <html
@@ -20,7 +22,7 @@
     <meta name="description" content="" />
 
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="../../static/assets/img/favicon/favicon.ico" />
+    <link rel="icon" type="image/x-icon"  href="{% static 'assets/img/favicon/favicon.ico' %}" />
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -31,26 +33,22 @@
     />
 
     <!-- Icons. Uncomment required icon fonts -->
-    <link rel="stylesheet" href="../../static/assets/vendor/fonts/boxicons.css" />
+    <link rel="stylesheet" href="{% static 'assets/vendor/fonts/boxicons.css' %}" />
 
     <!-- Core CSS -->
-    <link rel="stylesheet" href="../../static/assets/vendor/css/core.css" class="template-customizer-core-css" />
-    <link rel="stylesheet" href="../../static/assets/vendor/css/theme-default.css" class="template-customizer-theme-css" />
-    <link rel="stylesheet" href="../../static/assets/css/demo.css" />
+    <link rel="stylesheet" href="{% static 'assets/vendor/css/core.css'%}" class="template-customizer-core-css" />
+    <link rel="stylesheet" href="{% static 'assets/vendor/css/theme-default.css'%}" class="template-customizer-theme-css" />
+    <link rel="stylesheet" href="{% static 'assets/css/demo.css'%}" />
 
     <!-- Vendors CSS -->
-    <link rel="stylesheet" href="../../static/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
+    <link rel="stylesheet" href="{% static 'assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css' %}" />
 
-    <link rel="stylesheet" href="../../static/assets/vendor/libs/apex-charts/apex-charts.css" />
+    <link rel="stylesheet" href="{% static 'assets/vendor/libs/apex-charts/apex-charts.css' %}" />
 
     <!-- Page CSS -->
 
-    <!-- Helpers -->
-    <script src="../../static/assets/vendor/js/helpers.js"></script>
-
-    <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
-    <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
-    <script src="../../static/assets/js/config.js"></script>
+    <script src="{% static 'assets/vendor/js/helpers.js'%}"></script>
+    <script src="{% static 'assets/js/config.js'%}"></script>
   </head>
 
   <body>
@@ -225,8 +223,10 @@
                           <a class="dropdown-item" href="#">
                             <div class="d-flex">
                               <div class="flex-grow-1">
-                                <span class="fw-semibold d-block">John</span>
-                                <small class="text-muted">Manager</small>
+                                {% if user.is_authenticated %}
+                                    <span class="fw-semibold d-block">{{ user.user_name }}</span>
+                                    <small class="text-muted">{{ user.user_role }}</small>
+                                {% endif %}
                               </div>
                             </div>
                           </a>
@@ -454,7 +454,7 @@
                         <div class="card-body">
                             <div class="card-title d-flex align-items-start justify-content-between">
                                 <div class="avatar flex-shrink-0">
-                                    <img src="../../static/assets/img/icons/unicons/paypal.png" alt="Credit Card" class="rounded" />
+                                    <img src="{% static 'assets/img/icons/unicons/paypal.png' %}" alt="Credit Card" class="rounded" />
                                 </div>
                             </div>
                             <span class="d-block mb-1">Number of products <b>Arrived</b> today</span>
@@ -467,7 +467,7 @@
                         <div class="card-body">
                             <div class="card-title d-flex align-items-start justify-content-between">
                                 <div class="avatar flex-shrink-0">
-                                    <img src="../../static/assets/img/icons/unicons/paypal.png" alt="Credit Card" class="rounded" />
+                                    <img src="{ static 'assets/img/icons/unicons/paypal.png' %}" alt="Credit Card" class="rounded" />
                                 </div>
                             </div>
                             <span class="d-block mb-1">Number of products <b>Shipped</b> today</span>
@@ -481,7 +481,7 @@
                     <div class="card-body">
                       <div class="card-title d-flex align-items-start justify-content-between">
                         <div class="avatar flex-shrink-0">
-                          <img src="../../static/assets/img/icons/unicons/chart-success.png" alt="chart success" class="rounded" />
+                          <img src="{% static 'assets/img/icons/unicons/chart-success.png' %}" alt="chart success" class="rounded" />
                         </div>
                       </div>
                         <span class="d-block mb-1"><b>CO2</b> emissions today(Kg)</span>
@@ -633,22 +633,22 @@
 
 <!-- Core JS -->
 <!-- build:js assets/vendor/js/core.js -->
-<script src="../../static/assets/vendor/libs/jquery/jquery.js"></script>
-<script src="../../static/assets/vendor/libs/popper/popper.js"></script>
-<script src="../../static/assets/vendor/js/bootstrap.js"></script>
-<script src="../../static/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+<script src="{%static 'assets/vendor/libs/jquery/jquery.js' %}"></script>
+<script src="{%static 'assets/vendor/libs/popper/popper.js'  %}"></script>
+<script src="{% static 'assets/vendor/js/bootstrap.js' %}"></script>
+<script src="{% static 'assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js' %}"></script>
 
-<script src="../../static/assets/vendor/js/menu.js"></script>
+<script src="{% static 'assets/vendor/js/menu.js'%}"></script>
 <!-- endbuild -->
 
 <!-- Vendors JS -->
-<script src="../../static/assets/vendor/libs/apex-charts/apexcharts.js"></script>
+<script src="{% static 'assets/vendor/libs/apex-charts/apexcharts.js' %}"></script>
 
 <!-- Main JS -->
-<script src="../../static/assets/js/main.js"></script>
+<script src="{% static 'assets/js/main.js' %}"></script>
 
 <!-- Page JS -->
-<script src="../../static/assets/js/dashboards-analytics.js"></script>
+<script src="{% static 'assets/js/dashboards-analytics.js' %}"></script>
 
 <!-- Chart.js CDN -->
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>

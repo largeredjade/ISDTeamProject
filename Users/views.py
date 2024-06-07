@@ -11,6 +11,17 @@ class SignUpView(CreateView):
     success_url = reverse_lazy("login")
     template_name = "registration/signup.html"
 
+    def form_valid(self, form):
+        password = form.cleaned_data['password']
+
+        user = form.save(commit=False)
+        user.set_password(password)
+        user.save()
+
+        return super().form_valid(form)
+
+
+
 class CustomLoginView(LoginView):
     template_name = 'registration/login.html'
     authentication_form = CustomAuthenticationForm

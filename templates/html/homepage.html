@@ -143,17 +143,17 @@
 
               <ul class="menu-sub">
                 <li class="menu-item">
-                  <a href="{% url 'product_list' %}" class="menu-link">
+                  <a href="" class="menu-link">
                     <div data-i18n="Without menu">Product List</div>
                   </a>
                 </li>
                 <li class="menu-item">
-                  <a href="{% url 'order_create' %}" class="menu-link">
+                  <a href="" class="menu-link">
                     <div data-i18n="Without navbar">Purchase</div>
                   </a>
                 </li>
                 <li class="menu-item">
-                  <a href="{% url 'order_list' %}" class="menu-link">
+                  <a href="" class="menu-link">
                     <div data-i18n="Container">Ordered List</div>
                   </a>
                 </li>
@@ -235,10 +235,16 @@
                           <div class="dropdown-divider"></div>
                         </li>
                         <li>
-                          <a class="dropdown-item" href="login-basic.html">
+                          <!-- 숨겨진 로그아웃 폼 -->
+                          <form id="logout-form" method="post" action="{% url 'logout' %}" style="display: none;">
+                            {% csrf_token %}
+                        </form>
+                        
+                        <!-- 로그아웃 링크 -->
+                        <a class="dropdown-item" href="#" onclick="document.getElementById('logout-form').submit();">
                             <i class="bx bx-power-off me-2"></i>
                             <span class="align-middle">Log Out</span>
-                          </a>
+                        </a>
                         </li>
                       </ul>
                     </li>

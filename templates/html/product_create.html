@@ -259,7 +259,7 @@
                 <div class="card-header d-flex justify-content-between align-items-center">
                     <div class="d-flex align-items-center">
                         <h5 class="mb-0 me-3">Product ID:</h5>
-                        <input type="text" class="form-control" id="product-id" name="product_id" placeholder="Enter Product ID" style="flex: 1; max-width: 200px;" />
+                        <input type="text" class="form-control" id="product_id" name="product_id" placeholder="Enter Product ID" style="flex: 1; max-width: 200px;" />
                     </div>
                 </div>
                 <div class="card-body">
@@ -268,50 +268,58 @@
                             <div class="container">
                                 <div class="row mb-3">
                                     <div class="col-md-6">
-                                        <label class="form-label" for="product-name">Product Name</label>
-                                        <input type="text" class="form-control" id="product-name" name="product_name" placeholder="Dining Table" required />
-                                    </div>
-                                    <div class="col-md-6">
-                                        <label class="form-label" for="quantity">Quantity</label>
-                                        <input type="number" id="quantity" class="form-control" name="quantity" required />
+                                        <label class="form-label" for="product_name">Product Name</label>
+                                        <input type="text" class="form-control" id="product_name" name="product_name" placeholder="Dining Table" required />
                                     </div>
                                 </div>
                                 <div class="row mb-3">
                                     <div class="col-md-6">
-                                        <label class="form-label" for="product-category">Category</label>
-                                        <input type="text" class="form-control" id="product-category" name="product_category" placeholder="Table" required />
+                                        <label class="form-label" for="product_category">Category</label>
+                                        <select class="form-control" id="product_category" name="product_category" required>
+                                            <option value="">Select a category</option>
+                                            <option value="Table">Table</option>
+                                            <option value="Sofa">Sofa</option>
+                                            <option value="Lamp">Lamp</option>
+                                            <option value="Chair">Chair</option>
+                                        </select>
                                     </div>
                                     <div class="col-md-6">
-                                        <label class="form-label" for="selling-price">Selling Price</label>
-                                        <input type="text" class="form-control" id="selling-price" name="product_sellingprice" placeholder="₩" required />
+                                        <label class="form-label" for="product_sellingprice">Selling Price</label>
+                                        <input type="text" class="form-control" id="product_sellingprice" name="product_sellingprice" placeholder="₩" required />
                                     </div>
                                 </div>
                                 <div class="row mb-3">
                                     <div class="col-md-4">
-                                        <label class="form-label" for="product-volume">Volume</label>
-                                        <input type="text" class="form-control" id="product-volume" name="product_volume" placeholder="30cm²" required />
+                                        <label class="form-label" for="product_volume">Volume</label>
+                                        <input type="text" class="form-control" id="product_volume" name="product_volume" placeholder="30cm²" required />
                                     </div>
                                     <div class="col-md-4">
-                                        <label class="form-label" for="product-weight">Weight</label>
-                                        <input type="text" class="form-control" id="product-weight" name="product_weight" placeholder="100kg" required />
+                                        <label class="form-label" for="product_weight">Weight</label>
+                                        <input type="text" class="form-control" id="product_weight" name="product_weight" placeholder="100kg" required />
                                     </div>
                                     <div class="col-md-4">
-                                        <label class="form-label" for="product-location">Location</label>
-                                        <input type="text" class="form-control" id="product-location" name="product_location" placeholder="A" required />
+                                        <label class="form-label" for="product_location">Location</label>
+                                        <select class="form-control" id="product_location" name="product_location" required>
+                                            <option value="">Select a Location</option>
+                                            <option value="Table">A</option>
+                                            <option value="Sofa">B</option>
+                                            <option value="Lamp">C</option>
+                                            <option value="Chair">D</option>
+                                        </select>
                                     </div>
                                 </div>
                                 <div class="row mb-3">
                                     <div class="col-md-4">
-                                        <label class="form-label" for="maintenance-cost">Maintenance Cost</label>
-                                        <input type="text" class="form-control" id="maintenance-cost" name="maintenance_cost" placeholder="₩" required />
+                                        <label class="form-label" for="maintenance_cost">Maintenance Cost</label>
+                                        <input type="text" class="form-control" id="maintenance_cost" name="maintenance_cost" placeholder="₩" required />
                                     </div>
                                     <div class="col-md-4">
-                                        <label class="form-label" for="stock">Stock</label>
-                                        <input type="number" id="stock" class="form-control" name="stock" required />
+                                        <label class="form-label" for="product_qty">Stock</label>
+                                        <input type="number" id="product_qty" class="form-control" name="product_qty" required />
                                     </div>
                                     <div class="col-md-4">
-                                        <label class="form-label" for="min-qty">Min Qty</label>
-                                        <input type="number" id="min-qty" class="form-control" name="min_qty" required />
+                                        <label class="form-label" for="product_minQty">Min Qty</label>
+                                        <input type="number" id="product_minQty" class="form-control" name="product_minQty" required />
                                     </div>
                                 </div>
                             </div>
@@ -321,6 +329,8 @@
                 </div>
             </div>
         </div>
+            
+            
         </div>
       </div>
     </div>

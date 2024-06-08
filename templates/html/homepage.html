@@ -569,15 +569,21 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // 7. 카테고리별 매출 계산
     const revenueByCategory = orderDetails.reduce((acc, detail) => {
-        const product = products.find(p => p.category === detail.category);
+        const product = products.find(p => p.category === detail.category); // 대소문자 구분하여 비교
         if (product) {
             const revenue = detail.qty * product.sellingPrice;
-            acc[detail.category] = (acc[detail.category] || 0) + revenue;
+            acc[detail.category] = (acc[detail.category] || 0) + revenue; // 키를 대소문자 구분하여 사용
+            console.log(`Match found for category "${detail.category}": Revenue added: ${revenue}`);
+        } else {
+            console.log(`No matching product found for category: "${detail.category}"`);
         }
         return acc;
     }, {});
+
+
     console.log('Revenue by Category:', revenueByCategory);
 
+    
 
     // 매출 업데이트
     document.getElementById('table-revenue').textContent = `${(revenueByCategory['Table'] / 1000 || 0).toFixed(1)}`;
@@ -597,7 +603,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     console.log('Arrived Products Today:', arrivedCount);
 
-    
+
     // 도착한 제품 수 업데이트
     document.getElementById('delivered-product').textContent = arrivedCount;
 
@@ -695,6 +701,5 @@ document.addEventListener('DOMContentLoaded', function() {
 
 <!-- Chart.js CDN -->
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-       
 </body>
 </html>

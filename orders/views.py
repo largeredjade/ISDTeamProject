@@ -24,6 +24,7 @@ def order_create(request):
         form = OrderForm()
     return render(request, 'html/order_create.html', {'form': form})
 
+
 def order_update(request, order_id):
     order = get_object_or_404(Order, pk=order_id)
     if request.method == 'POST':

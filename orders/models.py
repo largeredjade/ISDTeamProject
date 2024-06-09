@@ -2,15 +2,20 @@ from django.db import models
 from products.models import Product
 from suppliers.models import Supplier
 from Users.models import Users
+from django.contrib.auth.models import User
+from django.conf import settings
 
+    
 # Create your models here.
 class Order(models.Model):
+    
     order_id = models.AutoField(primary_key=True)
-    user = models.ForeignKey(Users, on_delete=models.CASCADE)
     order_date = models.DateField()
-    expected_arrivaldate = models.DateField()
-    order_totalcost = models.DecimalField(max_digits=10, decimal_places=2)
     order_status = models.CharField(max_length=50)
+    user_id = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    order_totalcost = models.DecimalField(max_digits=10, decimal_places=2)
+    expected_arrivaldate = models.DateField()
+
 
     def __str__(self):
         return str(self.order_id)

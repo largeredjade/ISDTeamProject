@@ -12,6 +12,7 @@ urlpatterns = [
     path('delivery/', include('deliveries.urls')),
     path('shipment/', include('shipment.urls')),
     path('supplier/', include('suppliers.urls')),
+    path('orders/', include('orders.urls')),
     path('homepage/',views.homepage, name='homepage'),
     #path('accounts/', include('django.contrib.auth.urls')),
 

@@ -6,7 +6,6 @@ from django.db import models
 
 def order_list(request):
     orders = Order.objects.all()
-    print(orders)  # Check if orders are being retrieved
     return render(request, 'html/order_list.html', {'orders': orders})
 
 def order_detail(request, order_id):
@@ -19,7 +18,7 @@ def order_create(request):
         form = OrderForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('order_list')
+            return redirect('html/order_list.html')
     else:
         form = OrderForm()
     return render(request, 'html/order_create.html', {'form': form})

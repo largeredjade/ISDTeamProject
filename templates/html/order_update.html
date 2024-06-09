@@ -14,37 +14,34 @@
                     <div class="card-body">
                         <form method="post" id="product-form">
                             <div class="row mb-3">
-                                    <div class="col-md-4">
-                                        <label class="form-label" for="basic-default-fullname">Order ID</label>
-                                        <input type="number" class="form-control" id="basic-default-fullname" name="order_id" placeholder="#9901" />
+                                    <div class="col-md-6">
+                                        <label class="form-label" for="order_id">Order ID</label>
+                                        <input type="number" class="form-control" id="order_id" name="order_id" placeholder="#9901" />
                                     </div>
-                                    <div class="col-md-4">
-                                        <label class="form-label" for="basic-default-company">Supplier ID</label>
-                                        <input type="text" class="form-control" id="basic-default-company" name="supplier_id" placeholder="#ABC-001" />
+                                    <div class="col-md-6">
+                                        <label class="form-label" for="user_id">User ID</label>
+                                        <input type="text" class="form-control" id="user_id" name="user_id" placeholder="#ABC-001" />
                                     </div>
-                                    <div class="col-md-4">
-                                        <label class="form-label" for="typeNumber">Detail Quantity</label>
-                                        <input type="number" id="typeNumber" class="form-control" name="quantity" />
+                                    
+                                </div>
+                                <div class="row mb-3">
+                                    <div class="col-md-6">
+                                        <label for="order_totalcost" class="order_totalcost">Total Cost</label>
+                                        <input type="text" id="order_totalcost" class="form-control" name="order_totalcost" placeholder="10000"/>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="estimated_arrivaldate" class="form-label">Estimated ArrivalDate</label>
+                                        <input class="form-control" type="date" name="estimated_arrivaldate" value="2024-06-01" id="estimated_arrivaldate" />
                                     </div>
                                 </div>
                                 <div class="row mb-3">
                                     <div class="col-md-6">
-                                        <label for="exampleFormControlSelect1" class="form-label">Total Cost</label>
-                                        <input type="text" id="basic-default-supplier" class="form-control" name="total_cast" placeholder="₩10,000"/>
+                                        <label for="order_date" class="form-label">Order Date</label>
+                                        <input class="form-control" type="date" name="order_date" value="2024-06-01" id="order_date" />
                                     </div>
                                     <div class="col-md-6">
-                                        <label for="html5-date-input" class="form-label">Estimated ArrivalDate</label>
-                                        <input class="form-control" type="date" name="date" value="2024-06-01" id="arrival-date-input" />
-                                    </div>
-                                </div>
-                                <div class="row mb-3">
-                                    <div class="col-md-6">
-                                        <label for="html5-date-input" class="form-label">Order Date</label>
-                                        <input class="form-control" type="date" name="date" value="2024-06-01" id="order-date-input" />
-                                    </div>
-                                    <div class="col-md-6">
-                                        <label for="exampleFormControlSelect1" class="form-label">Order Status</label>
-                                        <input type="text" id="basic-default-supplier" class="form-control" name="order_status" placeholder="Non-arrived"/>
+                                        <label for="exampleFormControlSelect1" class="order_status">Order Status</label>
+                                        <input type="text" id="order_status" class="form-control" name="order_status" placeholder=""/>
                                     </div>
                                     
                                 </div>

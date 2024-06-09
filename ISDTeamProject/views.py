@@ -16,4 +16,4 @@ def homepage(request):
     products = Product.objects.all()
     users = Users.objects.all()
     suppliers= Supplier.objects.all()
-    return render(request, 'html/homepage.html', {'shipments': shipments, 'shipment_details': shipment_details, 'deliveries': deliveries, 'delivery_details': delivery_details, ' orders': orders, 'order_details': order_details, ' products': products, 'users': users, 'suppliers': suppliers})
+    return render(request, 'html/homepage.html', {'shipments': shipments, 'shipment_details': shipment_details, 'deliveries': deliveries, 'delivery_details': delivery_details, 'orders': orders, 'order_details': order_details, 'products': products, 'users': users, 'suppliers': suppliers})

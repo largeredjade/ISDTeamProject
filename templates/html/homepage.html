@@ -210,8 +210,13 @@
                           <a class="dropdown-item" href="#">
                             <div class="d-flex">
                               <div class="flex-grow-1">
-                                <span class="fw-semibold d-block">John</span>
-                                <small class="text-muted">Manager</small>
+                                 {% if user.is_authenticated %}
+
+                                    <span class="fw-semibold d-block">{{ user.user_name }}</span>
+
+                                    <small class="text-muted">{{ user.user_role }}</small>
+
+                                {% endif %}
                               </div>
                             </div>
                           </a>
@@ -273,10 +278,11 @@
                         <span class="product_sellingprice">{{ product.product_sellingprice }}</span>
                     </div>
                 {% endfor %}
-                {% for orderdetail in orderdetails %}
-                    <div class="orderdetail">
-                        <span class="orderdetail_category">{{ orderdetail.product.product_category }}</span>
-                        <span class="detail_qty">{{ orderdetail.detail_qty }}</span>
+                
+                {% for orderdetail in order_details %}
+                    <div class="order-detail">
+                        <span class="order-detail-category">{{ orderdetail.product.product_category }}</span>
+                        <span class="order-detail-qty">{{ orderdetail.detail_qty }}</span>
                     </div>
                 {% endfor %}
               {% for delivery in deliveries %}
@@ -284,19 +290,19 @@
                         <span class="delivery_date">{{ delivery.delivery_date }}</span>
                     </div>
                 {% endfor %}
-                {% for deliverydetail in deliverydetails %}
-                    <div class="deliverydetail">
-                        <span class="detail_qty">{{ deliverydetail.detail_qty }}</span>
+                {% for deliverydetail in delivery_details %}
+                    <div class="delivery-detail">
+                        <span class="delivery-detail-qty">{{ deliverydetail.detail_qty }}</span>
                     </div>
                 {% endfor %}
                 {% for shipment in shipments %}
                     <div class="shipment">
-                        <span class="shipment_date">{{ shipment.shipment_date }}</span>
+                        <span class="warehouse_outdate">{{ shipment.warehouse_outdate }}</span>
                     </div>
                 {% endfor %}
-                {% for shipmentdetail in shipmentdetails %}
-                    <div class="shipmentdetail">
-                        <span class="detail_qty">{{ shipmentdetail.detail_qty }}</span>
+                {% for shipmentdetail in shipment_details %}
+                    <div class="shipment-detail">
+                        <span class="shipment-detail-qty">{{ shipmentdetail.detail_qty }}</span>
                     </div>
                 {% endfor %}
             </div>
@@ -437,7 +443,7 @@
                         <div class="card-body">
                             <div class="card-title d-flex align-items-start justify-content-between">
                                 <div class="avatar flex-shrink-0">
-                                    <img src="{ static 'assets/img/icons/unicons/paypal.png' %}" alt="Credit Card" class="rounded" />
+                                    <img src="{% static 'assets/img/icons/unicons/paypal.png' %}" alt="Credit Card" class="rounded" />
                                 </div>
                             </div>
                             <span class="d-block mb-1">Number of products <b>Shipped</b> today</span>
@@ -523,9 +529,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // 2. 주문 상세 데이터 추출
     const orderDetails = [];
-    document.querySelectorAll('#product_data .orderdetail').forEach(detailEl => {
-        const category = detailEl.querySelector('.orderdetail_category')?.textContent.trim() || '';
-        const qty = parseFloat(detailEl.querySelector('.detail_qty')?.textContent.trim() || '0');
+    document.querySelectorAll('#product_data .order-detail').forEach(detailEl => {
+        const category = detailEl.querySelector('.order-detail-category')?.textContent.trim() || '';
+        const qty = parseFloat(detailEl.querySelector('.order-detail-qty')?.textContent.trim() || '0');
         orderDetails.push({ category, qty });
     });
     console.log('Order Details:', orderDetails);
@@ -542,8 +548,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // 4. 배송 상세 데이터 추출
     const deliveryDetails = [];
-    document.querySelectorAll('#product_data .deliverydetail').forEach(deliveryDetailEl => {
-        const detailQty = parseFloat(deliveryDetailEl.querySelector('.detail_qty')?.textContent.trim() || '0');
+    document.querySelectorAll('#product_data .delivery-detail').forEach(deliveryDetailEl => {
+        const detailQty = parseFloat(deliveryDetailEl.querySelector('.delivery-detail-qty')?.textContent.trim() || '0');
         deliveryDetails.push({ detailQty });
     });
     console.log('Delivery Details:', deliveryDetails);
@@ -552,7 +558,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // 5. 발송 데이터 추출
     const shipments = [];
     document.querySelectorAll('#product_data .shipment').forEach(shipmentEl => {
-        const shipmentDate = shipmentEl.querySelector('.shipment_date')?.textContent.trim() || '';
+        const shipmentDate = shipmentEl.querySelector('.warehouse_outdate')?.textContent.trim() || '';
         shipments.push({ shipmentDate });
     });
     console.log('Shipments:', shipments);
@@ -560,46 +566,90 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // 6. 발송 상세 데이터 추출
     const shipmentDetails = [];
-    document.querySelectorAll('#product_data .shipmentdetail').forEach(shipmentDetailEl => {
-        const detailQty = parseFloat(shipmentDetailEl.querySelector('.detail_qty')?.textContent.trim() || '0');
+    document.querySelectorAll('#product_data .shipment-detail').forEach(shipmentDetailEl => {
+        const detailQty = parseFloat(shipmentDetailEl.querySelector('.shipment-detail-qty')?.textContent.trim() || '0');
         shipmentDetails.push({ detailQty });
     });
     console.log('Shipment Details:', shipmentDetails);
     
+    function formatDate(dateString) {
+    const date = new Date(dateString);
+    return date.toISOString().split('T')[0];
+}
+
+    // 날짜 형식 변환 함수 수정
+    function formatDate(dateString) {
+        const date = new Date(dateString);
+        const offset = date.getTimezoneOffset();
+        date.setMinutes(date.getMinutes() - offset);
+        const isoString = date.toISOString();
+        return isoString.split('T')[0];
+    }
 
     // 7. 카테고리별 매출 계산
     const revenueByCategory = orderDetails.reduce((acc, detail) => {
-        const product = products.find(p => p.category === detail.category);
+        const product = products.find(p => p.category === detail.category); // 대소문자 구분하여 비교
         if (product) {
             const revenue = detail.qty * product.sellingPrice;
-            acc[detail.category] = (acc[detail.category] || 0) + revenue;
+            acc[detail.category] = (acc[detail.category] || 0) + revenue; // 키를 대소문자 구분하여 사용
+            console.log(`Match found for category "${detail.category}": Revenue added: ${revenue}`);
+        } else {
+            console.log(`No matching product found for category: "${detail.category}"`);
         }
         return acc;
     }, {});
-    console.log('Revenue by Category:', revenueByCategory);
 
+
+    console.log('Revenue by Category:', revenueByCategory);
+    
 
     // 매출 업데이트
     document.getElementById('table-revenue').textContent = `${(revenueByCategory['Table'] / 1000 || 0).toFixed(1)}`;
     document.getElementById('sofa-revenue').textContent = `${(revenueByCategory['Sofa'] / 1000 || 0).toFixed(1)}`;
     document.getElementById('lamp-revenue').textContent = `${(revenueByCategory['Lamp'] / 1000 || 0).toFixed(1)}`;
     document.getElementById('chair-revenue').textContent = `${(revenueByCategory['Chair'] / 1000 || 0).toFixed(1)}`;
-
-    // 8. 오늘 도착한 제품 수 계산
-    const today = new Date().toISOString().split('T')[0];
-    let arrivedCount = 0;
-    deliveries.forEach(delivery => {
-        if (delivery.deliveryDate === today) {
-            deliveryDetails.forEach(deliveryDetail => {
-                arrivedCount += deliveryDetail.detailQty;
-            });
-        }
-    });
-    console.log('Arrived Products Today:', arrivedCount);
-
     
-    // 도착한 제품 수 업데이트
-    document.getElementById('delivered-product').textContent = arrivedCount;
+    
+    // 8. 오늘 도착한 제품 수 계산
+const today = new Date().toISOString().split('T')[0];
+console.log('Today:', today);
+
+// 연관된 데이터 매핑을 위해 dictionary 사용
+const deliveryQtyByDate = {};
+deliveries.forEach((delivery, index) => {
+    const { deliveryDate } = delivery;
+    const formattedDate = formatDate(deliveryDate);
+    if (!deliveryQtyByDate[formattedDate]) {
+        deliveryQtyByDate[formattedDate] = 0;
+    }
+    deliveryQtyByDate[formattedDate] += deliveryDetails[index]?.detailQty || 0;
+});
+console.log('Delivery Quantities by Date:', deliveryQtyByDate);
+
+let arrivedCount = deliveryQtyByDate[today] || 0;
+console.log('Arrived Products Today:', arrivedCount);
+
+// 도착한 제품 수 업데이트
+document.getElementById('delivered-product').textContent = arrivedCount;
+
+// 8-2. 오늘 출발한 제품 수 계산
+const shipmentQtyByDate = {};
+shipments.forEach((shipment, index) => {
+    const { shipmentDate } = shipment;
+    const formattedDate = formatDate(shipmentDate);
+    if (!shipmentQtyByDate[formattedDate]) {
+        shipmentQtyByDate[formattedDate] = 0;
+    }
+    shipmentQtyByDate[formattedDate] += shipmentDetails[index]?.detailQty || 0;
+});
+console.log('Shipment Quantities by Date:', shipmentQtyByDate);
+
+let shippedCount = shipmentQtyByDate[today] || 0;
+console.log('Shipped Products Today:', shippedCount);
+
+// 출발한 제품 수 업데이트
+document.getElementById('shipped-product').textContent = shippedCount;
+        
 
     // 9. CO2 배출량 계산 및 업데이트
     const totalMaintenanceCost = products.reduce((sum, product) => sum + product.maintenanceCost, 0);
@@ -673,6 +723,165 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 </script>
+    
+<script>
+'use strict';
+
+(function () {
+  let cardColor, headingColor, axisColor, shadeColor, borderColor;
+
+  cardColor = config.colors.white;
+  headingColor = config.colors.headingColor;
+  axisColor = config.colors.axisColor;
+  borderColor = config.colors.borderColor;
+
+  document.addEventListener('DOMContentLoaded', function() {
+      const productElements = document.querySelectorAll('#product_data .product');
+      let totalVolumeA = 0, totalVolumeB = 0, totalVolumeC = 0, totalVolumeD = 0;
+
+      productElements.forEach(element => {
+          const qty = parseFloat(element.querySelector('.product_qty')?.textContent.trim() || '0');
+          const volume = parseFloat(element.querySelector('.product_volume')?.textContent.trim() || '0');
+          const location = element.querySelector('.product_location')?.textContent.trim() || '';
+
+          const totalVolume =  volume;
+
+          if (location === 'A') totalVolumeA += totalVolume;
+          else if (location === 'B') totalVolumeB += totalVolume;
+          else if (location === 'C') totalVolumeC += totalVolume;
+          else if (location === 'D') totalVolumeD += totalVolume;
+      });
+
+      const capacity = 1000;
+      const percentageA = (totalVolumeA / capacity) * 100;
+      const percentageB = (totalVolumeB / capacity) * 100;
+      const percentageC = (totalVolumeC / capacity) * 100;
+      const percentageD = (totalVolumeD / capacity) * 100;
+      
+      const totalProductVolume = totalVolumeA + totalVolumeB + totalVolumeC + totalVolumeD;
+
+      const totalRevenueChartEl = document.querySelector('#totalRevenueChart');
+      if (totalRevenueChartEl) {
+          const totalRevenueChart = new ApexCharts(totalRevenueChartEl, {
+              series: [{ data: [percentageA, percentageB, percentageC, percentageD] }],
+              chart: { type: 'bar', height: 300, toolbar: { show: false } },
+              plotOptions: { bar: { horizontal: true, borderRadius: 4, dataLabels: { position: 'top' } } },
+              dataLabels: {
+                  enabled: true,
+                  formatter: (val) => `${val.toFixed(0)}%`,
+                  offsetX: -6,
+                  style: { fontSize: '12px', colors: ['#fff'] }
+              },
+              xaxis: { categories: ['A', 'B', 'C', 'D'], max: 100, labels: { formatter: (val) => `${val}%` } },
+              yaxis: { title: { text: 'Warehouses' } },
+              fill: { colors: ['#7367F0'] },
+              grid: { borderColor: '#f1f1f1' }
+          });
+          totalRevenueChart.render();
+          console.log('Chart rendered successfully');
+      } else {
+          console.error('Total Revenue Chart element not found');
+      }
+  });
+
+  document.addEventListener('DOMContentLoaded', function() {
+    
+      // Select all product volume elements
+    const productVolumeElements = document.querySelectorAll('.product_volume');
+
+    // Calculate the total product volume
+    let totalProductVolume = 0;
+    productVolumeElements.forEach(element => {
+        totalProductVolume += parseFloat(element.textContent);
+    });
+
+    // Calculate the capacity percentage
+    const capacityPercentage = (totalProductVolume / 4000) * 100;
+
+    // Growth Chart - Radial Bar Chart
+    const growthChartEl = document.querySelector('#growthChart'),
+        growthChartOptions = {
+        series: [capacityPercentage.toFixed(2)],
+        labels: ['Utilization'],
+        chart: {
+            height: 240,
+            type: 'radialBar'
+        },
+        plotOptions: {
+            radialBar: {
+                size: 150,
+                offsetY: 10,
+                startAngle: -150,
+                endAngle: 150,
+                hollow: {
+                    size: '55%'
+                },
+                track: {
+                    background: cardColor,
+                    strokeWidth: '100%'
+                },
+                dataLabels: {
+                    name: {
+                        offsetY: 15,
+                        color: headingColor,
+                        fontSize: '15px',
+                        fontWeight: '600',
+                        fontFamily: 'Public Sans'
+                    },
+                    value: {
+                        offsetY: -25,
+                        color: headingColor,
+                        fontSize: '22px',
+                        fontWeight: '500',
+                        fontFamily: 'Public Sans'
+                    }
+                }
+            }
+        },
+        colors: [config.colors.primary],
+        fill: {
+            type: 'gradient',
+            gradient: {
+                shade: 'dark',
+                shadeIntensity: 0.5,
+                gradientToColors: [config.colors.primary],
+                inverseColors: true,
+                opacityFrom: 1,
+                opacityTo: 0.6,
+                stops: [30, 70, 100]
+            }
+        },
+        stroke: {
+            dashArray: 5
+        },
+        grid: {
+            padding: {
+                top: -35,
+                bottom: -10
+            }
+        },
+        states: {
+            hover: {
+                filter: {
+                    type: 'none'
+                }
+            },
+            active: {
+                filter: {
+                    type: 'none'
+                }
+            }
+        }
+    };
+    if (typeof growthChartEl !== undefined && growthChartEl !== null) {
+        const growthChart = new ApexCharts(growthChartEl, growthChartOptions);
+        growthChart.render();
+    }
+  });
+
+})();
+</script>
+
 
   <!-- Core JS -->
 <!-- build:js assets/vendor/js/core.js -->
@@ -695,6 +904,5 @@ document.addEventListener('DOMContentLoaded', function() {
 
 <!-- Chart.js CDN -->
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-       
 </body>
 </html>

@@ -290,17 +290,17 @@
                         <span class="delivery_date">{{ delivery.delivery_date }}</span>
                     </div>
                 {% endfor %}
-                {% for delivery-detail in delivery_details %}
+                {% for deliverydetail in delivery_details %}
                     <div class="delivery-detail">
                         <span class="delivery-detail-qty">{{ deliverydetail.detail_qty }}</span>
                     </div>
                 {% endfor %}
                 {% for shipment in shipments %}
                     <div class="shipment">
-                        <span class="shipment_date">{{ shipment.shipment_date }}</span>
+                        <span class="warehouse_outdate">{{ shipment.warehouse_outdate }}</span>
                     </div>
                 {% endfor %}
-                {% for shipment-detail in shipment_details %}
+                {% for shipmentdetail in shipment_details %}
                     <div class="shipment-detail">
                         <span class="shipment-detail-qty">{{ shipmentdetail.detail_qty }}</span>
                     </div>
@@ -558,7 +558,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // 5. 발송 데이터 추출
     const shipments = [];
     document.querySelectorAll('#product_data .shipment').forEach(shipmentEl => {
-        const shipmentDate = shipmentEl.querySelector('.shipment_date')?.textContent.trim() || '';
+        const shipmentDate = shipmentEl.querySelector('.warehouse_outdate')?.textContent.trim() || '';
         shipments.push({ shipmentDate });
     });
     console.log('Shipments:', shipments);
@@ -572,6 +572,19 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     console.log('Shipment Details:', shipmentDetails);
     
+    function formatDate(dateString) {
+    const date = new Date(dateString);
+    return date.toISOString().split('T')[0];
+}
+
+    // 날짜 형식 변환 함수 수정
+    function formatDate(dateString) {
+        const date = new Date(dateString);
+        const offset = date.getTimezoneOffset();
+        date.setMinutes(date.getMinutes() - offset);
+        const isoString = date.toISOString();
+        return isoString.split('T')[0];
+    }
 
     // 7. 카테고리별 매출 계산
     const revenueByCategory = orderDetails.reduce((acc, detail) => {
@@ -595,38 +608,48 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('sofa-revenue').textContent = `${(revenueByCategory['Sofa'] / 1000 || 0).toFixed(1)}`;
     document.getElementById('lamp-revenue').textContent = `${(revenueByCategory['Lamp'] / 1000 || 0).toFixed(1)}`;
     document.getElementById('chair-revenue').textContent = `${(revenueByCategory['Chair'] / 1000 || 0).toFixed(1)}`;
-
-    // 8. 오늘 도착한 제품 수 계산
-    const today = new Date().toISOString().split('T')[0];
-    let arrivedCount = 0;
-    deliveries.forEach(delivery => {
-        if (delivery.deliveryDate === today) {
-            deliveryDetails.forEach(deliveryDetail => {
-                arrivedCount += deliveryDetail.detailQty;
-            });
-        }
-    });
-    console.log('Arrived Products Today:', arrivedCount);
-
-    // 도착한 제품 수 업데이트
-    document.getElementById('delivered-product').textContent = arrivedCount;
     
-    // 8-2. 오늘 출발한 제품 수 계산
-    let shippedCount = 0;
-    shipments.forEach(shipment => {
-        if (shipment.shipmentDate === today) {
-            shipmentDetails.forEach(shipmentDetail => {
-                shippedCount += shipmentDetail.detailQty;
-            });
-        }
-    });
-    console.log('Shipped Products Today:', shippedCount);
+    
+    // 8. 오늘 도착한 제품 수 계산
+const today = new Date().toISOString().split('T')[0];
+console.log('Today:', today);
 
-    // 출발한 제품 수 업데이트
-    document.getElementById('shipped-product').textContent = shippedCount;
+// 연관된 데이터 매핑을 위해 dictionary 사용
+const deliveryQtyByDate = {};
+deliveries.forEach((delivery, index) => {
+    const { deliveryDate } = delivery;
+    const formattedDate = formatDate(deliveryDate);
+    if (!deliveryQtyByDate[formattedDate]) {
+        deliveryQtyByDate[formattedDate] = 0;
+    }
+    deliveryQtyByDate[formattedDate] += deliveryDetails[index]?.detailQty || 0;
+});
+console.log('Delivery Quantities by Date:', deliveryQtyByDate);
 
+let arrivedCount = deliveryQtyByDate[today] || 0;
+console.log('Arrived Products Today:', arrivedCount);
 
+// 도착한 제품 수 업데이트
+document.getElementById('delivered-product').textContent = arrivedCount;
 
+// 8-2. 오늘 출발한 제품 수 계산
+const shipmentQtyByDate = {};
+shipments.forEach((shipment, index) => {
+    const { shipmentDate } = shipment;
+    const formattedDate = formatDate(shipmentDate);
+    if (!shipmentQtyByDate[formattedDate]) {
+        shipmentQtyByDate[formattedDate] = 0;
+    }
+    shipmentQtyByDate[formattedDate] += shipmentDetails[index]?.detailQty || 0;
+});
+console.log('Shipment Quantities by Date:', shipmentQtyByDate);
+
+let shippedCount = shipmentQtyByDate[today] || 0;
+console.log('Shipped Products Today:', shippedCount);
+
+// 출발한 제품 수 업데이트
+document.getElementById('shipped-product').textContent = shippedCount;
+        
 
     // 9. CO2 배출량 계산 및 업데이트
     const totalMaintenanceCost = products.reduce((sum, product) => sum + product.maintenanceCost, 0);

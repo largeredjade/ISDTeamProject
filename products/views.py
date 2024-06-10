@@ -32,6 +32,14 @@ def product_update(request, product_id):
     return render(request, 'html/product_update.html', {'form': form, 'product': product})
 
 def product_delete(request, pk):
-    product = Product.objects.get(pk=pk)
-    product.delete()
-    return redirect('product_list')  # redirect to the product list page
+    product = get_object_or_404(Product, pk=pk)
+
+    # Check if the request method is POST
+    if request.method == 'POST':
+        # If POST, it means the user confirmed the deletion, so delete the product
+        product.delete()
+        # Redirect to the product list page
+        return redirect('product_list')
+
+    # If the request method is not POST, render the confirmation template
+    return render(request, 'html/product_delete.html', {'product': product})

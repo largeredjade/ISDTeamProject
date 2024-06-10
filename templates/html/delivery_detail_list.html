@@ -40,8 +40,8 @@
                                 <td>{{ detail.detail_qty }}</td>
                                 <td>{{ detail.user.user_id }}</td>
                                 <td>
-                                    <a href="{% url 'update_delivery_detail' detail.delivery.delivery_id detail.product.product_id detail.order.order_id detail.user.user_id %}" class="badge bg-label-primary me-1">Update</a>
-                                    <a href="{% url 'delete_delivery_detail' detail.delivery.delivery_id detail.product.product_id detail.order.order_id detail.user.user_id %}" class="badge bg-label-danger me-1">Delete</a>
+                                    <a href="{% url 'update_delivery_detail' detail.delivery_id detail.product_id detail.order_id detail.user_id %}" class="badge bg-label-primary me-1">Update</a>
+                                    <a href="{% url 'delete_delivery_detail' detail.delivery_id detail.product_id detail.order_id detail.user_id %}" class="badge bg-label-danger me-1">Delete</a>
                                 </td>
                             </tr>
                         {% endfor %}

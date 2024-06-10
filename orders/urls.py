@@ -10,8 +10,10 @@ urlpatterns = [
     path('detail/',views.order_detail_list, name = 'order_detail_list'),
 
     path('detail/create/', views.order_detail_create, name = 'order_detail_create'),
-    path('<int:order_id>/<int:supplier_id>/<int:product_id>/update', views.order_detail_create, name='order_detail_update'),
-    path('<int:order_id>/<int:supplier_id>/<int:product_id>/delete', views.order_detail_delete, name='order_detail_delete')
+    path('detail/<int:order_id>/<int:supplier_id>/<int:product_id>/update/', views.order_update_detail,
+         name='order_detail_update'),
+    path('detail/<int:order_id>/<int:supplier_id>/<int:product_id>/delete/', views.order_detail_delete,
+         name='order_detail_delete')
 ]
 
 

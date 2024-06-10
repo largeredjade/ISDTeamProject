@@ -13,5 +13,7 @@ urlpatterns = [
     path('supplier/', include('suppliers.urls')),
     path('hompage/',views.homepage, name='homepage'),
     #path('accounts/', include('django.contrib.auth.urls')),
+    path('orders/', include('orders.urls')),
+    path('products/', include('products.urls')),
 
 ]+static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

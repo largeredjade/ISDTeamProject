@@ -14,7 +14,9 @@
                             <div class="card-body">
                               <h5 class="card-title">Delete</h5>
                               <p class="card-text">You cannot recover after delete. Are you sure?</p>
-                              <a href="javascript:void(0)" class="btn btn-primary">Yes</a>
+                                <form method="post" action="{% url 'order_delete' order.order_id %}">
+                                {% csrf_token %}
+                                <button type="submit" class="btn btn-primary">Yes</button>
                               <a href="{% url 'order_list' %}" class="btn btn-danger">No</a>
                             </div>
                       </div>

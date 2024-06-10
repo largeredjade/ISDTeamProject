@@ -3,57 +3,20 @@
 {% block content %}
 
 <!-------------Main Contents---->
-        <!-- create_product.html -->
         <div class="container-xxl flex-grow-1 container-p-y">
             <h4 class="fw-bold py-3 mb-4">
                 <span class="text-muted fw-light">Order Detail/</span> Create
             </h4>
-            <div class="card mb-4">
-                <div class="card-header d-flex justify-content-between align-items-center">
-                    <div class="d-flex align-items-center">
-                        <h5 class="mb-0 me-3">Order ID:</h5>
-                        <input type="text" class="form-control" id="order_id" name="order_id" placeholder="Enter Order ID" style="flex: 1; max-width: 200px;" />
-                    </div>
-                </div>
-                <div class="card-body">
-                    <form method="post" id="order-form">
-                        <div id="form-container">
-                            <div class="container">
-                                <div class="row mb-3">
-                                    <div class="col-md-6">
-                                        <label class="form-label" for="supplier_id">Supplier ID</label>
-                                        <input type="text" class="form-control" id="supplier_id" name="supplier_id" placeholder="" required />
-                                    </div>
-                                    <div class="col-md-6">
-                                        <label class="form-label" for="product_id">Product ID</label>
-                                        <input type="text" class="form-control" id="product_id" name="product_id" placeholder="" required />
-                                    </div>
-                                </div>
-                                
-                                <div class="row mb-3">
-                                    <div class="col-md-6">
-                                        <label class="form-label" for="detail_qty">Detail Qty</label>
-                                        <input type="number" class="form-control" id="detail_qty" name="detail_qty" placeholder="5" required />
-                                    </div>
-                                    <div class="col-md-6">
-                                        <label class="form-label" for="discount">Discount</label>
-                                        <input type="number" class="form-control" id="discount" name="discount" placeholder="0.2" required />
-                                    </div>
-                                </div>
-                                <div class="row mb-3">
-                                    <div class="col-md-6">
-                                        <label class="form-label" for="description">Description</label>
-                                        <input type="text" class="form-control" id="description" name="description" placeholder="This supplier is good" required />
-                                    </div>
-                                </div>
-                                
-                            </div>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Create</button>
-                    </form>
-                </div>
+                    <div class="card mb-4">
+            <div class="card-body">
+                <form method="post" id="orderdetail-form">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <button type="submit" class="btn btn-success">Create</button>
+                </form>
             </div>
         </div>
-    
-    {% endblock %}
+    </div>
+{% endblock %}
+
     

@@ -8,7 +8,7 @@ def order_list(request):
     orders = Order.objects.all()
     return render(request, 'html/order_list.html', {'orders': orders})
 
-def order_detail_list(request, order_id):
+def order_detail_list(request):
     orders = Order.objects.all()
     order_detail = OrderDetail.objects.all()
     return render(request, 'html/orderdetail_list.html', {'orders': orders, 'order_detail': order_detail})

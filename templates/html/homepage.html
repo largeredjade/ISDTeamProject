@@ -197,7 +197,7 @@
             </div>
 
             <div class="navbar-nav-right d-flex align-items-center" id="navbar-collapse">
-                <ul class="navbar-nav flex-row align-items-center ms-auto"> 
+                <ul class="navbar-nav flex-row align-items-center ms-auto">
                 <!-- User -->
                     <li class="nav-item navbar-dropdown dropdown-user dropdown">
                       <a class="nav-link" href = "javascript:void(0);" data-bs-toggle="dropdown">
@@ -229,7 +229,7 @@
                           <form id="logout-form" method="post" action="{% url 'logout' %}" style="display: none;">
                             {% csrf_token %}
                         </form>
-                        
+
                         <!-- 로그아웃 링크 -->
                         <a class="dropdown-item" href="#" onclick="document.getElementById('logout-form').submit();">
                             <i class="bx bx-power-off me-2"></i>
@@ -264,7 +264,7 @@
                     </div>
                   </div>
                 </div>
-                  
+
               </div>
               <!-- Hidden elements containing product locations -->
               <div id="product_data" style="display:none;">
@@ -278,7 +278,7 @@
                         <span class="product_sellingprice">{{ product.product_sellingprice }}</span>
                     </div>
                 {% endfor %}
-                
+
                 {% for orderdetail in order_details %}
                     <div class="order-detail">
                         <span class="order-detail-category">{{ orderdetail.product.product_category }}</span>
@@ -309,7 +309,7 @@
 
 
               <!-- Warehouse Overview -->
-            
+
             <!-- New Graph Section -->
             <div class="col-12 col-lg-4 mb-4">
                 <div class="card h-100">
@@ -321,7 +321,7 @@
             </div>
 
     <!-- New section for Desk, Sofa, Lamp, Chair -->
-            
+
     <div class="col-12 mb-4">
         <div class="card h-100" style="background-color: white; padding: 10px;">
             <div class="card-header">
@@ -413,15 +413,15 @@
                                     <small class="fw-semibold revenue-value" style="font-size: 24px;" id="chair-revenue">0</small>
                                 </div>
                             </div>
-                            
+
                         </div>
                     </div>
                 </div>
-                
+
             </div>
         </div>
     </div>
-            
+
             <!-- Left Column with 3 cards in 1x3 grid -->
             <div class="col-12 mb-4">
               <div class="row h-100">
@@ -472,7 +472,7 @@
                 </div>
               </div>
             </div>
-          
+
             <!-- Add this CSS to ensure height consistency -->
   <style>
     .card {
@@ -511,7 +511,7 @@
   <div class="content-backdrop fade"></div>
 </div>
 <!-- Content wrapper -->
-    
+
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
@@ -571,7 +571,7 @@ document.addEventListener('DOMContentLoaded', function() {
         shipmentDetails.push({ detailQty });
     });
     console.log('Shipment Details:', shipmentDetails);
-    
+
     function formatDate(dateString) {
     const date = new Date(dateString);
     return date.toISOString().split('T')[0];
@@ -601,15 +601,15 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
     console.log('Revenue by Category:', revenueByCategory);
-    
+
 
     // 매출 업데이트
     document.getElementById('table-revenue').textContent = `${(revenueByCategory['Table'] / 1000 || 0).toFixed(1)}`;
     document.getElementById('sofa-revenue').textContent = `${(revenueByCategory['Sofa'] / 1000 || 0).toFixed(1)}`;
     document.getElementById('lamp-revenue').textContent = `${(revenueByCategory['Lamp'] / 1000 || 0).toFixed(1)}`;
     document.getElementById('chair-revenue').textContent = `${(revenueByCategory['Chair'] / 1000 || 0).toFixed(1)}`;
-    
-    
+
+
     // 8. 오늘 도착한 제품 수 계산
 const today = new Date().toISOString().split('T')[0];
 console.log('Today:', today);
@@ -649,7 +649,7 @@ console.log('Shipped Products Today:', shippedCount);
 
 // 출발한 제품 수 업데이트
 document.getElementById('shipped-product').textContent = shippedCount;
-        
+
 
     // 9. CO2 배출량 계산 및 업데이트
     const totalMaintenanceCost = products.reduce((sum, product) => sum + product.maintenanceCost, 0);
@@ -662,7 +662,7 @@ document.getElementById('shipped-product').textContent = shippedCount;
     const categories = ['Table', 'Sofa', 'Lamp', 'Chair'];
     const carryingCosts = {};
     console.log('Carrying Costs by Category:', carryingCosts);
-    
+
 
     categories.forEach(category => {
         const categoryProducts = products.filter(p => p.category === category);
@@ -723,7 +723,7 @@ document.getElementById('shipped-product').textContent = shippedCount;
     });
 });
 </script>
-    
+
 <script>
 'use strict';
 
@@ -757,7 +757,7 @@ document.getElementById('shipped-product').textContent = shippedCount;
       const percentageB = (totalVolumeB / capacity) * 100;
       const percentageC = (totalVolumeC / capacity) * 100;
       const percentageD = (totalVolumeD / capacity) * 100;
-      
+
       const totalProductVolume = totalVolumeA + totalVolumeB + totalVolumeC + totalVolumeD;
 
       const totalRevenueChartEl = document.querySelector('#totalRevenueChart');
@@ -785,7 +785,7 @@ document.getElementById('shipped-product').textContent = shippedCount;
   });
 
   document.addEventListener('DOMContentLoaded', function() {
-    
+
       // Select all product volume elements
     const productVolumeElements = document.querySelectorAll('.product_volume');
 

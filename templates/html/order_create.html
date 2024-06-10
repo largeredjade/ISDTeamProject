@@ -4,54 +4,18 @@
 
         <!-------------Main Contents---->
         <!-- create_product.html -->
-        <div class="container-xxl flex-grow-1 container-p-y">
-            <h4 class="fw-bold py-3 mb-4">
-                <span class="text-muted fw-light">Order /</span> Create Order
-            </h4>
-            <div class="card mb-4">
-                
-                <div class="card-body">
-                    <form method="post" id="product-form">
-                        <div id="form-container">
-                            <div class="container">
-                                <div class="row mb-3">
-                                    <div class="col-md-6">
-                                        <label class="form-label" for="order_id">Order ID</label>
-                                        <input type="number" class="form-control" id="order_id" name="order_id" placeholder="9901" />
-                                    </div>
-                                    <div class="col-md-6">
-                                        <label class="form-label" for="user_id">User ID</label>
-                                        <input type="text" class="form-control" id="user_id" name="user_id" placeholder="1" />
-                                    </div>
-                                </div>
-                                <div class="row mb-3">
-                                    <div class="col-md-6">
-                                        <label for="order_totalcost" class="order_totalcost">Total Cost</label>
-                                        <input type="text" id="order_totalcost" class="form-control" name="order_totalcost" placeholder="10000"/>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <label for="estimated_arrivaldate" class="form-label">Estimated ArrivalDate</label>
-                                        <input class="form-control" type="date" name="estimated_arrivaldate" value="2024-06-01" id="estimated_arrivaldate" />
-                                    </div>
-                                </div>
-                                <div class="row mb-3">
-                                    <div class="col-md-6">
-                                        <label for="order_date" class="form-label">Order Date</label>
-                                        <input class="form-control" type="date" name="order_date" value="2024-06-01" id="order_date" />
-                                    </div>
-                                    <div class="col-md-6">
-                                        <label for="exampleFormControlSelect1" class="order_status">Order Status</label>
-                                        <input type="text" id="order_status" class="form-control" name="order_status" placeholder=""/>
-                                    </div>
-                                    
-                                </div>
-                            </div>
-                        </div>
-                       
-                        <button type="submit" class="btn btn-primary">Submit</button>
-                    </form>
-                </div>
+            <div class="container-xxl flex-grow-1 container-p-y">
+        <h4 class="fw-bold py-3 mb-4">
+            <span class="text-muted fw-light">Order /</span> Order Create 
+        </h4>
+        <div class="card mb-4">
+            <div class="card-body">
+                <form method="post" id="order-form">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <button type="submit" class="btn btn-success">Create</button>
+                </form>
             </div>
         </div>
-    
+    </div>
 {% endblock %}

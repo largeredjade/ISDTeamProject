@@ -8,7 +8,7 @@
                     </h4>
 
                     <div class="d-flex justify-content-end mb-3">
-                        <a href="{% url 'order_list' %}" class="badge bg-label-success me-5">Create</a>
+                        <a href="{% url 'order_create' %}" class="badge bg-label-success me-5">Create</a>
                     </div>
 
                     <div class="card">
@@ -31,10 +31,10 @@
 
                                     <tr>
                                         <td>{{ order.order_id }}</td>
-                                        <td>{{ order.employee.user_id }}</td>
+                                        <td>{{ order.user_id }}</td>
                                         <td>{{ order.order_totalcost }}</td>
                                         <td>{{ order.order_date }}</td>
-                                        <td>{{ order.estimated_arrivaldate }}</td>
+                                        <td>{{ order.expected_arrivaldate }}</td>
                                         <td>{{ order.order_status }}</td>
                                         <td>
                                             <a href="{% url 'order_update' order.order_id %}" class="badge bg-label-primary me-5">Update</a>

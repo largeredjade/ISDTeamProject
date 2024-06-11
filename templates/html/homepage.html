@@ -789,8 +789,6 @@ document.addEventListener('DOMContentLoaded', function() {
       const percentageC = (totalVolumeC / capacity) * 100;
       const percentageD = (totalVolumeD / capacity) * 100;
 
-      const totalProductVolume = totalVolumeA + totalVolumeB + totalVolumeC + totalVolumeD;
-
       const totalRevenueChartEl = document.querySelector('#totalRevenueChart');
       if (totalRevenueChartEl) {
           const totalRevenueChart = new ApexCharts(totalRevenueChartEl, {

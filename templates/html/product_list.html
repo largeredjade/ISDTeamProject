@@ -2,108 +2,105 @@
 {% block title %}Product{% endblock %}
 {% block content %}
 
-                <!--Main contents-->
-                <div class="container-xxl flex-grow-1 container-p-y">
-                    <h4 class="fw-bold py-3 mb-4">
-                        <span class="text-muted fw-light">Product /</span> Product List
-                    </h4>
-            
-                    <!-- CRUD 버튼 활성화시키기 -->
-                    <div class="d-flex justify-content-end mb-3">
-                        <a href='{% url 'product_create' %}' class="badge bg-label-success me-5">Create</a>
-                    </div>
-            
-                    <!-- Basic Bootstrap Table -->
+<!--Main contents-->
+<div class="container-xxl flex-grow-1 container-p-y">
+    <h4 class="fw-bold py-3 mb-4">
+        <span class="text-muted fw-light">Product /</span> Product List
+    </h4>
+
+    <!-- CRUD 버튼 활성화시키기 -->
+    <div class="d-flex justify-content-end mb-3">
+        <a href='{% url 'product_create' %}' class="badge bg-label-success me-5">Create</a>
+    </div>
+
+    <!-- Basic Bootstrap Table -->
+    <div class="card">
+        <h5 class="card-header">Product List</h5>
+        <div class="table-responsive text-nowrap">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Product Name</th>
+                        <th>Category</th>
+                        <th>Product ID</th>
+                        <th>Selling Price</th>
+                        <th>Volume</th>
+                        <th>Weight</th>
+                        <th>Location</th>
+                        <th>M cost</th>
+                        <th>Stock</th>
+                        <th>Min Qty</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody class="table-border-bottom-0">
                     {% for product in products %}
-                    <div class="card">
-                        <h5 class="card-header">Product List</h5>
-                        <div class="table-responsive text-nowrap">
-                            <table class="table">
-                                <thead>
-                                    <tr>
-                                        <th>Select</th>
-                                        <th>Product Name</th>
-                                        <th>Category</th>
-                                        <th>Product ID</th>
-                                        <th>Selling Price</th>
-                                        <th>Volume</th>
-                                        <th>Weight</th>
-                                        <th>Location</th>
-                                        <th>M cost</th>
-                                        <th>Stock</th>
-                                        <th>Min Qty</th>
-                                        <th>Status</th>
-                                    </tr>
-                                </thead>
-                                <tbody class="table-border-bottom-0">
-
-                                    <tr>
-                                        <td><input type="checkbox" class="selectProduct" data-id="{{ product.product_id }}"></td>
-                                        <td>{{ product.product_name }}</td>
-                                        <td>{{ product.product_category }}</td>
-                                        <td>{{ product.product_id }}</td>
-                                        <td>{{ product.product_sellingprice }}</td>
-                                        <td>{{ product.product_volume }}</td>
-                                        <td>{{ product.product_weight }}</td>
-                                        <td>{{ product.product_location }}</td>
-                                        <td>{{ product.maintenance_cost }}</td>
-                                        <td>{{ product.product_qty }}</td>
-                                        <td>{{ product.product_minQty }}</td>
-                                        <td id="status-{{ product.product_id }}"></td>
-                                        <td>
-                                            <a href="{% url 'product_update' product.product_id %}" class="badge bg-label-primary me-5">Update</a>
-                                            <a href="{% url 'product_delete' product.product_id%}" class="badge bg-label-danger me-5">Delete</a>     
-                                        </td>
-                                    </tr>
-
-                                </tbody>
-                            </table>
-                        </div>
-                        <nav aria-label="Page navigation" style="padding: 0 15px; margin-top: 10px;">
-                            <ul class="pagination justify-content-end">
-                                <li class="page-item prev">
-                                    <a class="page-link" href="javascript:void(0);">
-                                        <i class="tf-icon bx bx-chevrons-left"></i>
-                                    </a>
-                                </li>
-                                <li class="page-item active"><a class="page-link" href="javascript:void(0);">1</a></li>
-                                <li class="page-item"><a class="page-link" href="javascript:void(0);">2</a></li>
-                                <li class="page-item"><a class="page-link" href="javascript:void(0);">3</a></li>
-                                <li class="page-item"><a class="page-link" href="javascript:void(0);">4</a></li>
-                                <li class="page-item"><a class="page-link" href="javascript:void(0);">5</a></li>
-                                <li class="page-item next">
-                                    <a class="page-link" href="javascript:void(0);">
-                                        <i class="tf-icon bx bx-chevrons-right"></i>
-                                    </a>
-                                </li>
-                            </ul>
-                        </nav>
-                    </div>
+                    <tr>
+                        <td>{{ product.product_name }}</td>
+                        <td>{{ product.product_category }}</td>
+                        <td>{{ product.product_id }}</td>
+                        <td>{{ product.product_sellingprice }}</td>
+                        <td>{{ product.product_volume }}</td>
+                        <td>{{ product.product_weight }}</td>
+                        <td>{{ product.product_location }}</td>
+                        <td>{{ product.maintenance_cost }}</td>
+                        <td>{{ product.product_qty }}</td>
+                        <td>{{ product.product_minQty }}</td>
+                        <td id="status-{{ product.product_id }}"></td>
+                        <td>
+                            <a href="{% url 'product_update' product.product_id %}" class="badge bg-label-primary me-5">Update</a>
+                            <a href="{% url 'product_delete' product.product_id%}" class="badge bg-label-danger me-5">Delete</a>     
+                        </td>
+                    </tr>
                     {% endfor %}
-                </div>
+                </tbody>
+            </table>
+        </div>
+        <nav aria-label="Page navigation" style="padding: 0 15px; margin-top: 10px;">
+            <ul class="pagination justify-content-end">
+                <li class="page-item prev">
+                    <a class="page-link" href="javascript:void(0);">
+                        <i class="tf-icon bx bx-chevrons-left"></i>
+                    </a>
+                </li>
+                <li class="page-item active"><a class="page-link" href="javascript:void(0);">1</a></li>
+                <li class="page-item"><a class="page-link" href="javascript:void(0);">2</a></li>
+                <li class="page-item"><a class="page-link" href="javascript:void(0);">3</a></li>
+                <li class="page-item"><a class="page-link" href="javascript:void(0);">4</a></li>
+                <li class="page-item"><a class="page-link" href="javascript:void(0);">5</a></li>
+                <li class="page-item next">
+                    <a class="page-link" href="javascript:void(0);">
+                        <i class="tf-icon bx bx-chevrons-right"></i>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>
 
-    <script>
-        function updateStatusColors() {
-            const rows = document.querySelectorAll('.table tbody tr');
-            rows.forEach(row => {
-                const stock = parseInt(row.cells[9].innerText);
-                const minQty = parseInt(row.cells[10].innerText);
-                const statusCell = row.cells[11];
-                if (stock > minQty) {
-                    statusCell.style.backgroundColor = 'green';
-                    statusCell.style.color = 'white';
-                    statusCell.innerText = 'In Stock';
-                } else {
-                    statusCell.style.backgroundColor = 'red';
-                    statusCell.style.color = 'white';
-                    statusCell.innerText = 'Low Stock';
-                }
-            });
-        }
-
-        document.addEventListener('DOMContentLoaded', function() {
-            updateStatusColors();
+<script>
+    function updateStatusColors() {
+        const rows = document.querySelectorAll('.table tbody tr');
+        rows.forEach(row => {
+            const stock = parseInt(row.cells[8].innerText);
+            const minQty = parseInt(row.cells[9].innerText);
+            const statusCell = row.cells[10];
+            if (stock > minQty) {
+                statusCell.style.backgroundColor = 'green';
+                statusCell.style.color = 'white';
+                statusCell.innerText = 'In Stock';
+            } else {
+                statusCell.style.backgroundColor = 'red';
+                statusCell.style.color = 'white';
+                statusCell.innerText = 'Low Stock';
+            }
         });
-    </script>
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        updateStatusColors();
+    });
+</script>
 
 {% endblock %}

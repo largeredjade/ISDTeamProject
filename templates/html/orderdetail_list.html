@@ -33,7 +33,7 @@
                         <td>{{ orderdetail.supplier_id }}</td>
                         <td>{{ orderdetail.product_id }}</td>
                         <td>{{ orderdetail.detail_qty }}</td>
-                        <td>{{ orderdetail.discount }}</td>
+                        <td>{{ orderdetail.discount}}</td>
                         <td>{{ orderdetail.description}}</td>
                         <td>
                             <a href="{% url 'order_detail_update' orderdetail.order_id orderdetail.supplier_id orderdetail.product_id %}" class="badge bg-label-primary me-5">Update</a>

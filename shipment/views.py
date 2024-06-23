@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from .models import Shipment, ShipmentDetail
 from Users.models import Users
 from .forms import ShipmentDetailForm, ShipmentForm
+from django.db import transaction
 # Create your views here.
 
 users = Users.objects.all()
@@ -30,7 +31,11 @@ def create_shipment_detail(request):
     if request.method == 'POST':
         form = ShipmentDetailForm(request.POST)
         if form.is_valid():
-            form.save()
+            with transaction.atomic():
+                shipment_detail = form.save()
+                product = shipment_detail.product
+                product.product_qty -= shipment_detail.detail_qty
+                product.save()
             return redirect('shipment_detail_list')  # or another appropriate view
     else:
         form = ShipmentDetailForm()

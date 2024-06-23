@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     "shipment.apps.ShipmentConfig",
     "deliveries.apps.DeliveriesConfig",
 ]
+
 AUTH_USER_MODEL = 'Users.Users'
 
 MIDDLEWARE = [
@@ -122,6 +123,7 @@ TIME_ZONE = 'Asia/Seoul'
 USE_I18N = True
 
 USE_TZ = True
+
 
 
 # Static files (CSS, JavaScript, Images)

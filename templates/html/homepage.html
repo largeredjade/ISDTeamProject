@@ -376,6 +376,7 @@
                             <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
                                 <div>
                                     <h6 class="mb-0">Table</h6>
+                                    <small class="text-muted">Baby, School, Display</small>
                                 </div>
                                 <div class="user-progress ms-auto">
                                     <small class="fw-semibold revenue-value" style="font-size: 24px;" id="table-revenue">0</small>
@@ -397,6 +398,7 @@
                             <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
                                 <div>
                                     <h6 class="mb-0">Sofa</h6>
+                                    <small class="text-muted">Leather, Sofabed</small>
                                 </div>
                                 <div class="user-progress ms-auto">
                                     <small class="fw-semibold revenue-value" style="font-size: 24px;" id="sofa-revenue">0</small>
@@ -418,6 +420,7 @@
                             <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
                                 <div>
                                     <h6 class="mb-0">Lamp</h6>
+                                    <small class="text-muted">Floor, Chandelier</small>
                                 </div>
                                 <div class="user-progress ms-auto">
                                     <small class="fw-semibold revenue-value" style="font-size: 24px;" id="lamp-revenue">0</small>
@@ -439,6 +442,7 @@
                             <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
                                 <div>
                                     <h6 class="mb-0">Chair</h6>
+                                    <small class="text-muted">Old people, School, Massage</small>
                                 </div>
                                 <div class="user-progress ms-auto">
                                     <small class="fw-semibold revenue-value" style="font-size: 24px;" id="chair-revenue">0</small>
@@ -774,6 +778,7 @@ document.getElementById('shipped-product').textContent = shippedCount;
   headingColor = config.colors.headingColor;
   axisColor = config.colors.axisColor;
   borderColor = config.colors.borderColor;
+  
 
   document.addEventListener('DOMContentLoaded', function() {
       const productElements = document.querySelectorAll('#product_data .product');
@@ -785,6 +790,7 @@ document.getElementById('shipped-product').textContent = shippedCount;
           const location = element.querySelector('.product_location')?.textContent.trim() || '';
 
           const totalVolume =  volume*qty;
+          
 
           if (location === 'A') totalVolumeA += totalVolume;
           else if (location === 'B') totalVolumeB += totalVolume;
@@ -792,11 +798,13 @@ document.getElementById('shipped-product').textContent = shippedCount;
           else if (location === 'D') totalVolumeD += totalVolume;
       });
 
-      const capacity = 10000;
+      const capacity = 1000;
       const percentageA = (totalVolumeA / capacity) * 100;
       const percentageB = (totalVolumeB / capacity) * 100;
       const percentageC = (totalVolumeC / capacity) * 100;
       const percentageD = (totalVolumeD / capacity) * 100;
+
+      const totalProductVolume = totalVolumeA + totalVolumeB + totalVolumeC + totalVolumeD;
 
       const totalRevenueChartEl = document.querySelector('#totalRevenueChart');
       if (totalRevenueChartEl) {

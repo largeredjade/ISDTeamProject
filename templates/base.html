@@ -258,8 +258,9 @@
                                     <span class="fw-semibold d-block">{{ user.user_name }}</span>
                                     <small class="text-muted">{{ user.user_role }}</small>
                                 {% endif %}
-                              </div>
+                                </div>
                             </div>
+                            <p style="margin-left: 20px;"><a href="{% url 'update_profile' %}">정보수정</a></p>
                           </a>
                         </li>
                         <li>

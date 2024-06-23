@@ -22,7 +22,8 @@ class UserUpdateForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         super(UserUpdateForm, self).__init__(*args, **kwargs)
-        self.fields['user_email'].disabled = True  # 이메일 필드는 수정하지 못하도록 비활성화
+        self.fields['user_email'].disabled = True
+        self.fields['user_enterYear'].disabled = True
 
     def clean(self):
         cleaned_data = super().clean()

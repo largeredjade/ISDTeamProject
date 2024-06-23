@@ -1,0 +1,47 @@
+{% extends 'loginbase.html' %}
+{% block title %}Signup{% endblock %}
+{% block content %}
+
+    <style>
+        .authentication-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh; 
+            padding: 20px; 
+        }
+        .card {
+            max-width: 500px; 
+            margin: auto; 
+            padding: 20px;
+        }
+
+    </style>
+
+    <div class="container">
+          <div class="authentication-wrapper" >
+            <div class="authentication-inner">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="app-brand justify-content-center">
+                            <div class="container">
+                                <h2 class="mb-2">Profile</h2>
+                                <p class="mb-4">Change Information</p>
+                                <form method="post">
+                                    {% csrf_token %}
+                                    {{ form.as_p }}
+                                    <div class="mb-3">
+                                      <button class="btn btn-primary d-grid w-70" type="submit">Update</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+          </div>
+        </div>
+
+
+{% endblock %}
+

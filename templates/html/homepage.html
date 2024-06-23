@@ -339,6 +339,7 @@
                     <div class="shipment-detail">
                         <span class="shipment-detail-qty">{{ shipmentdetail.detail_qty }}</span>
                         <span class="shipment_id">{{ shipmentdetail.shipment.shipment_id }}</span>
+                        <span class="shipment-detail-category">{{ shipmentdetail.product.product_category }}</span>
                     </div>
                 {% endfor %}
             </div>
@@ -602,9 +603,11 @@ console.log('Shipments:', shipments);
 // 6. 발송 상세 데이터 추출
 const shipmentDetails = [];
 document.querySelectorAll('#product_data .shipment-detail').forEach(shipmentDetailEl => {
+    
+    const category = shipmentDetailEl.querySelector('.shipment-detail-category')?.textContent.trim() || '';
     const shipmentDetailQty = parseFloat(shipmentDetailEl.querySelector('.shipment-detail-qty')?.textContent.trim() || '0');
     const shipmentId = shipmentDetailEl.querySelector('.shipment_id')?.textContent.trim() || ''; // shipment_id 추출
-    shipmentDetails.push({ shipmentDetailQty, shipmentId });
+    shipmentDetails.push({ shipmentDetailQty, shipmentId, category });
 });
 console.log('Shipment Details:', shipmentDetails);
 
@@ -621,10 +624,10 @@ function formatDate(dateString) {
 
 
     // 7. 카테고리별 매출 계산
-    const revenueByCategory = orderDetails.reduce((acc, detail) => {
+    const revenueByCategory = shipmentDetails.reduce((acc, detail) => {
         const product = products.find(p => p.category === detail.category); // 대소문자 구분하여 비교
         if (product) {
-            const revenue = detail.qty * product.sellingPrice;
+            const revenue = detail.shipmentDetailQty * product.sellingPrice;
             acc[detail.category] = (acc[detail.category] || 0) + revenue; // 키를 대소문자 구분하여 사용
             console.log(`Match found for category "${detail.category}": Revenue added: ${revenue}`);
         } else {
@@ -799,7 +802,7 @@ document.getElementById('shipped-product').textContent = shippedCount;
           else if (location === 'D') totalVolumeD += totalVolume;
       });
 
-      const capacity = 1000;
+      const capacity = 10000;
       const percentageA = (totalVolumeA / capacity) * 100;
       const percentageB = (totalVolumeB / capacity) * 100;
       const percentageC = (totalVolumeC / capacity) * 100;
